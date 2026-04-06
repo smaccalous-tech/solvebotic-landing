@@ -80,9 +80,11 @@ export default function Home() {
           mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
         }
         .content { position: relative; z-index: 1; }
+
+        /* NAV */
         nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 52px; height: 66px; background: rgba(8,11,20,0.85); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); }
-        .nav-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 800; color: #fff; letter-spacing: -0.03em; display: flex; align-items: center; gap: 9px; text-decoration: none; }
-        .nav-logo-mark { width: 28px; height: 28px; border-radius: 7px; background: linear-gradient(135deg, #4361EE, #00D4FF); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; color: #fff; flex-shrink: 0; }
+        .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .nav-logo img { height: 38px; object-fit: contain; }
         .nav-links { display: flex; align-items: center; gap: 32px; }
         .nav-links a { color: var(--text2); font-size: 14px; text-decoration: none; transition: color 0.2s; font-weight: 500; }
         .nav-links a:hover { color: #fff; }
@@ -93,9 +95,10 @@ export default function Home() {
         .btn-ghost:hover { border-color: rgba(255,255,255,0.25); background: var(--surface2); }
 
         /* HERO */
-        .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 130px 24px 60px; position: relative; overflow: hidden; }
-        .hero-orb1 { position: absolute; top: -180px; left: 50%; transform: translateX(-50%); width: 900px; height: 700px; background: radial-gradient(ellipse, rgba(67,97,238,0.22) 0%, transparent 68%); pointer-events: none; }
-        .hero-orb2 { position: absolute; bottom: 0; right: -80px; width: 480px; height: 480px; background: radial-gradient(ellipse, rgba(0,212,255,0.1) 0%, transparent 70%); pointer-events: none; }
+        .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 130px 24px 80px; position: relative; }
+        .hero-orb1 { position: absolute; top: -180px; left: 50%; transform: translateX(-50%); width: 900px; height: 700px; background: radial-gradient(ellipse, rgba(67,97,238,0.22) 0%, transparent 68%); pointer-events: none; z-index: 0; }
+        .hero-orb2 { position: absolute; bottom: 0; right: -80px; width: 480px; height: 480px; background: radial-gradient(ellipse, rgba(0,212,255,0.1) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+        .hero-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; width: 100%; }
         .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(67,97,238,0.12); border: 1px solid rgba(67,97,238,0.35); color: #a5b4fc; font-size: 11.5px; font-weight: 600; padding: 5px 14px 5px 10px; border-radius: 100px; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 32px; animation: fadeUp 0.6s ease both; }
         .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: #4361EE; box-shadow: 0 0 6px rgba(67,97,238,0.8); animation: pulse 2s infinite; }
         @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.5; } }
@@ -112,19 +115,20 @@ export default function Home() {
         .stat-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 26px; font-weight: 800; color: #fff; letter-spacing: -0.03em; line-height: 1; }
         .stat-label { font-size: 12px; color: var(--text3); margin-top: 5px; }
 
-        /* DASHBOARD MOCKUP */
-        .mockup-wrap { animation: fadeUp 0.7s 0.55s ease both; margin-top: 56px; width: 100%; max-width: 900px; position: relative; }
-        .mockup-fade-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 120px; background: linear-gradient(to bottom, transparent, var(--bg)); pointer-events: none; border-radius: 0 0 16px 16px; }
+        /* MOCKUP */
+        .mockup-section { padding: 0 48px; display: flex; justify-content: center; margin-bottom: 32px; }
+        .mockup-wrap { width: 100%; max-width: 900px; position: relative; }
+        .mockup-fade-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 100px; background: linear-gradient(to bottom, transparent, var(--bg)); pointer-events: none; border-radius: 0 0 16px 16px; }
         .mockup-browser { background: #0d1117; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05); }
         .mockup-bar { background: #161b22; padding: 10px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.06); }
         .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
         .mockup-url { flex: 1; background: rgba(255,255,255,0.04); border-radius: 5px; padding: 4px 10px; font-size: 11px; color: var(--text3); font-family: monospace; margin: 0 12px; }
-        .mockup-content { display: grid; grid-template-columns: 180px 1fr 200px; min-height: 340px; }
-        .mockup-sidebar { background: #0d1117; border-right: 1px solid rgba(255,255,255,0.06); padding: 16px 10px; }
-        .mockup-nav-item { padding: 7px 10px; border-radius: 6px; font-size: 11px; color: var(--text3); margin-bottom: 2px; display: flex; align-items: center; gap: 7px; }
+        .mockup-content { display: grid; grid-template-columns: 160px 1fr 180px; min-height: 300px; }
+        .mockup-sidebar { background: #0d1117; border-right: 1px solid rgba(255,255,255,0.06); padding: 14px 10px; }
+        .mockup-nav-item { padding: 6px 10px; border-radius: 6px; font-size: 11px; color: var(--text3); margin-bottom: 2px; display: flex; align-items: center; gap: 7px; }
         .mockup-nav-item.active { background: rgba(67,97,238,0.15); color: #a5b4fc; }
         .mockup-nav-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
-        .mockup-main { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+        .mockup-main { padding: 14px; display: flex; flex-direction: column; gap: 10px; }
         .mockup-stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
         .mockup-stat-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 10px 12px; }
         .mockup-stat-label { font-size: 9px; color: var(--text3); margin-bottom: 4px; }
@@ -134,7 +138,7 @@ export default function Home() {
         .mockup-th { font-size: 9px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.06em; }
         .mockup-row { display: grid; grid-template-columns: 1.5fr 2fr 1fr 0.8fr; padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.04); align-items: center; }
         .mockup-row:last-child { border-bottom: none; }
-        .mockup-cell { font-size: 10px; color: var(--text2); }
+        .mockup-cell { font-size: 10px; color: var(--text2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .mockup-badge { display: inline-block; padding: 2px 7px; border-radius: 20px; font-size: 9px; font-weight: 600; }
         .mockup-right { background: rgba(255,255,255,0.015); border-left: 1px solid rgba(255,255,255,0.06); padding: 14px; display: flex; flex-direction: column; gap: 12px; }
         .mockup-panel-title { font-size: 9px; font-weight: 700; color: #4361EE; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
@@ -142,7 +146,7 @@ export default function Home() {
         .mockup-btn { background: #4361EE; border-radius: 5px; padding: 6px; font-size: 10px; color: #fff; text-align: center; font-weight: 600; }
 
         /* TICKER */
-        .ticker-section { padding: 0 0 56px; overflow: hidden; position: relative; }
+        .ticker-section { padding: 48px 0 56px; overflow: hidden; position: relative; }
         .ticker-label { text-align: center; font-size: 11px; font-weight: 600; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px; }
         .ticker-outer { position: relative; }
         .ticker-outer::before, .ticker-outer::after { content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; }
@@ -172,7 +176,7 @@ export default function Home() {
         .how-section { padding: 64px 48px; }
         .how-inner { max-width: 1080px; margin: 0 auto; }
         .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 48px; border: 1px solid var(--border); border-radius: 20px; overflow: hidden; background: var(--border); }
-        .step { background: var(--bg2); padding: 36px 30px; position: relative; overflow: hidden; transition: background 0.3s; }
+        .step { background: var(--bg2); padding: 36px 30px; position: relative; transition: background 0.3s; }
         .step:hover { background: rgba(12,16,32,0.95); }
         .step-num { font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 22px; }
         .step-icon { width: 46px; height: 46px; border-radius: 11px; background: var(--accent-dim); border: 1px solid var(--accent-border); display: flex; align-items: center; justify-content: center; font-size: 21px; margin-bottom: 20px; }
@@ -183,7 +187,7 @@ export default function Home() {
         .features-section { padding: 64px 48px; }
         .features-inner { max-width: 1080px; margin: 0 auto; }
         .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 48px; }
-        .feature-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 26px; transition: all 0.3s; position: relative; overflow: hidden; }
+        .feature-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 26px; transition: all 0.3s; }
         .feature-card:hover { border-color: rgba(67,97,238,0.3); transform: translateY(-3px); background: rgba(255,255,255,0.045); }
         .feature-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--accent-dim); border: 1px solid var(--accent-border); display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 16px; }
         .feature-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #fff; letter-spacing: -0.02em; }
@@ -236,8 +240,8 @@ export default function Home() {
         footer { border-top: 1px solid var(--border); padding: 44px 52px 36px; }
         .footer-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 48px; margin-bottom: 40px; flex-wrap: wrap; }
         .footer-brand { max-width: 260px; }
-        .footer-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px; font-weight: 800; color: #fff; letter-spacing: -0.03em; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; text-decoration: none; }
-        .footer-logo-mark { width: 23px; height: 23px; border-radius: 6px; background: linear-gradient(135deg, #4361EE, #00D4FF); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; color: #fff; }
+        .footer-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; margin-bottom: 12px; }
+        .footer-logo img { height: 36px; object-fit: contain; }
         .footer-tagline { font-size: 13px; color: var(--text3); line-height: 1.6; }
         .footer-cols { display: flex; gap: 56px; flex-wrap: wrap; }
         .footer-col h4 { font-size: 11px; font-weight: 700; color: var(--text2); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; }
@@ -253,10 +257,10 @@ export default function Home() {
 
       <div className="content">
 
+        {/* NAV */}
         <nav>
           <a href="/" className="nav-logo">
-            <div className="nav-logo-mark">S</div>
-            SolveBotic
+            <img src="/logo.png" alt="SolveBotic" />
           </a>
           <div className="nav-links">
             <a href="#features">Features</a>
@@ -269,28 +273,33 @@ export default function Home() {
           </div>
         </nav>
 
+        {/* HERO */}
         <section className="hero">
           <div className="hero-orb1" />
           <div className="hero-orb2" />
-          <div className="badge"><div className="badge-dot" />AI-Powered Customer Support</div>
-          <h1>Handle Every<br />Support Request.<br /><span className="gradient-text">Automatically.</span></h1>
-          <p className="hero-sub">SolveBotic uses AI to instantly respond to post-purchase questions, look up orders, and escalate issues {dash} across every platform you sell on.</p>
-          <div className="hero-btns">
-            <a href="https://app.solvebotic.com/onboarding" className="btn-primary btn-large">Get Started Free {arrow}</a>
-            <a href="#how-it-works" className="btn-ghost btn-large">See how it works</a>
-          </div>
-          <div className="stats-wrap">
-            <div className="stats">
-              {stats.map(s => (
-                <div key={s.label} className="stat">
-                  <div className="stat-num">{s.num}</div>
-                  <div className="stat-label">{s.label}</div>
-                </div>
-              ))}
+          <div className="hero-inner">
+            <div className="badge"><div className="badge-dot" />AI-Powered Customer Support</div>
+            <h1>Handle Every<br />Support Request.<br /><span className="gradient-text">Automatically.</span></h1>
+            <p className="hero-sub">SolveBotic uses AI to instantly respond to post-purchase questions, look up orders, and escalate issues {dash} across every platform you sell on.</p>
+            <div className="hero-btns">
+              <a href="https://app.solvebotic.com/onboarding" className="btn-primary btn-large">Get Started Free {arrow}</a>
+              <a href="#how-it-works" className="btn-ghost btn-large">See how it works</a>
+            </div>
+            <div className="stats-wrap">
+              <div className="stats">
+                {stats.map(s => (
+                  <div key={s.label} className="stat">
+                    <div className="stat-num">{s.num}</div>
+                    <div className="stat-label">{s.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
+        </section>
 
-          {/* Dashboard Mockup */}
+        {/* DASHBOARD MOCKUP — outside hero so it doesn't cause blank space */}
+        <div className="mockup-section">
           <div className="mockup-wrap">
             <div className="mockup-browser">
               <div className="mockup-bar">
@@ -335,20 +344,16 @@ export default function Home() {
                       ))}
                     </div>
                     {[
-                      { email: "jane@email.com", msg: "Where is my order #1042?", intent: "Order lookup", status: "resolved", statusColor: "#15803d", statusBg: "rgba(21,128,61,0.15)" },
-                      { email: "mike@email.com", msg: "I want a refund please", intent: "Refund", status: "escalated", statusColor: "#b91c1c", statusBg: "rgba(185,28,28,0.15)" },
-                      { email: "sara@email.com", msg: "Package not delivered yet", intent: "Order status", status: "resolved", statusColor: "#15803d", statusBg: "rgba(21,128,61,0.15)" },
-                      { email: "tom@email.com", msg: "Wrong item received", intent: "Wrong item", status: "escalated", statusColor: "#b91c1c", statusBg: "rgba(185,28,28,0.15)" },
+                      { email: "jane@email.com", msg: "Where is my order #1042?", intent: "Order lookup", status: "resolved", sc: "#15803d", sb: "rgba(21,128,61,0.15)" },
+                      { email: "mike@email.com", msg: "I want a refund please", intent: "Refund", status: "escalated", sc: "#b91c1c", sb: "rgba(185,28,28,0.15)" },
+                      { email: "sara@email.com", msg: "Package not delivered yet", intent: "Order status", status: "resolved", sc: "#15803d", sb: "rgba(21,128,61,0.15)" },
+                      { email: "tom@email.com", msg: "Wrong item received", intent: "Wrong item", status: "escalated", sc: "#b91c1c", sb: "rgba(185,28,28,0.15)" },
                     ].map((row, i) => (
                       <div key={i} className="mockup-row">
                         <div className="mockup-cell">{row.email}</div>
-                        <div className="mockup-cell" style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{row.msg}</div>
-                        <div className="mockup-cell">
-                          <span className="mockup-badge" style={{ background: "rgba(67,97,238,0.15)", color: "#a5b4fc" }}>{row.intent}</span>
-                        </div>
-                        <div className="mockup-cell">
-                          <span className="mockup-badge" style={{ background: row.statusBg, color: row.statusColor }}>{row.status}</span>
-                        </div>
+                        <div className="mockup-cell">{row.msg}</div>
+                        <div className="mockup-cell"><span className="mockup-badge" style={{ background: "rgba(67,97,238,0.15)", color: "#a5b4fc" }}>{row.intent}</span></div>
+                        <div className="mockup-cell"><span className="mockup-badge" style={{ background: row.sb, color: row.sc }}>{row.status}</span></div>
                       </div>
                     ))}
                   </div>
@@ -371,7 +376,7 @@ export default function Home() {
             </div>
             <div className="mockup-fade-bottom" />
           </div>
-        </section>
+        </div>
 
         {/* TICKER */}
         <div className="ticker-section">
@@ -510,8 +515,7 @@ export default function Home() {
           <div className="footer-top">
             <div className="footer-brand">
               <a href="/" className="footer-logo">
-                <div className="footer-logo-mark">S</div>
-                SolveBotic
+                <img src="/logo.png" alt="SolveBotic" />
               </a>
               <p className="footer-tagline">AI-powered customer support for ecommerce brands. Handle every request, automatically.</p>
             </div>
