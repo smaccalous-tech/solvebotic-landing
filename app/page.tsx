@@ -72,7 +72,7 @@ export default function Home() {
 
   return (
     <>
-      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Outfit:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
       <style>{`
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
@@ -172,14 +172,12 @@ export default function Home() {
         }
         @keyframes dotFlow {
           0% { transform: translateX(-200px); opacity: 0; }
-          5% { opacity: 1; }
-          95% { opacity: 1; }
+          5% { opacity: 1; } 95% { opacity: 1; }
           100% { transform: translateX(calc(100vw + 200px)); opacity: 0; }
         }
         @keyframes dotFlowV {
           0% { transform: translateY(-150px); opacity: 0; }
-          5% { opacity: 1; }
-          95% { opacity: 1; }
+          5% { opacity: 1; } 95% { opacity: 1; }
           100% { transform: translateY(calc(100vh + 150px)); opacity: 0; }
         }
 
@@ -188,8 +186,7 @@ export default function Home() {
           position: fixed; top: 0; left: 0; right: 0; z-index: 100;
           display: flex; align-items: center; justify-content: space-between;
           padding: 0 52px; height: 66px;
-          background: rgba(6,10,24,0.88);
-          backdrop-filter: blur(24px);
+          background: rgba(6,10,24,0.88); backdrop-filter: blur(24px);
           border-bottom: 1px solid var(--border);
         }
         .nav-logo { display: flex; align-items: center; text-decoration: none; }
@@ -200,22 +197,18 @@ export default function Home() {
         .nav-divider { width: 1px; height: 18px; background: var(--border2); }
         .btn-primary {
           background: linear-gradient(135deg, #0066BB, #00AAFF);
-          color: #fff; font-family: 'Outfit', sans-serif;
-          font-size: 13.5px; font-weight: 600;
-          padding: 9px 20px; border-radius: 8px;
-          text-decoration: none; border: none; cursor: pointer;
+          color: #fff; font-family: 'Outfit', sans-serif; font-size: 13.5px; font-weight: 600;
+          padding: 9px 20px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer;
           transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
           display: inline-flex; align-items: center; gap: 6px;
           box-shadow: 0 4px 20px rgba(0,170,255,0.25);
         }
         .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 8px 28px rgba(0,170,255,0.4); }
         .btn-ghost {
-          background: transparent; color: var(--text);
-          font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 500;
-          padding: 12px 28px; border-radius: 10px;
+          background: transparent; color: var(--text); font-family: 'Outfit', sans-serif;
+          font-size: 15px; font-weight: 500; padding: 12px 28px; border-radius: 10px;
           text-decoration: none; border: 1px solid var(--border2);
-          transition: border-color 0.2s, background 0.2s;
-          display: inline-flex; align-items: center; gap: 8px;
+          transition: border-color 0.2s, background 0.2s; display: inline-flex; align-items: center; gap: 8px;
         }
         .btn-ghost:hover { border-color: var(--accent2); background: rgba(0,170,255,0.07); }
 
@@ -223,8 +216,7 @@ export default function Home() {
         .hero {
           min-height: 100vh; display: flex; flex-direction: column;
           align-items: center; justify-content: center;
-          text-align: center; padding: 130px 24px 48px;
-          position: relative;
+          text-align: center; padding: 130px 24px 48px; position: relative;
         }
         .hero-glow {
           position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
@@ -243,15 +235,13 @@ export default function Home() {
         }
         .badge-dot {
           width: 7px; height: 7px; border-radius: 50%;
-          background: #00AAFF; box-shadow: 0 0 8px #00AAFF;
-          animation: pulse 2s infinite;
+          background: #00AAFF; box-shadow: 0 0 8px #00AAFF; animation: pulse 2s infinite;
         }
         @keyframes pulse { 0%,100% { box-shadow: 0 0 8px #00AAFF; } 50% { box-shadow: 0 0 16px #00AAFF; opacity: 0.6; } }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .hero h1 {
-          font-size: clamp(42px, 6.5vw, 82px); font-weight: 800;
-          line-height: 1.06; letter-spacing: -0.04em;
-          margin-bottom: 22px; color: #fff;
+          font-size: clamp(42px, 6.5vw, 82px); font-weight: 800; line-height: 1.06;
+          letter-spacing: -0.04em; margin-bottom: 22px; color: #fff;
           animation: fadeUp 0.6s 0.1s ease both;
         }
         .gradient-text {
@@ -260,15 +250,13 @@ export default function Home() {
         }
         .hero-sub {
           font-size: 17px; color: var(--text2); line-height: 1.75;
-          max-width: 540px; margin: 0 auto 36px;
-          animation: fadeUp 0.6s 0.2s ease both;
+          max-width: 540px; margin: 0 auto 36px; animation: fadeUp 0.6s 0.2s ease both;
         }
         .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
         .btn-large { font-size: 15px; font-weight: 600; padding: 14px 32px; border-radius: 10px; }
         .stats-wrap { animation: fadeUp 0.7s 0.45s ease both; margin-top: 48px; width: 100%; max-width: 700px; }
         .stats {
-          display: flex; border: 1px solid var(--border2);
-          border-radius: 16px; overflow: hidden;
+          display: flex; border: 1px solid var(--border2); border-radius: 16px; overflow: hidden;
           background: rgba(0,119,204,0.07); backdrop-filter: blur(12px);
         }
         .stat { flex: 1; padding: 22px 16px; text-align: center; border-right: 1px solid var(--border); }
@@ -276,39 +264,129 @@ export default function Home() {
         .stat-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 26px; font-weight: 800; color: #fff; letter-spacing: -0.03em; line-height: 1; }
         .stat-label { font-size: 12px; color: var(--text3); margin-top: 5px; }
 
-        /* ── MOCKUP ── */
+        /* ── DASHBOARD MOCKUP ── */
         .mockup-section { padding: 40px 48px 0; display: flex; justify-content: center; }
-        .mockup-wrap { width: 100%; max-width: 920px; position: relative; }
-        .mockup-fade-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to bottom, transparent, var(--bg)); pointer-events: none; }
+        .mockup-wrap { width: 100%; max-width: 960px; position: relative; }
+        .mockup-fade-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 100px; background: linear-gradient(to bottom, transparent, var(--bg)); pointer-events: none; }
         .mockup-browser {
-          background: #070F20; border: 1px solid rgba(0,170,255,0.2);
-          border-radius: 12px; overflow: hidden;
-          box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 40px rgba(0,100,200,0.1);
+          background: #f4f4f6; border-radius: 12px; overflow: hidden;
+          box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,170,255,0.15), 0 0 60px rgba(0,100,200,0.08);
         }
-        .mockup-bar { background: #0C1830; padding: 10px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(0,170,255,0.1); }
+        .mockup-bar {
+          background: #e8e8ea; padding: 10px 16px;
+          display: flex; align-items: center; gap: 8px;
+          border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
         .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
-        .mockup-url { flex: 1; background: rgba(0,170,255,0.06); border-radius: 5px; padding: 4px 10px; font-size: 11px; color: var(--text3); font-family: monospace; margin: 0 12px; }
-        .mockup-content { display: grid; grid-template-columns: 160px 1fr 180px; min-height: 280px; }
-        .mockup-sidebar { background: #070F20; border-right: 1px solid rgba(0,170,255,0.08); padding: 14px 10px; }
-        .mockup-nav-item { padding: 6px 10px; border-radius: 6px; font-size: 11px; color: var(--text3); margin-bottom: 2px; display: flex; align-items: center; gap: 7px; }
-        .mockup-nav-item.active { background: rgba(0,119,204,0.2); color: #7DD3FC; }
+        .mockup-url {
+          flex: 1; background: white; border-radius: 5px;
+          padding: 4px 10px; font-size: 11px; color: #888;
+          font-family: monospace; margin: 0 12px;
+          border: 1px solid rgba(0,0,0,0.08);
+        }
+        .mockup-body {
+          display: grid; grid-template-columns: 200px 1fr 240px;
+          min-height: 340px; font-family: 'Inter', sans-serif;
+        }
+
+        /* Sidebar */
+        .mockup-sidebar {
+          background: white; border-right: 1px solid #ebebeb; padding: 16px 12px;
+        }
+        .mockup-logo-row {
+          display: flex; align-items: center; gap: 8px; padding: 6px 10px; margin-bottom: 12px;
+        }
+        .mockup-logo-img { height: 28px; object-fit: contain; }
+        .mockup-brand-chip {
+          font-size: 10px; color: #6b7280; background: #f3f4f6;
+          padding: 2px 8px; border-radius: 20px; margin-left: 4px;
+        }
+        .mockup-section-label {
+          font-size: 9px; font-weight: 600; color: #9ca3af;
+          text-transform: uppercase; letter-spacing: 0.06em;
+          padding: 10px 10px 4px;
+        }
+        .mockup-nav-item {
+          display: flex; align-items: center; gap: 8px;
+          padding: 7px 10px; border-radius: 7px; font-size: 11px;
+          color: #6b7280; margin-bottom: 1px; cursor: default;
+        }
+        .mockup-nav-item.active { background: #EEF2FF; color: #4F46E5; font-weight: 500; }
         .mockup-nav-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
-        .mockup-main { padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+
+        /* Main content */
+        .mockup-main { padding: 16px; display: flex; flex-direction: column; gap: 12px; background: #f4f4f6; }
         .mockup-stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-        .mockup-stat-card { background: rgba(0,119,204,0.08); border: 1px solid rgba(0,170,255,0.1); border-radius: 8px; padding: 10px 12px; }
-        .mockup-stat-label { font-size: 9px; color: var(--text3); margin-bottom: 4px; }
-        .mockup-stat-val { font-size: 18px; font-weight: 700; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; }
-        .mockup-table { background: rgba(0,119,204,0.04); border: 1px solid rgba(0,170,255,0.08); border-radius: 8px; overflow: hidden; }
-        .mockup-table-header { display: grid; grid-template-columns: 1.5fr 2fr 1fr 0.8fr; padding: 8px 12px; border-bottom: 1px solid rgba(0,170,255,0.08); }
-        .mockup-th { font-size: 9px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.06em; }
-        .mockup-row { display: grid; grid-template-columns: 1.5fr 2fr 1fr 0.8fr; padding: 8px 12px; border-bottom: 1px solid rgba(0,170,255,0.05); align-items: center; }
+        .mockup-stat-card {
+          background: white; border: 1px solid #ebebeb; border-radius: 8px; padding: 10px 12px;
+        }
+        .mockup-stat-label { font-size: 9px; color: #9ca3af; margin-bottom: 5px; }
+        .mockup-stat-val { font-size: 20px; font-weight: 600; color: #111827; }
+        .mockup-stat-val.red { color: #dc2626; }
+        .mockup-stat-val.green { color: #16a34a; }
+        .mockup-section-header {
+          display: flex; align-items: center; justify-content: space-between;
+          margin-bottom: 8px;
+        }
+        .mockup-section-title { font-size: 11px; font-weight: 600; color: #111; }
+        .mockup-row-count { font-size: 10px; color: #9ca3af; }
+        .mockup-table-wrap {
+          background: white; border: 1px solid #ebebeb; border-radius: 8px; overflow: hidden;
+        }
+        .mockup-table-header {
+          display: grid; grid-template-columns: 1.4fr 2fr 1fr 0.8fr 0.9fr;
+          padding: 7px 12px; border-bottom: 1px solid #f3f4f6; background: white;
+        }
+        .mockup-th { font-size: 9px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500; }
+        .mockup-row {
+          display: grid; grid-template-columns: 1.4fr 2fr 1fr 0.8fr 0.9fr;
+          padding: 8px 12px; border-bottom: 1px solid #f9f9f9; align-items: center;
+        }
         .mockup-row:last-child { border-bottom: none; }
-        .mockup-cell { font-size: 10px; color: var(--text2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        .mockup-badge { display: inline-block; padding: 2px 7px; border-radius: 20px; font-size: 9px; font-weight: 600; }
-        .mockup-right { background: rgba(0,119,204,0.04); border-left: 1px solid rgba(0,170,255,0.08); padding: 14px; display: flex; flex-direction: column; gap: 12px; }
-        .mockup-panel-title { font-size: 9px; font-weight: 700; color: #00AAFF; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
-        .mockup-input { background: rgba(0,170,255,0.06); border: 1px solid rgba(0,170,255,0.12); border-radius: 5px; padding: 6px 8px; font-size: 10px; color: var(--text3); margin-bottom: 5px; width: 100%; }
-        .mockup-btn { background: linear-gradient(135deg, #0066BB, #00AAFF); border-radius: 5px; padding: 6px; font-size: 10px; color: #fff; text-align: center; font-weight: 600; }
+        .mockup-cell { font-size: 10px; color: #374151; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .mockup-cell.muted { color: #9ca3af; }
+        .mockup-badge {
+          display: inline-block; padding: 2px 7px; border-radius: 20px;
+          font-size: 9px; font-weight: 500;
+        }
+        .badge-blue { background: #EEF2FF; color: #4338CA; }
+        .badge-green { background: #f0fdf4; color: #15803d; }
+        .badge-red { background: #fef2f2; color: #b91c1c; }
+        .badge-yellow { background: #fffbeb; color: #b45309; }
+        .escalated-flag { font-size: 9px; color: #b91c1c; display: block; margin-top: 2px; }
+
+        /* Right panel */
+        .mockup-right {
+          background: white; border-left: 1px solid #ebebeb; padding: 14px;
+          display: flex; flex-direction: column; gap: 16px;
+        }
+        .mockup-panel-title {
+          font-size: 9px; font-weight: 700; color: #4F46E5;
+          text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;
+        }
+        .mockup-input {
+          background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 5px;
+          padding: 6px 8px; font-size: 10px; color: #9ca3af; margin-bottom: 5px; width: 100%;
+        }
+        .mockup-lookup-btn {
+          background: #4F46E5; border-radius: 5px; padding: 6px;
+          font-size: 10px; color: #fff; text-align: center; font-weight: 500; width: 100%;
+        }
+        .mockup-escalation-item {
+          padding: 7px 0; border-bottom: 1px solid #f3f4f6;
+        }
+        .mockup-escalation-item:last-child { border-bottom: none; }
+        .mockup-esc-email { font-size: 9px; color: #9ca3af; margin-bottom: 2px; }
+        .mockup-esc-reason { font-size: 10px; color: #111; font-weight: 500; }
+        .mockup-esc-meta { display: flex; justify-content: space-between; margin-top: 3px; }
+        .mockup-esc-system { font-size: 9px; color: #b91c1c; }
+        .mockup-esc-time { font-size: 9px; color: #9ca3af; }
+        .mockup-intent-bar { margin-bottom: 8px; }
+        .mockup-intent-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
+        .mockup-intent-label { font-size: 10px; color: #374151; }
+        .mockup-intent-count { font-size: 10px; color: #9ca3af; }
+        .mockup-bar-track { height: 3px; background: #f3f4f6; border-radius: 2px; }
+        .mockup-bar-fill { height: 100%; background: #4F46E5; border-radius: 2px; }
 
         /* ── TICKER ── */
         .ticker-section { padding: 40px 0 48px; overflow: hidden; position: relative; }
@@ -434,10 +512,8 @@ export default function Home() {
         .footer-bottom-links a:hover { color: var(--text2); }
       `}</style>
 
-      {/* CSS CIRCUIT BACKGROUND — z-index: -1 so it never blocks content */}
+      {/* CIRCUIT BACKGROUND */}
       <div className="circuit-bg" />
-
-      {/* ANIMATED CIRCUIT TRACES — z-index: -1 */}
       <div className="circuit-traces">
         {[
           { top: "12%", delay: "0s", duration: "8s" },
@@ -468,9 +544,7 @@ export default function Home() {
 
         {/* NAV */}
         <nav>
-          <a href="/" className="nav-logo">
-            <img src="/logo.png" alt="SolveBotic" />
-          </a>
+          <a href="/" className="nav-logo"><img src="/logo.png" alt="SolveBotic" /></a>
           <div className="nav-links">
             <a href="#features">Features</a>
             <a href="#platforms">Platforms</a>
@@ -506,7 +580,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* DASHBOARD MOCKUP */}
+        {/* DASHBOARD MOCKUP — realistic light theme matching actual app */}
         <div className="mockup-section">
           <div className="mockup-wrap">
             <div className="mockup-browser">
@@ -516,69 +590,126 @@ export default function Home() {
                 <div className="mockup-dot" style={{ background: "#28c840" }} />
                 <div className="mockup-url">app.solvebotic.com/dashboard</div>
               </div>
-              <div className="mockup-content">
+              <div className="mockup-body">
+
+                {/* Sidebar */}
                 <div className="mockup-sidebar">
+                  <div className="mockup-logo-row">
+                    <img className="mockup-logo-img" src="/logo.png" alt="SolveBotic" />
+                    <span className="mockup-brand-chip">Brandtest</span>
+                  </div>
+                  <div className="mockup-section-label">Main</div>
                   {[
                     { label: "Dashboard", active: true },
                     { label: "Requests", active: false },
                     { label: "Escalations", active: false },
-                    { label: "Order lookup", active: false },
-                    { label: "Settings", active: false },
                   ].map(item => (
                     <div key={item.label} className={`mockup-nav-item ${item.active ? "active" : ""}`}>
                       <div className="mockup-nav-dot" />{item.label}
                     </div>
                   ))}
+                  <div className="mockup-section-label">Store</div>
+                  {["Order lookup", "Shopify sync"].map(label => (
+                    <div key={label} className="mockup-nav-item">
+                      <div className="mockup-nav-dot" />{label}
+                    </div>
+                  ))}
+                  <div className="mockup-section-label">Account</div>
+                  <div className="mockup-nav-item"><div className="mockup-nav-dot" />Settings</div>
                 </div>
+
+                {/* Main content */}
                 <div className="mockup-main">
                   <div className="mockup-stats-row">
                     {[
-                      { label: "Total requests", val: "124" },
-                      { label: "Escalated", val: "8" },
-                      { label: "Resolved", val: "112" },
-                      { label: "Top intent", val: "Order" },
+                      { label: "Total requests", val: "124", cls: "" },
+                      { label: "Escalated", val: "8", cls: "red" },
+                      { label: "Resolved", val: "112", cls: "green" },
+                      { label: "Top intent", val: "Order", cls: "" },
                     ].map(s => (
                       <div key={s.label} className="mockup-stat-card">
                         <div className="mockup-stat-label">{s.label}</div>
-                        <div className="mockup-stat-val">{s.val}</div>
+                        <div className={`mockup-stat-val ${s.cls}`}>{s.val}</div>
                       </div>
                     ))}
                   </div>
-                  <div className="mockup-table">
-                    <div className="mockup-table-header">
-                      {["Customer", "Message", "Intent", "Status"].map(h => (
-                        <div key={h} className="mockup-th">{h}</div>
+                  <div>
+                    <div className="mockup-section-header">
+                      <span className="mockup-section-title">Recent requests</span>
+                      <span className="mockup-row-count">6 rows</span>
+                    </div>
+                    <div className="mockup-table-wrap">
+                      <div className="mockup-table-header">
+                        {["Customer", "Message", "Intent", "Conf.", "Status"].map(h => (
+                          <div key={h} className="mockup-th">{h}</div>
+                        ))}
+                      </div>
+                      {[
+                        { email: "jane@email.com", msg: "Where is my order #1042?", intent: "Order lookup", intCls: "badge-blue", conf: "100%", status: "resolved", stCls: "badge-green", esc: false },
+                        { email: "mike@email.com", msg: "I want a refund please", intent: "Refund request", intCls: "badge-red", conf: "99%", status: "escalated", stCls: "badge-red", esc: true },
+                        { email: "sara@email.com", msg: "Package not delivered yet", intent: "Order status", intCls: "badge-blue", conf: "95%", status: "resolved", stCls: "badge-green", esc: false },
+                        { email: "tom@email.com", msg: "Wrong item received", intent: "Wrong item", intCls: "badge-red", conf: "98%", status: "escalated", stCls: "badge-red", esc: true },
+                        { email: "lucy@email.com", msg: "Order lookup for #1001", intent: "Order lookup", intCls: "badge-blue", conf: "100%", status: "open", stCls: "badge-yellow", esc: false },
+                      ].map((row, i) => (
+                        <div key={i} className="mockup-row">
+                          <div className="mockup-cell muted">{row.email}</div>
+                          <div className="mockup-cell">{row.msg}</div>
+                          <div className="mockup-cell"><span className={`mockup-badge ${row.intCls}`}>{row.intent}</span></div>
+                          <div className="mockup-cell" style={{ color: "#374151", fontWeight: 500 }}>{row.conf}</div>
+                          <div className="mockup-cell">
+                            <span className={`mockup-badge ${row.stCls}`}>{row.status}</span>
+                            {row.esc && <span className="escalated-flag">{'\u2191'} escalated</span>}
+                          </div>
+                        </div>
                       ))}
                     </div>
+                  </div>
+                </div>
+
+                {/* Right panel */}
+                <div className="mockup-right">
+                  <div>
+                    <div className="mockup-panel-title">Order Lookup</div>
+                    <div className="mockup-input">Order number</div>
+                    <div className="mockup-input">Customer email</div>
+                    <div className="mockup-lookup-btn">Look up order</div>
+                  </div>
+                  <div>
+                    <div className="mockup-panel-title">Escalation Alerts <span style={{ background: "#fef2f2", color: "#b91c1c", fontSize: 9, padding: "1px 6px", borderRadius: 20, marginLeft: 4 }}>2</span></div>
                     {[
-                      { email: "jane@email.com", msg: "Where is my order #1042?", intent: "Order lookup", status: "resolved", sc: "#15803d", sb: "rgba(21,128,61,0.15)" },
-                      { email: "mike@email.com", msg: "I want a refund please", intent: "Refund", status: "escalated", sc: "#b91c1c", sb: "rgba(185,28,28,0.15)" },
-                      { email: "sara@email.com", msg: "Package not delivered yet", intent: "Order status", status: "resolved", sc: "#15803d", sb: "rgba(21,128,61,0.15)" },
-                      { email: "tom@email.com", msg: "Wrong item received", intent: "Wrong item", status: "escalated", sc: "#b91c1c", sb: "rgba(185,28,28,0.15)" },
-                    ].map((row, i) => (
-                      <div key={i} className="mockup-row">
-                        <div className="mockup-cell">{row.email}</div>
-                        <div className="mockup-cell">{row.msg}</div>
-                        <div className="mockup-cell"><span className="mockup-badge" style={{ background: "rgba(0,119,204,0.2)", color: "#7DD3FC" }}>{row.intent}</span></div>
-                        <div className="mockup-cell"><span className="mockup-badge" style={{ background: row.sb, color: row.sc }}>{row.status}</span></div>
+                      { email: "mike@email.com", reason: "order_not_found", system: "Shopify Admin", time: "Mar 20, 11:11 AM" },
+                      { email: "tom@email.com", reason: "refund_request", system: "Shopify Admin → Finance", time: "Mar 19, 3:22 PM" },
+                    ].map((e, i) => (
+                      <div key={i} className="mockup-escalation-item">
+                        <div className="mockup-esc-email">{e.email}</div>
+                        <div className="mockup-esc-reason">{e.reason}</div>
+                        <div className="mockup-esc-meta">
+                          <span className="mockup-esc-system">{e.system}</span>
+                          <span className="mockup-esc-time">{e.time}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div>
+                    <div className="mockup-panel-title">Intent Breakdown</div>
+                    {[
+                      { label: "Order lookup", pct: 67 },
+                      { label: "Refund request", pct: 17 },
+                      { label: "Order status", pct: 17 },
+                    ].map(item => (
+                      <div key={item.label} className="mockup-intent-bar">
+                        <div className="mockup-intent-row">
+                          <span className="mockup-intent-label">{item.label}</span>
+                          <span className="mockup-intent-count">{item.pct}%</span>
+                        </div>
+                        <div className="mockup-bar-track">
+                          <div className="mockup-bar-fill" style={{ width: `${item.pct}%` }} />
+                        </div>
                       </div>
                     ))}
                   </div>
                 </div>
-                <div className="mockup-right">
-                  <div>
-                    <div className="mockup-panel-title">Order lookup</div>
-                    <div className="mockup-input">Order number</div>
-                    <div className="mockup-input">Customer email</div>
-                    <div className="mockup-btn">Look up order</div>
-                  </div>
-                  <div>
-                    <div className="mockup-panel-title">Escalations</div>
-                    {["Refund request", "Wrong item"].map(e => (
-                      <div key={e} style={{ fontSize: 10, color: "#ef4444", padding: "5px 0", borderBottom: "1px solid rgba(0,170,255,0.06)" }}>{e}</div>
-                    ))}
-                  </div>
-                </div>
+
               </div>
             </div>
             <div className="mockup-fade-bottom" />
@@ -739,9 +870,7 @@ export default function Home() {
         <footer>
           <div className="footer-top">
             <div className="footer-brand">
-              <a href="/" className="footer-logo">
-                <img src="/logo.png" alt="SolveBotic" />
-              </a>
+              <a href="/" className="footer-logo"><img src="/logo.png" alt="SolveBotic" /></a>
               <p className="footer-tagline">AI-powered customer support for ecommerce brands. Handle every request, automatically.</p>
             </div>
             <div className="footer-cols">
