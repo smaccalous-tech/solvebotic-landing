@@ -59,9 +59,34 @@ export default function Home() {
   ];
 
   const plans = [
-    { name: "Starter", price: "$49", period: "/mo", desc: "Perfect for small stores just getting started with AI support.", features: ["1 brand", "500 AI responses/mo", "Order lookup", "Email escalation", "Dashboard access"], cta: "Get Started", href: "https://app.solvebotic.com/onboarding", featured: false },
-    { name: "Pro", price: "$99", period: "/mo", desc: "For growing brands that need more volume and platform flexibility.", features: ["3 brands", "2,000 AI responses/mo", "All platforms", "Priority escalation", "Real-time dashboard", "Shopify sync"], cta: "Get Started", href: "https://app.solvebotic.com/onboarding", featured: true },
-    { name: "Enterprise", price: "Custom", period: "", desc: "For large operations that need custom solutions and dedicated support.", features: ["Unlimited brands", "Unlimited responses", "All platforms", "Dedicated support", "Custom integrations", "SLA guarantee"], cta: "Contact Us", href: "mailto:support@solvebotic.com", featured: false },
+    {
+      name: "Starter", price: "$29", period: "/mo",
+      desc: "Perfect for small stores just getting started with AI support.",
+      features: ["1 brand", "500 AI responses/mo", "Order lookup", "Email escalation", "Dashboard access", "14-day free trial"],
+      cta: "Start Free Trial", href: "https://app.solvebotic.com/onboarding", featured: false,
+      badge: null,
+    },
+    {
+      name: "Growth", price: "$79", period: "/mo",
+      desc: "For growing brands that need more volume and platform flexibility.",
+      features: ["3 brands", "2,000 AI responses/mo", "All platforms", "Priority escalation", "Real-time dashboard", "Shopify sync", "14-day free trial"],
+      cta: "Start Free Trial", href: "https://app.solvebotic.com/onboarding", featured: true,
+      badge: "Most Popular",
+    },
+    {
+      name: "Scale", price: "$149", period: "/mo",
+      desc: "For established brands running high support volume across multiple channels.",
+      features: ["10 brands", "10,000 AI responses/mo", "All platforms", "Dedicated escalation inbox", "Advanced analytics", "Priority support", "14-day free trial"],
+      cta: "Start Free Trial", href: "https://app.solvebotic.com/onboarding", featured: false,
+      badge: null,
+    },
+    {
+      name: "Enterprise", price: "Custom", period: "",
+      desc: "For large operations that need custom solutions and dedicated support.",
+      features: ["Unlimited brands", "Unlimited responses", "All platforms", "Dedicated account manager", "Custom integrations", "SLA guarantee", "White-glove onboarding"],
+      cta: "Contact Us", href: "mailto:support@solvebotic.com", featured: false,
+      badge: null,
+    },
   ];
 
   const tickerItems = [
@@ -79,13 +104,11 @@ export default function Home() {
           --bg: #060A18;
           --bg2: #0A1020;
           --surface: rgba(0,119,204,0.06);
-          --surface2: rgba(0,170,255,0.1);
           --border: rgba(0,170,255,0.12);
           --border2: rgba(0,170,255,0.28);
           --accent: #0077CC;
           --accent2: #00AAFF;
           --accent-dim: rgba(0,119,204,0.15);
-          --accent-border: rgba(0,170,255,0.3);
           --text: #E8F4FF;
           --text2: #7AA8C8;
           --text3: #3A5870;
@@ -101,7 +124,7 @@ export default function Home() {
         h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
         .content { position: relative; z-index: 1; }
 
-        /* ── CIRCUIT GRID BACKGROUND ── */
+        /* ── CIRCUIT BACKGROUND ── */
         .circuit-bg {
           position: fixed; inset: 0; z-index: -1; pointer-events: none;
           background-image:
@@ -111,15 +134,13 @@ export default function Home() {
           mask-image: radial-gradient(ellipse 100% 100% at 50% 0%, black 20%, transparent 80%);
         }
         .circuit-bg::before {
-          content: '';
-          position: absolute; inset: 0;
+          content: ''; position: absolute; inset: 0;
           background-image: radial-gradient(circle, rgba(0,170,255,0.35) 1.5px, transparent 1.5px);
           background-size: 60px 60px;
           mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 20%, transparent 75%);
         }
         .circuit-bg::after {
-          content: '';
-          position: absolute; inset: 0;
+          content: ''; position: absolute; inset: 0;
           background:
             radial-gradient(ellipse 600px 400px at 20% 30%, rgba(0,119,204,0.12) 0%, transparent 70%),
             radial-gradient(ellipse 400px 300px at 80% 60%, rgba(0,170,255,0.08) 0%, transparent 70%),
@@ -129,81 +150,40 @@ export default function Home() {
         @keyframes orbPulse { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
 
         /* ── CIRCUIT TRACES ── */
-        .circuit-traces {
-          position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden;
-        }
-        .trace {
-          position: absolute; background: linear-gradient(90deg, transparent, rgba(0,170,255,0.6), transparent);
-          height: 1px; width: 200px;
-          animation: traceFlow 6s ease-in-out infinite;
-          filter: blur(0.5px);
-        }
-        .trace-v {
-          position: absolute; background: linear-gradient(180deg, transparent, rgba(0,170,255,0.5), transparent);
-          width: 1px; height: 150px;
-          animation: traceFlowV 7s ease-in-out infinite;
-          filter: blur(0.5px);
-        }
-        @keyframes traceFlow {
-          0% { transform: translateX(-200px); opacity: 0; }
-          10% { opacity: 1; }
-          90% { opacity: 1; }
-          100% { transform: translateX(calc(100vw + 200px)); opacity: 0; }
-        }
-        @keyframes traceFlowV {
-          0% { transform: translateY(-150px); opacity: 0; }
-          10% { opacity: 1; }
-          90% { opacity: 1; }
-          100% { transform: translateY(calc(100vh + 150px)); opacity: 0; }
-        }
-        .trace-dot {
-          position: absolute; width: 6px; height: 6px;
-          background: #00AAFF; border-radius: 50%;
-          box-shadow: 0 0 8px 2px rgba(0,170,255,0.8);
-          animation: dotFlow 6s ease-in-out infinite;
-          margin-top: -2.5px;
-        }
-        .trace-dot-v {
-          position: absolute; width: 6px; height: 6px;
-          background: #00AAFF; border-radius: 50%;
-          box-shadow: 0 0 8px 2px rgba(0,170,255,0.8);
-          animation: dotFlowV 7s ease-in-out infinite;
-          margin-left: -2.5px;
-        }
-        @keyframes dotFlow {
-          0% { transform: translateX(-200px); opacity: 0; }
-          5% { opacity: 1; } 95% { opacity: 1; }
-          100% { transform: translateX(calc(100vw + 200px)); opacity: 0; }
-        }
-        @keyframes dotFlowV {
-          0% { transform: translateY(-150px); opacity: 0; }
-          5% { opacity: 1; } 95% { opacity: 1; }
-          100% { transform: translateY(calc(100vh + 150px)); opacity: 0; }
-        }
+        .circuit-traces { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+        .trace { position: absolute; background: linear-gradient(90deg, transparent, rgba(0,170,255,0.6), transparent); height: 1px; width: 200px; animation: traceFlow 6s ease-in-out infinite; filter: blur(0.5px); }
+        .trace-v { position: absolute; background: linear-gradient(180deg, transparent, rgba(0,170,255,0.5), transparent); width: 1px; height: 150px; animation: traceFlowV 7s ease-in-out infinite; filter: blur(0.5px); }
+        @keyframes traceFlow { 0% { transform: translateX(-200px); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateX(calc(100vw + 200px)); opacity: 0; } }
+        @keyframes traceFlowV { 0% { transform: translateY(-150px); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(calc(100vh + 150px)); opacity: 0; } }
+        .trace-dot { position: absolute; width: 6px; height: 6px; background: #00AAFF; border-radius: 50%; box-shadow: 0 0 8px 2px rgba(0,170,255,0.8); animation: dotFlow 6s ease-in-out infinite; margin-top: -2.5px; }
+        .trace-dot-v { position: absolute; width: 6px; height: 6px; background: #00AAFF; border-radius: 50%; box-shadow: 0 0 8px 2px rgba(0,170,255,0.8); animation: dotFlowV 7s ease-in-out infinite; margin-left: -2.5px; }
+        @keyframes dotFlow { 0% { transform: translateX(-200px); opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } 100% { transform: translateX(calc(100vw + 200px)); opacity: 0; } }
+        @keyframes dotFlowV { 0% { transform: translateY(-150px); opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } 100% { transform: translateY(calc(100vh + 150px)); opacity: 0; } }
 
-        /* ── NAV ── */
+        /* ── NAV — WHITE ── */
         nav {
           position: fixed; top: 0; left: 0; right: 0; z-index: 100;
           display: flex; align-items: center; justify-content: space-between;
-          padding: 0 52px; height: 66px;
-          background: rgba(6,10,24,0.88); backdrop-filter: blur(24px);
-          border-bottom: 1px solid var(--border);
+          padding: 0 52px; height: 68px;
+          background: #ffffff;
+          border-bottom: 1px solid #e5e7eb;
+          box-shadow: 0 1px 12px rgba(0,0,0,0.06);
         }
         .nav-logo { display: flex; align-items: center; text-decoration: none; }
-        .nav-logo img { height: 42px; object-fit: contain; }
+        .nav-logo img { height: 44px; object-fit: contain; }
         .nav-links { display: flex; align-items: center; gap: 32px; }
-        .nav-links a { color: var(--text2); font-size: 14px; text-decoration: none; transition: color 0.2s; font-weight: 500; }
-        .nav-links a:hover { color: #fff; }
-        .nav-divider { width: 1px; height: 18px; background: var(--border2); }
+        .nav-links a { color: #4b5563; font-size: 14px; text-decoration: none; transition: color 0.2s; font-weight: 500; }
+        .nav-links a:hover { color: #0077CC; }
+        .nav-divider { width: 1px; height: 18px; background: #e5e7eb; }
         .btn-primary {
           background: linear-gradient(135deg, #0066BB, #00AAFF);
           color: #fff; font-family: 'Outfit', sans-serif; font-size: 13.5px; font-weight: 600;
           padding: 9px 20px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer;
           transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
           display: inline-flex; align-items: center; gap: 6px;
-          box-shadow: 0 4px 20px rgba(0,170,255,0.25);
+          box-shadow: 0 4px 16px rgba(0,170,255,0.3);
         }
-        .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 8px 28px rgba(0,170,255,0.4); }
+        .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,170,255,0.4); }
         .btn-ghost {
           background: transparent; color: var(--text); font-family: 'Outfit', sans-serif;
           font-size: 15px; font-weight: 500; padding: 12px 28px; border-radius: 10px;
@@ -213,168 +193,70 @@ export default function Home() {
         .btn-ghost:hover { border-color: var(--accent2); background: rgba(0,170,255,0.07); }
 
         /* ── HERO ── */
-        .hero {
-          min-height: 100vh; display: flex; flex-direction: column;
-          align-items: center; justify-content: center;
-          text-align: center; padding: 130px 24px 48px; position: relative;
-        }
-        .hero-glow {
-          position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
-          width: 1000px; height: 700px;
-          background: radial-gradient(ellipse, rgba(0,119,204,0.18) 0%, rgba(27,58,140,0.08) 40%, transparent 70%);
-          pointer-events: none; z-index: 0;
-        }
+        .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 130px 24px 48px; position: relative; }
+        .hero-glow { position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 1000px; height: 700px; background: radial-gradient(ellipse, rgba(0,119,204,0.18) 0%, rgba(27,58,140,0.08) 40%, transparent 70%); pointer-events: none; z-index: 0; }
         .hero-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; width: 100%; }
-        .badge {
-          display: inline-flex; align-items: center; gap: 8px;
-          background: rgba(0,119,204,0.15); border: 1px solid rgba(0,170,255,0.4);
-          color: #7DD3FC; font-size: 11.5px; font-weight: 600;
-          padding: 5px 14px 5px 10px; border-radius: 100px;
-          letter-spacing: 0.07em; text-transform: uppercase;
-          margin-bottom: 28px; animation: fadeUp 0.6s ease both;
-        }
-        .badge-dot {
-          width: 7px; height: 7px; border-radius: 50%;
-          background: #00AAFF; box-shadow: 0 0 8px #00AAFF; animation: pulse 2s infinite;
-        }
+        .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,119,204,0.15); border: 1px solid rgba(0,170,255,0.4); color: #7DD3FC; font-size: 11.5px; font-weight: 600; padding: 5px 14px 5px 10px; border-radius: 100px; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 28px; animation: fadeUp 0.6s ease both; }
+        .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: #00AAFF; box-shadow: 0 0 8px #00AAFF; animation: pulse 2s infinite; }
         @keyframes pulse { 0%,100% { box-shadow: 0 0 8px #00AAFF; } 50% { box-shadow: 0 0 16px #00AAFF; opacity: 0.6; } }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .hero h1 {
-          font-size: clamp(42px, 6.5vw, 82px); font-weight: 800; line-height: 1.06;
-          letter-spacing: -0.04em; margin-bottom: 22px; color: #fff;
-          animation: fadeUp 0.6s 0.1s ease both;
-        }
-        .gradient-text {
-          background: linear-gradient(115deg, #0088DD 0%, #00AAFF 50%, #7DD3FC 100%);
-          -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-        .hero-sub {
-          font-size: 17px; color: var(--text2); line-height: 1.75;
-          max-width: 540px; margin: 0 auto 36px; animation: fadeUp 0.6s 0.2s ease both;
-        }
+        .hero h1 { font-size: clamp(42px, 6.5vw, 82px); font-weight: 800; line-height: 1.06; letter-spacing: -0.04em; margin-bottom: 22px; color: #fff; animation: fadeUp 0.6s 0.1s ease both; }
+        .gradient-text { background: linear-gradient(115deg, #0088DD 0%, #00AAFF 50%, #7DD3FC 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-sub { font-size: 17px; color: var(--text2); line-height: 1.75; max-width: 540px; margin: 0 auto 36px; animation: fadeUp 0.6s 0.2s ease both; }
         .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
         .btn-large { font-size: 15px; font-weight: 600; padding: 14px 32px; border-radius: 10px; }
         .stats-wrap { animation: fadeUp 0.7s 0.45s ease both; margin-top: 48px; width: 100%; max-width: 700px; }
-        .stats {
-          display: flex; border: 1px solid var(--border2); border-radius: 16px; overflow: hidden;
-          background: rgba(0,119,204,0.07); backdrop-filter: blur(12px);
-        }
+        .stats { display: flex; border: 1px solid var(--border2); border-radius: 16px; overflow: hidden; background: rgba(0,119,204,0.07); backdrop-filter: blur(12px); }
         .stat { flex: 1; padding: 22px 16px; text-align: center; border-right: 1px solid var(--border); }
         .stat:last-child { border-right: none; }
         .stat-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 26px; font-weight: 800; color: #fff; letter-spacing: -0.03em; line-height: 1; }
         .stat-label { font-size: 12px; color: var(--text3); margin-top: 5px; }
 
-        /* ── DASHBOARD MOCKUP ── */
+        /* ── MOCKUP ── */
         .mockup-section { padding: 40px 48px 0; display: flex; justify-content: center; }
         .mockup-wrap { width: 100%; max-width: 960px; position: relative; }
         .mockup-fade-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 100px; background: linear-gradient(to bottom, transparent, var(--bg)); pointer-events: none; }
-        .mockup-browser {
-          background: #f4f4f6; border-radius: 12px; overflow: hidden;
-          box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,170,255,0.15), 0 0 60px rgba(0,100,200,0.08);
-        }
-        .mockup-bar {
-          background: #e8e8ea; padding: 10px 16px;
-          display: flex; align-items: center; gap: 8px;
-          border-bottom: 1px solid rgba(0,0,0,0.08);
-        }
+        .mockup-browser { background: #f4f4f6; border-radius: 12px; overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,170,255,0.15), 0 0 60px rgba(0,100,200,0.08); }
+        .mockup-bar { background: #e8e8ea; padding: 10px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(0,0,0,0.08); }
         .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
-        .mockup-url {
-          flex: 1; background: white; border-radius: 5px;
-          padding: 4px 10px; font-size: 11px; color: #888;
-          font-family: monospace; margin: 0 12px;
-          border: 1px solid rgba(0,0,0,0.08);
-        }
-        .mockup-body {
-          display: grid; grid-template-columns: 200px 1fr 240px;
-          min-height: 340px; font-family: 'Inter', sans-serif;
-        }
-
-        /* Sidebar */
-        .mockup-sidebar {
-          background: white; border-right: 1px solid #ebebeb; padding: 16px 12px;
-        }
-        .mockup-logo-row {
-          display: flex; align-items: center; gap: 8px; padding: 6px 10px; margin-bottom: 12px;
-        }
+        .mockup-url { flex: 1; background: white; border-radius: 5px; padding: 4px 10px; font-size: 11px; color: #888; font-family: monospace; margin: 0 12px; border: 1px solid rgba(0,0,0,0.08); }
+        .mockup-body { display: grid; grid-template-columns: 200px 1fr 240px; min-height: 340px; font-family: 'Inter', sans-serif; }
+        .mockup-sidebar { background: white; border-right: 1px solid #ebebeb; padding: 16px 12px; }
+        .mockup-logo-row { display: flex; align-items: center; gap: 8px; padding: 6px 10px; margin-bottom: 12px; }
         .mockup-logo-img { height: 28px; object-fit: contain; }
-        .mockup-brand-chip {
-          font-size: 10px; color: #6b7280; background: #f3f4f6;
-          padding: 2px 8px; border-radius: 20px; margin-left: 4px;
-        }
-        .mockup-section-label {
-          font-size: 9px; font-weight: 600; color: #9ca3af;
-          text-transform: uppercase; letter-spacing: 0.06em;
-          padding: 10px 10px 4px;
-        }
-        .mockup-nav-item {
-          display: flex; align-items: center; gap: 8px;
-          padding: 7px 10px; border-radius: 7px; font-size: 11px;
-          color: #6b7280; margin-bottom: 1px; cursor: default;
-        }
+        .mockup-brand-chip { font-size: 10px; color: #6b7280; background: #f3f4f6; padding: 2px 8px; border-radius: 20px; margin-left: 4px; }
+        .mockup-section-label { font-size: 9px; font-weight: 600; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.06em; padding: 10px 10px 4px; }
+        .mockup-nav-item { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 7px; font-size: 11px; color: #6b7280; margin-bottom: 1px; cursor: default; }
         .mockup-nav-item.active { background: #EEF2FF; color: #4F46E5; font-weight: 500; }
         .mockup-nav-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
-
-        /* Main content */
         .mockup-main { padding: 16px; display: flex; flex-direction: column; gap: 12px; background: #f4f4f6; }
         .mockup-stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-        .mockup-stat-card {
-          background: white; border: 1px solid #ebebeb; border-radius: 8px; padding: 10px 12px;
-        }
+        .mockup-stat-card { background: white; border: 1px solid #ebebeb; border-radius: 8px; padding: 10px 12px; }
         .mockup-stat-label { font-size: 9px; color: #9ca3af; margin-bottom: 5px; }
         .mockup-stat-val { font-size: 20px; font-weight: 600; color: #111827; }
         .mockup-stat-val.red { color: #dc2626; }
         .mockup-stat-val.green { color: #16a34a; }
-        .mockup-section-header {
-          display: flex; align-items: center; justify-content: space-between;
-          margin-bottom: 8px;
-        }
+        .mockup-section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
         .mockup-section-title { font-size: 11px; font-weight: 600; color: #111; }
         .mockup-row-count { font-size: 10px; color: #9ca3af; }
-        .mockup-table-wrap {
-          background: white; border: 1px solid #ebebeb; border-radius: 8px; overflow: hidden;
-        }
-        .mockup-table-header {
-          display: grid; grid-template-columns: 1.4fr 2fr 1fr 0.8fr 0.9fr;
-          padding: 7px 12px; border-bottom: 1px solid #f3f4f6; background: white;
-        }
+        .mockup-table-wrap { background: white; border: 1px solid #ebebeb; border-radius: 8px; overflow: hidden; }
+        .mockup-table-header { display: grid; grid-template-columns: 1.4fr 2fr 1fr 0.8fr 0.9fr; padding: 7px 12px; border-bottom: 1px solid #f3f4f6; }
         .mockup-th { font-size: 9px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500; }
-        .mockup-row {
-          display: grid; grid-template-columns: 1.4fr 2fr 1fr 0.8fr 0.9fr;
-          padding: 8px 12px; border-bottom: 1px solid #f9f9f9; align-items: center;
-        }
+        .mockup-row { display: grid; grid-template-columns: 1.4fr 2fr 1fr 0.8fr 0.9fr; padding: 8px 12px; border-bottom: 1px solid #f9f9f9; align-items: center; }
         .mockup-row:last-child { border-bottom: none; }
         .mockup-cell { font-size: 10px; color: #374151; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .mockup-cell.muted { color: #9ca3af; }
-        .mockup-badge {
-          display: inline-block; padding: 2px 7px; border-radius: 20px;
-          font-size: 9px; font-weight: 500;
-        }
+        .mockup-badge { display: inline-block; padding: 2px 7px; border-radius: 20px; font-size: 9px; font-weight: 500; }
         .badge-blue { background: #EEF2FF; color: #4338CA; }
         .badge-green { background: #f0fdf4; color: #15803d; }
         .badge-red { background: #fef2f2; color: #b91c1c; }
         .badge-yellow { background: #fffbeb; color: #b45309; }
         .escalated-flag { font-size: 9px; color: #b91c1c; display: block; margin-top: 2px; }
-
-        /* Right panel */
-        .mockup-right {
-          background: white; border-left: 1px solid #ebebeb; padding: 14px;
-          display: flex; flex-direction: column; gap: 16px;
-        }
-        .mockup-panel-title {
-          font-size: 9px; font-weight: 700; color: #4F46E5;
-          text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;
-        }
-        .mockup-input {
-          background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 5px;
-          padding: 6px 8px; font-size: 10px; color: #9ca3af; margin-bottom: 5px; width: 100%;
-        }
-        .mockup-lookup-btn {
-          background: #4F46E5; border-radius: 5px; padding: 6px;
-          font-size: 10px; color: #fff; text-align: center; font-weight: 500; width: 100%;
-        }
-        .mockup-escalation-item {
-          padding: 7px 0; border-bottom: 1px solid #f3f4f6;
-        }
+        .mockup-right { background: white; border-left: 1px solid #ebebeb; padding: 14px; display: flex; flex-direction: column; gap: 16px; }
+        .mockup-panel-title { font-size: 9px; font-weight: 700; color: #4F46E5; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+        .mockup-input { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 5px; padding: 6px 8px; font-size: 10px; color: #9ca3af; margin-bottom: 5px; width: 100%; }
+        .mockup-lookup-btn { background: #4F46E5; border-radius: 5px; padding: 6px; font-size: 10px; color: #fff; text-align: center; font-weight: 500; width: 100%; }
+        .mockup-escalation-item { padding: 7px 0; border-bottom: 1px solid #f3f4f6; }
         .mockup-escalation-item:last-child { border-bottom: none; }
         .mockup-esc-email { font-size: 9px; color: #9ca3af; margin-bottom: 2px; }
         .mockup-esc-reason { font-size: 10px; color: #111; font-weight: 500; }
@@ -464,26 +346,28 @@ export default function Home() {
         .author-name { font-size: 12.5px; font-weight: 600; color: #fff; }
         .author-title { font-size: 11.5px; color: var(--text3); margin-top: 2px; }
 
-        /* ── PRICING ── */
+        /* ── PRICING — 4 PLANS ── */
         .pricing-section { padding: 56px 48px; }
-        .pricing-inner { max-width: 1080px; margin: 0 auto; text-align: center; }
-        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 40px; text-align: left; }
-        .pricing-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 32px 26px; position: relative; transition: all 0.3s; }
+        .pricing-inner { max-width: 1160px; margin: 0 auto; text-align: center; }
+        .pricing-trial-note { font-size: 14px; color: var(--accent2); margin-top: 8px; font-weight: 500; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 40px; text-align: left; }
+        .pricing-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 28px 22px; position: relative; transition: all 0.3s; display: flex; flex-direction: column; }
         .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,100,200,0.15); }
         .pricing-card.featured { background: linear-gradient(145deg, rgba(0,119,204,0.18) 0%, rgba(0,170,255,0.06) 100%); border-color: rgba(0,170,255,0.4); box-shadow: 0 0 40px rgba(0,100,200,0.12); }
-        .popular-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(115deg, #0066BB, #00AAFF); color: #fff; font-size: 10px; font-weight: 700; padding: 4px 16px; border-radius: 100px; letter-spacing: 0.08em; white-space: nowrap; box-shadow: 0 4px 16px rgba(0,170,255,0.4); }
-        .plan-name { font-size: 11px; font-weight: 700; color: var(--text3); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.1em; }
-        .plan-price { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 48px; font-weight: 800; line-height: 1; color: #fff; letter-spacing: -0.04em; }
-        .plan-period { font-size: 14px; color: var(--text2); margin-left: 2px; }
-        .plan-desc { font-size: 13px; color: var(--text2); margin: 16px 0 24px; line-height: 1.6; }
-        .plan-divider { height: 1px; background: var(--border); margin-bottom: 20px; }
-        .plan-features { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
-        .plan-feature { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: #BAE6FD; line-height: 1.4; }
-        .check-box { width: 17px; height: 17px; border-radius: 5px; background: rgba(0,119,204,0.2); border: 1px solid rgba(0,170,255,0.3); display: flex; align-items: center; justify-content: center; font-size: 9px; color: #7DD3FC; flex-shrink: 0; margin-top: 1px; }
-        .btn-plan { display: flex; align-items: center; justify-content: center; width: 100%; padding: 12px; border-radius: 9px; font-family: 'Outfit', sans-serif; font-size: 13.5px; font-weight: 600; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; }
+        .popular-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(115deg, #0066BB, #00AAFF); color: #fff; font-size: 10px; font-weight: 700; padding: 4px 14px; border-radius: 100px; letter-spacing: 0.08em; white-space: nowrap; box-shadow: 0 4px 16px rgba(0,170,255,0.4); }
+        .plan-name { font-size: 11px; font-weight: 700; color: var(--text3); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.1em; }
+        .plan-price { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 42px; font-weight: 800; line-height: 1; color: #fff; letter-spacing: -0.04em; }
+        .plan-period { font-size: 13px; color: var(--text2); margin-left: 2px; }
+        .plan-desc { font-size: 12.5px; color: var(--text2); margin: 14px 0 20px; line-height: 1.6; }
+        .plan-divider { height: 1px; background: var(--border); margin-bottom: 18px; }
+        .plan-features { display: flex; flex-direction: column; gap: 9px; margin-bottom: 24px; flex: 1; }
+        .plan-feature { display: flex; align-items: flex-start; gap: 9px; font-size: 12.5px; color: #BAE6FD; line-height: 1.4; }
+        .check-box { width: 16px; height: 16px; border-radius: 4px; background: rgba(0,119,204,0.2); border: 1px solid rgba(0,170,255,0.3); display: flex; align-items: center; justify-content: center; font-size: 9px; color: #7DD3FC; flex-shrink: 0; margin-top: 1px; }
+        .btn-plan { display: flex; align-items: center; justify-content: center; width: 100%; padding: 11px; border-radius: 9px; font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; margin-top: auto; }
         .btn-plan:hover { opacity: 0.88; transform: translateY(-1px); }
         .btn-plan-primary { background: linear-gradient(135deg, #0066BB, #00AAFF); color: #fff; box-shadow: 0 4px 20px rgba(0,170,255,0.3); }
         .btn-plan-ghost { background: transparent; color: var(--text2); border: 1px solid var(--border2); }
+        .plan-trial { font-size: 11px; color: var(--text3); text-align: center; margin-top: 10px; }
 
         /* ── CTA ── */
         .cta-section { margin: 32px 48px 72px; border-radius: 24px; padding: 80px 48px; text-align: center; position: relative; overflow: hidden; background: linear-gradient(145deg, rgba(0,119,204,0.2) 0%, rgba(27,58,140,0.1) 100%); border: 1px solid rgba(0,170,255,0.3); }
@@ -493,23 +377,27 @@ export default function Home() {
         .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
         .cta-note { margin-top: 18px; font-size: 12.5px; color: var(--text3); position: relative; z-index: 1; }
 
-        /* ── FOOTER ── */
-        footer { border-top: 1px solid var(--border); padding: 44px 52px 36px; }
+        /* ── FOOTER — WHITE ── */
+        footer {
+          background: #ffffff;
+          border-top: 1px solid #e5e7eb;
+          padding: 48px 52px 36px;
+        }
         .footer-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 48px; margin-bottom: 40px; flex-wrap: wrap; }
-        .footer-brand { max-width: 260px; }
+        .footer-brand { max-width: 280px; }
         .footer-logo { display: flex; align-items: center; text-decoration: none; margin-bottom: 12px; }
-        .footer-logo img { height: 40px; object-fit: contain; }
-        .footer-tagline { font-size: 13px; color: var(--text3); line-height: 1.6; }
+        .footer-logo img { height: 44px; object-fit: contain; }
+        .footer-tagline { font-size: 13px; color: #6b7280; line-height: 1.6; }
         .footer-cols { display: flex; gap: 56px; flex-wrap: wrap; }
-        .footer-col h4 { font-size: 11px; font-weight: 700; color: var(--text2); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; }
+        .footer-col h4 { font-size: 11px; font-weight: 700; color: #374151; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; }
         .footer-col-links { display: flex; flex-direction: column; gap: 9px; }
-        .footer-col-links a { font-size: 13px; color: var(--text3); text-decoration: none; transition: color 0.2s; }
-        .footer-col-links a:hover { color: var(--accent2); }
-        .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 28px; border-top: 1px solid var(--border); }
-        .footer-bottom p { font-size: 12px; color: var(--text3); }
+        .footer-col-links a { font-size: 13px; color: #6b7280; text-decoration: none; transition: color 0.2s; }
+        .footer-col-links a:hover { color: #0077CC; }
+        .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 28px; border-top: 1px solid #e5e7eb; }
+        .footer-bottom p { font-size: 12px; color: #9ca3af; }
         .footer-bottom-links { display: flex; gap: 20px; }
-        .footer-bottom-links a { font-size: 12px; color: var(--text3); text-decoration: none; transition: color 0.2s; }
-        .footer-bottom-links a:hover { color: var(--text2); }
+        .footer-bottom-links a { font-size: 12px; color: #9ca3af; text-decoration: none; transition: color 0.2s; }
+        .footer-bottom-links a:hover { color: #374151; }
       `}</style>
 
       {/* CIRCUIT BACKGROUND */}
@@ -542,9 +430,11 @@ export default function Home() {
 
       <div className="content">
 
-        {/* NAV */}
+        {/* NAV — WHITE */}
         <nav>
-          <a href="/" className="nav-logo"><img src="/logo.png" alt="SolveBotic" /></a>
+          <a href="/" className="nav-logo">
+            <img src="/logo.png" alt="SolveBotic" />
+          </a>
           <div className="nav-links">
             <a href="#features">Features</a>
             <a href="#platforms">Platforms</a>
@@ -564,7 +454,7 @@ export default function Home() {
             <h1>Handle Every<br />Support Request.<br /><span className="gradient-text">Automatically.</span></h1>
             <p className="hero-sub">SolveBotic uses AI to instantly respond to post-purchase questions, look up orders, and escalate issues {dash} across every platform you sell on.</p>
             <div className="hero-btns">
-              <a href="https://app.solvebotic.com/onboarding" className="btn-primary btn-large">Get Started Free {arrow}</a>
+              <a href="https://app.solvebotic.com/onboarding" className="btn-primary btn-large">Start Free Trial {arrow}</a>
               <a href="#how-it-works" className="btn-ghost btn-large">See how it works</a>
             </div>
             <div className="stats-wrap">
@@ -580,7 +470,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* DASHBOARD MOCKUP — realistic light theme matching actual app */}
+        {/* DASHBOARD MOCKUP */}
         <div className="mockup-section">
           <div className="mockup-wrap">
             <div className="mockup-browser">
@@ -591,34 +481,24 @@ export default function Home() {
                 <div className="mockup-url">app.solvebotic.com/dashboard</div>
               </div>
               <div className="mockup-body">
-
-                {/* Sidebar */}
                 <div className="mockup-sidebar">
                   <div className="mockup-logo-row">
                     <img className="mockup-logo-img" src="/logo.png" alt="SolveBotic" />
                     <span className="mockup-brand-chip">Brandtest</span>
                   </div>
                   <div className="mockup-section-label">Main</div>
-                  {[
-                    { label: "Dashboard", active: true },
-                    { label: "Requests", active: false },
-                    { label: "Escalations", active: false },
-                  ].map(item => (
+                  {[{ label: "Dashboard", active: true }, { label: "Requests", active: false }, { label: "Escalations", active: false }].map(item => (
                     <div key={item.label} className={`mockup-nav-item ${item.active ? "active" : ""}`}>
                       <div className="mockup-nav-dot" />{item.label}
                     </div>
                   ))}
                   <div className="mockup-section-label">Store</div>
                   {["Order lookup", "Shopify sync"].map(label => (
-                    <div key={label} className="mockup-nav-item">
-                      <div className="mockup-nav-dot" />{label}
-                    </div>
+                    <div key={label} className="mockup-nav-item"><div className="mockup-nav-dot" />{label}</div>
                   ))}
                   <div className="mockup-section-label">Account</div>
                   <div className="mockup-nav-item"><div className="mockup-nav-dot" />Settings</div>
                 </div>
-
-                {/* Main content */}
                 <div className="mockup-main">
                   <div className="mockup-stats-row">
                     {[
@@ -665,8 +545,6 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-
-                {/* Right panel */}
                 <div className="mockup-right">
                   <div>
                     <div className="mockup-panel-title">Order Lookup</div>
@@ -709,7 +587,6 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
-
               </div>
             </div>
             <div className="mockup-fade-bottom" />
@@ -827,10 +704,11 @@ export default function Home() {
             <div className="section-eyebrow"><div className="eyebrow-line" />Pricing<div className="eyebrow-line" /></div>
             <h2 className="section-title">Simple, transparent pricing.</h2>
             <p className="section-sub">No setup fees. No hidden costs. Cancel anytime.</p>
+            <p className="pricing-trial-note">All plans include a 14-day free trial {dash} no credit card required.</p>
             <div className="pricing-grid">
               {plans.map(plan => (
                 <div key={plan.name} className={`pricing-card ${plan.featured ? "featured" : ""}`}>
-                  {plan.featured && <div className="popular-tag">Most Popular</div>}
+                  {plan.badge && <div className="popular-tag">{plan.badge}</div>}
                   <div className="plan-name">{plan.name}</div>
                   <div style={{ display: "flex", alignItems: "baseline", gap: 2 }}>
                     <span className="plan-price">{plan.price}</span>
@@ -848,6 +726,7 @@ export default function Home() {
                   <a href={plan.href} className={`btn-plan ${plan.featured ? "btn-plan-primary" : "btn-plan-ghost"}`}>
                     {plan.cta} {arrow}
                   </a>
+                  {plan.cta !== "Contact Us" && <p className="plan-trial">14-day free trial included</p>}
                 </div>
               ))}
             </div>
@@ -860,17 +739,19 @@ export default function Home() {
           <h2>Ready to automate<br />your support?</h2>
           <p>Join brands already using SolveBotic to handle customer support {dash} faster, smarter, and around the clock.</p>
           <div className="cta-btns">
-            <a href="https://app.solvebotic.com/onboarding" className="btn-primary btn-large">Get Started Free {arrow}</a>
+            <a href="https://app.solvebotic.com/onboarding" className="btn-primary btn-large">Start Free Trial {arrow}</a>
             <a href="https://app.solvebotic.com/auth/login" className="btn-ghost btn-large">Login to dashboard</a>
           </div>
-          <p className="cta-note">No credit card required {dot} Free to start {dot} Cancel anytime</p>
+          <p className="cta-note">14-day free trial {dot} No credit card required {dot} Cancel anytime</p>
         </div>
 
-        {/* FOOTER */}
+        {/* FOOTER — WHITE */}
         <footer>
           <div className="footer-top">
             <div className="footer-brand">
-              <a href="/" className="footer-logo"><img src="/logo.png" alt="SolveBotic" /></a>
+              <a href="/" className="footer-logo">
+                <img src="/logo.png" alt="SolveBotic" />
+              </a>
               <p className="footer-tagline">AI-powered customer support for ecommerce brands. Handle every request, automatically.</p>
             </div>
             <div className="footer-cols">
