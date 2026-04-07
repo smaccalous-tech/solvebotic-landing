@@ -44,19 +44,16 @@ export default function Home() {
     {
       quote: "We cut our support response time from 6 hours to under 2 seconds. Our team now only handles the truly complex stuff.",
       name: "Marcus T.", title: "Founder, DTC Supplement Brand",
-      color: "linear-gradient(135deg, #1B3A8C, #4361EE)", initials: "MT",
       img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face"
     },
     {
       quote: "Setup took 8 minutes. Literally. It connected to Shopify and started handling order questions the same day.",
       name: "Priya K.", title: "Head of Ops, Home Goods Store",
-      color: "linear-gradient(135deg, #0077CC, #00AAFF)", initials: "PK",
       img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face"
     },
     {
       quote: "I was skeptical about AI support, but the escalation logic is smart. Real issues get to us fast, noise gets handled automatically.",
       name: "Jordan M.", title: "CX Lead, Apparel Brand",
-      color: "linear-gradient(135deg, #1B3A8C, #00AAFF)", initials: "JM",
       img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face"
     },
   ];
@@ -81,20 +78,17 @@ export default function Home() {
         :root {
           --bg: #060A18;
           --bg2: #0A1020;
-          --bg3: #0D1428;
-          --surface: rgba(255,255,255,0.04);
-          --surface2: rgba(255,255,255,0.07);
+          --surface: rgba(0,119,204,0.06);
+          --surface2: rgba(0,170,255,0.1);
           --border: rgba(0,170,255,0.12);
-          --border2: rgba(0,170,255,0.25);
+          --border2: rgba(0,170,255,0.28);
           --accent: #0077CC;
           --accent2: #00AAFF;
-          --accent-dark: #1B3A8C;
           --accent-dim: rgba(0,119,204,0.15);
           --accent-border: rgba(0,170,255,0.3);
           --text: #E8F4FF;
-          --text2: #8BA8C8;
-          --text3: #4A6480;
-          --glow: rgba(0,170,255,0.4);
+          --text2: #7AA8C8;
+          --text3: #3A5870;
         }
         html { scroll-behavior: smooth; }
         body {
@@ -107,69 +101,96 @@ export default function Home() {
         h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
         .content { position: relative; z-index: 1; }
 
-        /* ── CIRCUIT BACKGROUND ── */
+        /* ── CIRCUIT GRID BACKGROUND (CSS only, performant) ── */
         .circuit-bg {
-          position: fixed; inset: 0; z-index: 0;
-          pointer-events: none; overflow: hidden;
+          position: fixed; inset: 0; z-index: 0; pointer-events: none;
+          background-image:
+            linear-gradient(rgba(0,170,255,0.06) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,170,255,0.06) 1px, transparent 1px);
+          background-size: 60px 60px;
+          mask-image: radial-gradient(ellipse 100% 100% at 50% 0%, black 20%, transparent 80%);
         }
-        .circuit-svg {
-          width: 100%; height: 100%;
-          opacity: 0.18;
+        /* Circuit nodes at grid intersections */
+        .circuit-bg::before {
+          content: '';
+          position: absolute; inset: 0;
+          background-image: radial-gradient(circle, rgba(0,170,255,0.35) 1.5px, transparent 1.5px);
+          background-size: 60px 60px;
+          background-position: 0 0;
+          mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 20%, transparent 75%);
         }
-        .circuit-line {
-          fill: none;
-          stroke: #00AAFF;
-          stroke-width: 1;
+        /* Pulsing glow orbs */
+        .circuit-bg::after {
+          content: '';
+          position: absolute; inset: 0;
+          background:
+            radial-gradient(ellipse 600px 400px at 20% 30%, rgba(0,119,204,0.12) 0%, transparent 70%),
+            radial-gradient(ellipse 400px 300px at 80% 60%, rgba(0,170,255,0.08) 0%, transparent 70%),
+            radial-gradient(ellipse 500px 350px at 50% 10%, rgba(27,58,140,0.15) 0%, transparent 70%);
+          animation: orbPulse 8s ease-in-out infinite;
         }
-        .circuit-node {
-          fill: #00AAFF;
-        }
-        .pulse-dot {
-          fill: #00AAFF;
-          filter: drop-shadow(0 0 4px #00AAFF);
+        @keyframes orbPulse {
+          0%, 100% { opacity: 0.7; }
+          50% { opacity: 1; }
         }
 
-        /* Animated current pulses along circuit paths */
-        @keyframes flow1 { 0% { offset-distance: 0%; opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
-        @keyframes flow2 { 0% { offset-distance: 0%; opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
-        @keyframes flow3 { 0% { offset-distance: 0%; opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
-        @keyframes nodePulse { 0%,100% { r: 3; opacity: 0.6; } 50% { r: 5; opacity: 1; } }
-        @keyframes glowPulse { 0%,100% { opacity: 0.15; } 50% { opacity: 0.35; } }
+        /* Animated circuit traces using CSS gradients */
+        .circuit-traces {
+          position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+        }
+        .trace {
+          position: absolute; background: linear-gradient(90deg, transparent, rgba(0,170,255,0.6), transparent);
+          height: 1px; width: 200px;
+          animation: traceFlow 6s ease-in-out infinite;
+          filter: blur(0.5px);
+        }
+        .trace-v {
+          position: absolute; background: linear-gradient(180deg, transparent, rgba(0,170,255,0.5), transparent);
+          width: 1px; height: 150px;
+          animation: traceFlowV 7s ease-in-out infinite;
+          filter: blur(0.5px);
+        }
+        @keyframes traceFlow {
+          0% { transform: translateX(-200px); opacity: 0; }
+          10% { opacity: 1; }
+          90% { opacity: 1; }
+          100% { transform: translateX(calc(100vw + 200px)); opacity: 0; }
+        }
+        @keyframes traceFlowV {
+          0% { transform: translateY(-150px); opacity: 0; }
+          10% { opacity: 1; }
+          90% { opacity: 1; }
+          100% { transform: translateY(calc(100vh + 150px)); opacity: 0; }
+        }
+        /* Pulse dot that travels along traces */
+        .trace-dot {
+          position: absolute; width: 6px; height: 6px;
+          background: #00AAFF; border-radius: 50%;
+          box-shadow: 0 0 8px 2px rgba(0,170,255,0.8);
+          animation: dotFlow 6s ease-in-out infinite;
+          margin-top: -2.5px;
+        }
+        .trace-dot-v {
+          position: absolute; width: 6px; height: 6px;
+          background: #00AAFF; border-radius: 50%;
+          box-shadow: 0 0 8px 2px rgba(0,170,255,0.8);
+          animation: dotFlowV 7s ease-in-out infinite;
+          margin-left: -2.5px;
+        }
+        @keyframes dotFlow {
+          0% { transform: translateX(-200px); opacity: 0; }
+          5% { opacity: 1; }
+          95% { opacity: 1; }
+          100% { transform: translateX(calc(100vw + 200px)); opacity: 0; }
+        }
+        @keyframes dotFlowV {
+          0% { transform: translateY(-150px); opacity: 0; }
+          5% { opacity: 1; }
+          95% { opacity: 1; }
+          100% { transform: translateY(calc(100vh + 150px)); opacity: 0; }
+        }
 
-        .circuit-pulse-1 {
-          offset-path: path('M 100 80 L 300 80 L 300 200 L 500 200 L 500 80 L 700 80');
-          offset-rotate: 0deg;
-          animation: flow1 4s ease-in-out infinite;
-          animation-delay: 0s;
-        }
-        .circuit-pulse-2 {
-          offset-path: path('M 200 300 L 400 300 L 400 180 L 600 180 L 600 300 L 800 300 L 800 150');
-          offset-rotate: 0deg;
-          animation: flow2 5s ease-in-out infinite;
-          animation-delay: 1.5s;
-        }
-        .circuit-pulse-3 {
-          offset-path: path('M 50 500 L 250 500 L 250 380 L 450 380 L 450 500 L 650 500 L 650 380 L 900 380');
-          offset-rotate: 0deg;
-          animation: flow3 6s ease-in-out infinite;
-          animation-delay: 0.8s;
-        }
-        .circuit-pulse-4 {
-          offset-path: path('M 150 650 L 350 650 L 350 550 L 550 550 L 550 650 L 750 650');
-          offset-rotate: 0deg;
-          animation: flow1 4.5s ease-in-out infinite;
-          animation-delay: 2.2s;
-        }
-        .circuit-pulse-5 {
-          offset-path: path('M 0 750 L 200 750 L 200 620 L 400 620 L 400 750 L 600 750 L 600 620 L 850 620');
-          offset-rotate: 0deg;
-          animation: flow2 7s ease-in-out infinite;
-          animation-delay: 3s;
-        }
-        .circuit-node-anim { animation: nodePulse 3s ease-in-out infinite; }
-        .circuit-glow { animation: glowPulse 4s ease-in-out infinite; }
-
-        /* ── NAV ── */
+        /* NAV */
         nav {
           position: fixed; top: 0; left: 0; right: 0; z-index: 100;
           display: flex; align-items: center; justify-content: space-between;
@@ -185,7 +206,7 @@ export default function Home() {
         .nav-links a:hover { color: #fff; }
         .nav-divider { width: 1px; height: 18px; background: var(--border2); }
         .btn-primary {
-          background: linear-gradient(135deg, #0077CC, #00AAFF);
+          background: linear-gradient(135deg, #0066BB, #00AAFF);
           color: #fff; font-family: 'Outfit', sans-serif;
           font-size: 13.5px; font-weight: 600;
           padding: 9px 20px; border-radius: 8px;
@@ -205,7 +226,7 @@ export default function Home() {
         }
         .btn-ghost:hover { border-color: var(--accent2); background: rgba(0,170,255,0.07); }
 
-        /* ── HERO ── */
+        /* HERO */
         .hero {
           min-height: 100vh; display: flex; flex-direction: column;
           align-items: center; justify-content: center;
@@ -215,14 +236,13 @@ export default function Home() {
         .hero-glow {
           position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
           width: 1000px; height: 700px;
-          background: radial-gradient(ellipse, rgba(0,119,204,0.2) 0%, rgba(27,58,140,0.1) 40%, transparent 70%);
+          background: radial-gradient(ellipse, rgba(0,119,204,0.18) 0%, rgba(27,58,140,0.08) 40%, transparent 70%);
           pointer-events: none; z-index: 0;
         }
         .hero-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; width: 100%; }
         .badge {
           display: inline-flex; align-items: center; gap: 8px;
-          background: rgba(0,119,204,0.15);
-          border: 1px solid rgba(0,170,255,0.4);
+          background: rgba(0,119,204,0.15); border: 1px solid rgba(0,170,255,0.4);
           color: #7DD3FC; font-size: 11.5px; font-weight: 600;
           padding: 5px 14px 5px 10px; border-radius: 100px;
           letter-spacing: 0.07em; text-transform: uppercase;
@@ -233,22 +253,21 @@ export default function Home() {
           background: #00AAFF; box-shadow: 0 0 8px #00AAFF;
           animation: pulse 2s infinite;
         }
-        @keyframes pulse { 0%,100% { opacity:1; box-shadow: 0 0 8px #00AAFF; } 50% { opacity:0.5; box-shadow: 0 0 16px #00AAFF; } }
+        @keyframes pulse { 0%,100% { box-shadow: 0 0 8px #00AAFF; } 50% { box-shadow: 0 0 16px #00AAFF; opacity: 0.6; } }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
         .hero h1 {
-          font-size: clamp(42px, 6.5vw, 82px);
-          font-weight: 800; line-height: 1.06; letter-spacing: -0.04em;
+          font-size: clamp(42px, 6.5vw, 82px); font-weight: 800;
+          line-height: 1.06; letter-spacing: -0.04em;
           margin-bottom: 22px; color: #fff;
           animation: fadeUp 0.6s 0.1s ease both;
         }
         .gradient-text {
-          background: linear-gradient(115deg, #0077CC 0%, #00AAFF 50%, #7DD3FC 100%);
+          background: linear-gradient(115deg, #0088DD 0%, #00AAFF 50%, #7DD3FC 100%);
           -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
         .hero-sub {
           font-size: 17px; color: var(--text2); line-height: 1.75;
-          max-width: 520px; margin: 0 auto 36px;
+          max-width: 540px; margin: 0 auto 36px;
           animation: fadeUp 0.6s 0.2s ease both;
         }
         .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
@@ -257,27 +276,27 @@ export default function Home() {
         .stats {
           display: flex; border: 1px solid var(--border2);
           border-radius: 16px; overflow: hidden;
-          background: rgba(0,119,204,0.06); backdrop-filter: blur(12px);
+          background: rgba(0,119,204,0.07); backdrop-filter: blur(12px);
         }
         .stat { flex: 1; padding: 22px 16px; text-align: center; border-right: 1px solid var(--border); }
         .stat:last-child { border-right: none; }
         .stat-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 26px; font-weight: 800; color: #fff; letter-spacing: -0.03em; line-height: 1; }
         .stat-label { font-size: 12px; color: var(--text3); margin-top: 5px; }
 
-        /* ── MOCKUP ── */
+        /* MOCKUP */
         .mockup-section { padding: 40px 48px 0; display: flex; justify-content: center; }
         .mockup-wrap { width: 100%; max-width: 920px; position: relative; }
-        .mockup-fade-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to bottom, transparent, var(--bg)); pointer-events: none; border-radius: 0 0 12px 12px; }
+        .mockup-fade-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to bottom, transparent, var(--bg)); pointer-events: none; }
         .mockup-browser {
-          background: #080F20; border: 1px solid rgba(0,170,255,0.2);
+          background: #070F20; border: 1px solid rgba(0,170,255,0.2);
           border-radius: 12px; overflow: hidden;
-          box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 40px rgba(0,119,204,0.1), 0 0 0 1px rgba(0,170,255,0.08);
+          box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 40px rgba(0,100,200,0.1);
         }
-        .mockup-bar { background: #0D1830; padding: 10px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(0,170,255,0.1); }
+        .mockup-bar { background: #0C1830; padding: 10px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(0,170,255,0.1); }
         .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
         .mockup-url { flex: 1; background: rgba(0,170,255,0.06); border-radius: 5px; padding: 4px 10px; font-size: 11px; color: var(--text3); font-family: monospace; margin: 0 12px; }
         .mockup-content { display: grid; grid-template-columns: 160px 1fr 180px; min-height: 280px; }
-        .mockup-sidebar { background: #080F20; border-right: 1px solid rgba(0,170,255,0.08); padding: 14px 10px; }
+        .mockup-sidebar { background: #070F20; border-right: 1px solid rgba(0,170,255,0.08); padding: 14px 10px; }
         .mockup-nav-item { padding: 6px 10px; border-radius: 6px; font-size: 11px; color: var(--text3); margin-bottom: 2px; display: flex; align-items: center; gap: 7px; }
         .mockup-nav-item.active { background: rgba(0,119,204,0.2); color: #7DD3FC; }
         .mockup-nav-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
@@ -296,9 +315,9 @@ export default function Home() {
         .mockup-right { background: rgba(0,119,204,0.04); border-left: 1px solid rgba(0,170,255,0.08); padding: 14px; display: flex; flex-direction: column; gap: 12px; }
         .mockup-panel-title { font-size: 9px; font-weight: 700; color: #00AAFF; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
         .mockup-input { background: rgba(0,170,255,0.06); border: 1px solid rgba(0,170,255,0.12); border-radius: 5px; padding: 6px 8px; font-size: 10px; color: var(--text3); margin-bottom: 5px; width: 100%; }
-        .mockup-btn { background: linear-gradient(135deg, #0077CC, #00AAFF); border-radius: 5px; padding: 6px; font-size: 10px; color: #fff; text-align: center; font-weight: 600; }
+        .mockup-btn { background: linear-gradient(135deg, #0066BB, #00AAFF); border-radius: 5px; padding: 6px; font-size: 10px; color: #fff; text-align: center; font-weight: 600; }
 
-        /* ── TICKER ── */
+        /* TICKER */
         .ticker-section { padding: 40px 0 48px; overflow: hidden; position: relative; }
         .ticker-label { text-align: center; font-size: 11px; font-weight: 600; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
         .ticker-outer { position: relative; }
@@ -310,74 +329,61 @@ export default function Home() {
         .ticker-chip { background: rgba(0,119,204,0.08); border: 1px solid rgba(0,170,255,0.15); border-radius: 9px; padding: 9px 16px; white-space: nowrap; font-size: 12.5px; color: var(--text2); font-weight: 500; display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
         .ticker-dot { width: 5px; height: 5px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 6px #22c55e; }
 
-        /* ── SECTION COMMON ── */
+        /* PHOTO BAND */
+        .photo-band { padding: 48px 0; overflow: hidden; }
+        .photo-band-inner { display: flex; gap: 16px; padding: 0 48px; }
+        .photo-card { flex: 1; min-width: 0; border-radius: 16px; overflow: hidden; position: relative; height: 200px; border: 1px solid var(--border); }
+        .photo-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.65; transition: opacity 0.3s; }
+        .photo-card:hover img { opacity: 0.85; }
+        .photo-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,100,200,0.25), transparent 60%); }
+        .photo-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px 16px; background: linear-gradient(to top, rgba(6,10,24,0.9), transparent); font-size: 12px; font-weight: 600; color: var(--text2); letter-spacing: 0.04em; }
+
+        /* SECTIONS */
         .section-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; color: var(--text3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px; }
         .eyebrow-line { width: 20px; height: 1px; background: var(--accent2); opacity: 0.5; }
         .section-title { font-size: clamp(26px, 3.5vw, 42px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color: #fff; margin-bottom: 12px; }
         .section-sub { font-size: 15px; color: var(--text2); line-height: 1.7; }
 
-        /* ── PHOTO BAND ── */
-        .photo-band { padding: 48px 0; overflow: hidden; }
-        .photo-band-inner { display: flex; gap: 16px; padding: 0 48px; }
-        .photo-card {
-          flex: 1; min-width: 0; border-radius: 16px; overflow: hidden;
-          position: relative; height: 200px;
-          border: 1px solid var(--border);
-        }
-        .photo-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: opacity 0.3s; }
-        .photo-card:hover img { opacity: 0.9; }
-        .photo-card-label {
-          position: absolute; bottom: 0; left: 0; right: 0;
-          padding: 12px 16px;
-          background: linear-gradient(to top, rgba(6,10,24,0.95), transparent);
-          font-size: 12px; font-weight: 600; color: var(--text2);
-          letter-spacing: 0.04em;
-        }
-        .photo-card-overlay {
-          position: absolute; inset: 0;
-          background: linear-gradient(135deg, rgba(0,119,204,0.2), transparent);
-        }
-
-        /* ── PLATFORMS ── */
+        /* PLATFORMS */
         .platforms { padding: 56px 48px; text-align: center; }
         .platform-grid { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; max-width: 720px; margin: 28px auto 0; }
-        .platform-chip { background: rgba(0,119,204,0.08); border: 1px solid rgba(0,170,255,0.15); border-radius: 10px; padding: 10px 18px; font-size: 13px; font-weight: 500; color: #8BBFD4; transition: all 0.2s; display: flex; align-items: center; gap: 8px; }
-        .platform-chip:hover { border-color: rgba(0,170,255,0.4); background: rgba(0,119,204,0.15); color: #BAE6FD; transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,119,204,0.2); }
+        .platform-chip { background: rgba(0,119,204,0.08); border: 1px solid rgba(0,170,255,0.15); border-radius: 10px; padding: 10px 18px; font-size: 13px; font-weight: 500; color: #7AAAC4; transition: all 0.2s; display: flex; align-items: center; gap: 8px; }
+        .platform-chip:hover { border-color: rgba(0,170,255,0.4); background: rgba(0,119,204,0.15); color: #BAE6FD; transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,100,200,0.2); }
         .platform-chip.live { border-color: rgba(0,170,255,0.35); color: #7DD3FC; background: rgba(0,119,204,0.12); }
         .live-badge { font-size: 10px; font-weight: 700; color: #4ade80; background: rgba(74,222,128,0.12); border: 1px solid rgba(74,222,128,0.3); padding: 1px 7px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.06em; }
-        .soon-badge { font-size: 10px; font-weight: 600; color: var(--text3); background: rgba(255,255,255,0.04); border: 1px solid rgba(0,170,255,0.1); padding: 1px 7px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.04em; }
+        .soon-badge { font-size: 10px; font-weight: 600; color: var(--text3); background: rgba(0,170,255,0.05); border: 1px solid rgba(0,170,255,0.1); padding: 1px 7px; border-radius: 100px; text-transform: uppercase; }
 
-        /* ── HOW IT WORKS ── */
+        /* HOW IT WORKS */
         .how-section { padding: 56px 48px; }
         .how-inner { max-width: 1080px; margin: 0 auto; }
         .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 40px; border: 1px solid var(--border2); border-radius: 20px; overflow: hidden; background: var(--border); }
         .step { background: var(--bg2); padding: 36px 30px; position: relative; transition: background 0.3s; }
-        .step::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, rgba(0,170,255,0.5), transparent); opacity: 0; transition: opacity 0.3s; }
-        .step:hover { background: rgba(0,119,204,0.06); }
+        .step::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, rgba(0,170,255,0.6), transparent); opacity: 0; transition: opacity 0.3s; }
+        .step:hover { background: rgba(0,119,204,0.07); }
         .step:hover::before { opacity: 1; }
         .step-num { font-size: 11px; font-weight: 700; color: var(--accent2); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; }
         .step-icon { width: 46px; height: 46px; border-radius: 11px; background: rgba(0,119,204,0.15); border: 1px solid rgba(0,170,255,0.25); display: flex; align-items: center; justify-content: center; font-size: 21px; margin-bottom: 18px; }
         .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; color: #fff; letter-spacing: -0.02em; }
         .step p { font-size: 13.5px; color: var(--text2); line-height: 1.7; }
 
-        /* ── FEATURES ── */
+        /* FEATURES */
         .features-section { padding: 56px 48px; }
         .features-inner { max-width: 1080px; margin: 0 auto; }
         .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 40px; }
         .feature-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 26px; transition: all 0.3s; position: relative; overflow: hidden; }
-        .feature-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(0,170,255,0.4), transparent); opacity: 0; transition: opacity 0.3s; }
-        .feature-card:hover { border-color: rgba(0,170,255,0.3); transform: translateY(-3px); background: rgba(0,119,204,0.07); box-shadow: 0 8px 32px rgba(0,119,204,0.15); }
+        .feature-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(0,170,255,0.5), transparent); opacity: 0; transition: opacity 0.3s; }
+        .feature-card:hover { border-color: rgba(0,170,255,0.3); transform: translateY(-3px); background: rgba(0,119,204,0.08); box-shadow: 0 8px 32px rgba(0,100,200,0.15); }
         .feature-card:hover::after { opacity: 1; }
         .feature-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(0,119,204,0.15); border: 1px solid rgba(0,170,255,0.25); display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 16px; }
-        .feature-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #fff; letter-spacing: -0.02em; }
+        .feature-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #fff; }
         .feature-card p { font-size: 13px; color: var(--text2); line-height: 1.65; }
 
-        /* ── TESTIMONIALS ── */
+        /* TESTIMONIALS */
         .testimonials-section { padding: 56px 48px; }
         .testimonials-inner { max-width: 1080px; margin: 0 auto; }
         .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 40px; }
         .testimonial-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 26px; transition: all 0.3s; }
-        .testimonial-card:hover { border-color: var(--border2); transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,119,204,0.12); }
+        .testimonial-card:hover { border-color: var(--border2); transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,100,200,0.12); }
         .stars { display: flex; gap: 3px; margin-bottom: 14px; }
         .star { color: #F59E0B; font-size: 13px; }
         .testimonial-card blockquote { font-size: 13.5px; color: var(--text2); line-height: 1.75; margin-bottom: 20px; }
@@ -387,14 +393,14 @@ export default function Home() {
         .author-name { font-size: 12.5px; font-weight: 600; color: #fff; }
         .author-title { font-size: 11.5px; color: var(--text3); margin-top: 2px; }
 
-        /* ── PRICING ── */
+        /* PRICING */
         .pricing-section { padding: 56px 48px; }
         .pricing-inner { max-width: 1080px; margin: 0 auto; text-align: center; }
         .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 40px; text-align: left; }
         .pricing-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 32px 26px; position: relative; transition: all 0.3s; }
-        .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,119,204,0.15); }
-        .pricing-card.featured { background: linear-gradient(145deg, rgba(0,119,204,0.18) 0%, rgba(0,170,255,0.06) 100%); border-color: rgba(0,170,255,0.4); box-shadow: 0 0 40px rgba(0,119,204,0.12); }
-        .popular-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(115deg, #0077CC, #00AAFF); color: #fff; font-size: 10px; font-weight: 700; padding: 4px 16px; border-radius: 100px; letter-spacing: 0.08em; white-space: nowrap; box-shadow: 0 4px 16px rgba(0,170,255,0.4); }
+        .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,100,200,0.15); }
+        .pricing-card.featured { background: linear-gradient(145deg, rgba(0,119,204,0.18) 0%, rgba(0,170,255,0.06) 100%); border-color: rgba(0,170,255,0.4); box-shadow: 0 0 40px rgba(0,100,200,0.12); }
+        .popular-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(115deg, #0066BB, #00AAFF); color: #fff; font-size: 10px; font-weight: 700; padding: 4px 16px; border-radius: 100px; letter-spacing: 0.08em; white-space: nowrap; box-shadow: 0 4px 16px rgba(0,170,255,0.4); }
         .plan-name { font-size: 11px; font-weight: 700; color: var(--text3); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.1em; }
         .plan-price { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 48px; font-weight: 800; line-height: 1; color: #fff; letter-spacing: -0.04em; }
         .plan-period { font-size: 14px; color: var(--text2); margin-left: 2px; }
@@ -405,18 +411,18 @@ export default function Home() {
         .check-box { width: 17px; height: 17px; border-radius: 5px; background: rgba(0,119,204,0.2); border: 1px solid rgba(0,170,255,0.3); display: flex; align-items: center; justify-content: center; font-size: 9px; color: #7DD3FC; flex-shrink: 0; margin-top: 1px; }
         .btn-plan { display: flex; align-items: center; justify-content: center; width: 100%; padding: 12px; border-radius: 9px; font-family: 'Outfit', sans-serif; font-size: 13.5px; font-weight: 600; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; }
         .btn-plan:hover { opacity: 0.88; transform: translateY(-1px); }
-        .btn-plan-primary { background: linear-gradient(135deg, #0077CC, #00AAFF); color: #fff; box-shadow: 0 4px 20px rgba(0,170,255,0.3); }
+        .btn-plan-primary { background: linear-gradient(135deg, #0066BB, #00AAFF); color: #fff; box-shadow: 0 4px 20px rgba(0,170,255,0.3); }
         .btn-plan-ghost { background: transparent; color: var(--text2); border: 1px solid var(--border2); }
 
-        /* ── CTA ── */
-        .cta-section { margin: 32px 48px 72px; border-radius: 24px; padding: 80px 48px; text-align: center; position: relative; overflow: hidden; background: linear-gradient(145deg, rgba(0,119,204,0.22) 0%, rgba(27,58,140,0.12) 100%); border: 1px solid rgba(0,170,255,0.3); }
-        .cta-glow { position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(0,119,204,0.35) 0%, transparent 70%); pointer-events: none; }
+        /* CTA */
+        .cta-section { margin: 32px 48px 72px; border-radius: 24px; padding: 80px 48px; text-align: center; position: relative; overflow: hidden; background: linear-gradient(145deg, rgba(0,119,204,0.2) 0%, rgba(27,58,140,0.1) 100%); border: 1px solid rgba(0,170,255,0.3); }
+        .cta-glow { position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(0,119,204,0.3) 0%, transparent 70%); pointer-events: none; }
         .cta-section h2 { font-size: clamp(28px, 4vw, 50px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 14px; color: #fff; position: relative; z-index: 1; }
         .cta-section p { font-size: 15px; color: var(--text2); margin-bottom: 40px; position: relative; z-index: 1; max-width: 440px; margin-left: auto; margin-right: auto; line-height: 1.7; }
         .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
         .cta-note { margin-top: 18px; font-size: 12.5px; color: var(--text3); position: relative; z-index: 1; }
 
-        /* ── FOOTER ── */
+        /* FOOTER */
         footer { border-top: 1px solid var(--border); padding: 44px 52px 36px; }
         .footer-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 48px; margin-bottom: 40px; flex-wrap: wrap; }
         .footer-brand { max-width: 260px; }
@@ -435,83 +441,36 @@ export default function Home() {
         .footer-bottom-links a:hover { color: var(--text2); }
       `}</style>
 
-      {/* ANIMATED CIRCUIT BACKGROUND */}
-      <div className="circuit-bg">
-        <svg className="circuit-svg" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="2" result="coloredBlur" />
-              <feMerge><feMergeNode in="coloredBlur" /><feMergeNode in="SourceGraphic" /></feMerge>
-            </filter>
-            <filter id="strongGlow">
-              <feGaussianBlur stdDeviation="4" result="coloredBlur" />
-              <feMerge><feMergeNode in="coloredBlur" /><feMergeNode in="SourceGraphic" /></feMerge>
-            </filter>
-          </defs>
+      {/* CSS CIRCUIT BACKGROUND */}
+      <div className="circuit-bg" />
 
-          {/* Circuit trace lines */}
-          <path className="circuit-line" d="M 100 80 L 300 80 L 300 200 L 500 200 L 500 80 L 700 80 L 700 160 L 900 160" />
-          <path className="circuit-line" d="M 200 300 L 400 300 L 400 180 L 600 180 L 600 300 L 800 300 L 800 150 L 1000 150" />
-          <path className="circuit-line" d="M 50 500 L 250 500 L 250 380 L 450 380 L 450 500 L 650 500 L 650 380 L 900 380 L 900 500 L 1100 500" />
-          <path className="circuit-line" d="M 150 650 L 350 650 L 350 550 L 550 550 L 550 650 L 750 650 L 750 550 L 950 550" />
-          <path className="circuit-line" d="M 0 750 L 200 750 L 200 620 L 400 620 L 400 750 L 600 750 L 600 620 L 850 620 L 850 750 L 1100 750" />
-          <path className="circuit-line" d="M 1000 80 L 1200 80 L 1200 300 L 1100 300 L 1100 450 L 1300 450 L 1300 600 L 1200 600 L 1200 800" />
-          <path className="circuit-line" d="M 50 200 L 50 400 L 150 400 L 150 600 L 50 600 L 50 800" />
-          <path className="circuit-line" d="M 700 400 L 700 550 L 850 550 L 850 700 L 1000 700 L 1000 850" />
-
-          {/* Horizontal connector traces */}
-          <path className="circuit-line" strokeOpacity="0.5" d="M 0 120 L 100 120" />
-          <path className="circuit-line" strokeOpacity="0.5" d="M 900 200 L 1000 200 L 1000 80" />
-          <path className="circuit-line" strokeOpacity="0.5" d="M 1100 300 L 1200 300" />
-          <path className="circuit-line" strokeOpacity="0.5" d="M 950 550 L 1050 550 L 1050 450" />
-
-          {/* Circuit nodes (junction dots) */}
-          {[
-            [300, 80], [500, 80], [700, 80], [300, 200], [500, 200],
-            [400, 300], [600, 300], [800, 300], [400, 180], [600, 180],
-            [250, 500], [450, 500], [650, 500], [250, 380], [450, 380], [650, 380], [900, 380],
-            [350, 650], [550, 650], [750, 650], [350, 550], [550, 550],
-            [200, 750], [400, 750], [600, 750], [200, 620], [400, 620], [600, 620], [850, 620],
-            [1200, 300], [1100, 450], [1300, 450], [1200, 600],
-            [50, 400], [150, 400], [150, 600],
-            [700, 550], [850, 550], [850, 700], [1000, 700],
-          ].map(([x, y], i) => (
-            <circle
-              key={i}
-              className="circuit-node circuit-node-anim"
-              cx={x} cy={y} r={3}
-              style={{ animationDelay: `${(i * 0.3) % 3}s` }}
-            />
-          ))}
-
-          {/* Glow overlay rectangles for atmosphere */}
-          <rect className="circuit-glow" x="0" y="0" width="400" height="300" fill="url(#radialGlow1)" />
-
-          {/* Moving pulse dots along paths */}
-          <circle className="pulse-dot circuit-pulse-1" r="4" filter="url(#strongGlow)" />
-          <circle className="pulse-dot circuit-pulse-2" r="4" filter="url(#strongGlow)" />
-          <circle className="pulse-dot circuit-pulse-3" r="4" filter="url(#strongGlow)" />
-          <circle className="pulse-dot circuit-pulse-4" r="4" filter="url(#strongGlow)" />
-          <circle className="pulse-dot circuit-pulse-5" r="4" filter="url(#strongGlow)" />
-
-          {/* Second wave of pulses with different timing */}
-          <circle className="pulse-dot" r="3" filter="url(#glow)"
-            style={{
-              offsetPath: "path('M 100 80 L 300 80 L 300 200 L 500 200 L 500 80 L 700 80 L 700 160 L 900 160')",
-              animation: "flow1 4s ease-in-out infinite",
-              animationDelay: "2s",
-              fill: "#7DD3FC",
-            } as React.CSSProperties}
-          />
-          <circle className="pulse-dot" r="3" filter="url(#glow)"
-            style={{
-              offsetPath: "path('M 50 500 L 250 500 L 250 380 L 450 380 L 450 500 L 650 500 L 650 380 L 900 380 L 900 500 L 1100 500')",
-              animation: "flow3 6s ease-in-out infinite",
-              animationDelay: "3.5s",
-              fill: "#BAE6FD",
-            } as React.CSSProperties}
-          />
-        </svg>
+      {/* ANIMATED CIRCUIT TRACES */}
+      <div className="circuit-traces">
+        {/* Horizontal traces at different heights */}
+        {[
+          { top: "12%", delay: "0s", duration: "8s" },
+          { top: "28%", delay: "2s", duration: "10s" },
+          { top: "45%", delay: "1s", duration: "9s" },
+          { top: "62%", delay: "3s", duration: "7s" },
+          { top: "78%", delay: "0.5s", duration: "11s" },
+        ].map((t, i) => (
+          <div key={i}>
+            <div className="trace" style={{ top: t.top, animationDelay: t.delay, animationDuration: t.duration }} />
+            <div className="trace-dot" style={{ top: t.top, animationDelay: t.delay, animationDuration: t.duration }} />
+          </div>
+        ))}
+        {/* Vertical traces */}
+        {[
+          { left: "15%", delay: "1s", duration: "9s" },
+          { left: "35%", delay: "3s", duration: "11s" },
+          { left: "65%", delay: "0s", duration: "8s" },
+          { left: "85%", delay: "2s", duration: "10s" },
+        ].map((t, i) => (
+          <div key={i}>
+            <div className="trace-v" style={{ left: t.left, animationDelay: t.delay, animationDuration: t.duration }} />
+            <div className="trace-dot-v" style={{ left: t.left, animationDelay: t.delay, animationDuration: t.duration }} />
+          </div>
+        ))}
       </div>
 
       <div className="content">
@@ -626,7 +585,7 @@ export default function Home() {
                   <div>
                     <div className="mockup-panel-title">Escalations</div>
                     {["Refund request", "Wrong item"].map(e => (
-                      <div key={e} style={{ fontSize: 10, color: "#b91c1c", padding: "5px 0", borderBottom: "1px solid rgba(0,170,255,0.06)" }}>{e}</div>
+                      <div key={e} style={{ fontSize: 10, color: "#ef4444", padding: "5px 0", borderBottom: "1px solid rgba(0,170,255,0.06)" }}>{e}</div>
                     ))}
                   </div>
                 </div>
@@ -659,8 +618,8 @@ export default function Home() {
             ].map((p, i) => (
               <div key={i} className="photo-card">
                 <img src={p.url} alt={p.label} />
-                <div className="photo-card-overlay" />
-                <div className="photo-card-label">{p.label}</div>
+                <div className="photo-overlay" />
+                <div className="photo-label">{p.label}</div>
               </div>
             ))}
           </div>
@@ -729,9 +688,7 @@ export default function Home() {
                   <div className="stars">{[0, 1, 2, 3, 4].map(i => <span key={i} className="star">{star}</span>)}</div>
                   <blockquote>{lq}{t.quote}{rq}</blockquote>
                   <div className="testimonial-author">
-                    <div className="author-avatar">
-                      <img src={t.img} alt={t.name} />
-                    </div>
+                    <div className="author-avatar"><img src={t.img} alt={t.name} /></div>
                     <div>
                       <div className="author-name">{t.name}</div>
                       <div className="author-title">{t.title}</div>
