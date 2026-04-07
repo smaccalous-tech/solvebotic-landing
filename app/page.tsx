@@ -101,25 +101,22 @@ export default function Home() {
         h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
         .content { position: relative; z-index: 1; }
 
-        /* ── CIRCUIT GRID BACKGROUND (CSS only, performant) ── */
+        /* ── CIRCUIT GRID BACKGROUND ── */
         .circuit-bg {
-          position: fixed; inset: 0; z-index: 0; pointer-events: none;
+          position: fixed; inset: 0; z-index: -1; pointer-events: none;
           background-image:
             linear-gradient(rgba(0,170,255,0.06) 1px, transparent 1px),
             linear-gradient(90deg, rgba(0,170,255,0.06) 1px, transparent 1px);
           background-size: 60px 60px;
           mask-image: radial-gradient(ellipse 100% 100% at 50% 0%, black 20%, transparent 80%);
         }
-        /* Circuit nodes at grid intersections */
         .circuit-bg::before {
           content: '';
           position: absolute; inset: 0;
           background-image: radial-gradient(circle, rgba(0,170,255,0.35) 1.5px, transparent 1.5px);
           background-size: 60px 60px;
-          background-position: 0 0;
           mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 20%, transparent 75%);
         }
-        /* Pulsing glow orbs */
         .circuit-bg::after {
           content: '';
           position: absolute; inset: 0;
@@ -129,14 +126,11 @@ export default function Home() {
             radial-gradient(ellipse 500px 350px at 50% 10%, rgba(27,58,140,0.15) 0%, transparent 70%);
           animation: orbPulse 8s ease-in-out infinite;
         }
-        @keyframes orbPulse {
-          0%, 100% { opacity: 0.7; }
-          50% { opacity: 1; }
-        }
+        @keyframes orbPulse { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
 
-        /* Animated circuit traces using CSS gradients */
+        /* ── CIRCUIT TRACES ── */
         .circuit-traces {
-          position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+          position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden;
         }
         .trace {
           position: absolute; background: linear-gradient(90deg, transparent, rgba(0,170,255,0.6), transparent);
@@ -162,7 +156,6 @@ export default function Home() {
           90% { opacity: 1; }
           100% { transform: translateY(calc(100vh + 150px)); opacity: 0; }
         }
-        /* Pulse dot that travels along traces */
         .trace-dot {
           position: absolute; width: 6px; height: 6px;
           background: #00AAFF; border-radius: 50%;
@@ -190,7 +183,7 @@ export default function Home() {
           100% { transform: translateY(calc(100vh + 150px)); opacity: 0; }
         }
 
-        /* NAV */
+        /* ── NAV ── */
         nav {
           position: fixed; top: 0; left: 0; right: 0; z-index: 100;
           display: flex; align-items: center; justify-content: space-between;
@@ -226,7 +219,7 @@ export default function Home() {
         }
         .btn-ghost:hover { border-color: var(--accent2); background: rgba(0,170,255,0.07); }
 
-        /* HERO */
+        /* ── HERO ── */
         .hero {
           min-height: 100vh; display: flex; flex-direction: column;
           align-items: center; justify-content: center;
@@ -283,7 +276,7 @@ export default function Home() {
         .stat-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 26px; font-weight: 800; color: #fff; letter-spacing: -0.03em; line-height: 1; }
         .stat-label { font-size: 12px; color: var(--text3); margin-top: 5px; }
 
-        /* MOCKUP */
+        /* ── MOCKUP ── */
         .mockup-section { padding: 40px 48px 0; display: flex; justify-content: center; }
         .mockup-wrap { width: 100%; max-width: 920px; position: relative; }
         .mockup-fade-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to bottom, transparent, var(--bg)); pointer-events: none; }
@@ -317,7 +310,7 @@ export default function Home() {
         .mockup-input { background: rgba(0,170,255,0.06); border: 1px solid rgba(0,170,255,0.12); border-radius: 5px; padding: 6px 8px; font-size: 10px; color: var(--text3); margin-bottom: 5px; width: 100%; }
         .mockup-btn { background: linear-gradient(135deg, #0066BB, #00AAFF); border-radius: 5px; padding: 6px; font-size: 10px; color: #fff; text-align: center; font-weight: 600; }
 
-        /* TICKER */
+        /* ── TICKER ── */
         .ticker-section { padding: 40px 0 48px; overflow: hidden; position: relative; }
         .ticker-label { text-align: center; font-size: 11px; font-weight: 600; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
         .ticker-outer { position: relative; }
@@ -329,7 +322,7 @@ export default function Home() {
         .ticker-chip { background: rgba(0,119,204,0.08); border: 1px solid rgba(0,170,255,0.15); border-radius: 9px; padding: 9px 16px; white-space: nowrap; font-size: 12.5px; color: var(--text2); font-weight: 500; display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
         .ticker-dot { width: 5px; height: 5px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 6px #22c55e; }
 
-        /* PHOTO BAND */
+        /* ── PHOTO BAND ── */
         .photo-band { padding: 48px 0; overflow: hidden; }
         .photo-band-inner { display: flex; gap: 16px; padding: 0 48px; }
         .photo-card { flex: 1; min-width: 0; border-radius: 16px; overflow: hidden; position: relative; height: 200px; border: 1px solid var(--border); }
@@ -338,13 +331,13 @@ export default function Home() {
         .photo-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,100,200,0.25), transparent 60%); }
         .photo-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px 16px; background: linear-gradient(to top, rgba(6,10,24,0.9), transparent); font-size: 12px; font-weight: 600; color: var(--text2); letter-spacing: 0.04em; }
 
-        /* SECTIONS */
+        /* ── SECTIONS ── */
         .section-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; color: var(--text3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px; }
         .eyebrow-line { width: 20px; height: 1px; background: var(--accent2); opacity: 0.5; }
         .section-title { font-size: clamp(26px, 3.5vw, 42px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color: #fff; margin-bottom: 12px; }
         .section-sub { font-size: 15px; color: var(--text2); line-height: 1.7; }
 
-        /* PLATFORMS */
+        /* ── PLATFORMS ── */
         .platforms { padding: 56px 48px; text-align: center; }
         .platform-grid { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; max-width: 720px; margin: 28px auto 0; }
         .platform-chip { background: rgba(0,119,204,0.08); border: 1px solid rgba(0,170,255,0.15); border-radius: 10px; padding: 10px 18px; font-size: 13px; font-weight: 500; color: #7AAAC4; transition: all 0.2s; display: flex; align-items: center; gap: 8px; }
@@ -353,7 +346,7 @@ export default function Home() {
         .live-badge { font-size: 10px; font-weight: 700; color: #4ade80; background: rgba(74,222,128,0.12); border: 1px solid rgba(74,222,128,0.3); padding: 1px 7px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.06em; }
         .soon-badge { font-size: 10px; font-weight: 600; color: var(--text3); background: rgba(0,170,255,0.05); border: 1px solid rgba(0,170,255,0.1); padding: 1px 7px; border-radius: 100px; text-transform: uppercase; }
 
-        /* HOW IT WORKS */
+        /* ── HOW IT WORKS ── */
         .how-section { padding: 56px 48px; }
         .how-inner { max-width: 1080px; margin: 0 auto; }
         .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 40px; border: 1px solid var(--border2); border-radius: 20px; overflow: hidden; background: var(--border); }
@@ -366,7 +359,7 @@ export default function Home() {
         .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; color: #fff; letter-spacing: -0.02em; }
         .step p { font-size: 13.5px; color: var(--text2); line-height: 1.7; }
 
-        /* FEATURES */
+        /* ── FEATURES ── */
         .features-section { padding: 56px 48px; }
         .features-inner { max-width: 1080px; margin: 0 auto; }
         .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 40px; }
@@ -378,7 +371,7 @@ export default function Home() {
         .feature-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #fff; }
         .feature-card p { font-size: 13px; color: var(--text2); line-height: 1.65; }
 
-        /* TESTIMONIALS */
+        /* ── TESTIMONIALS ── */
         .testimonials-section { padding: 56px 48px; }
         .testimonials-inner { max-width: 1080px; margin: 0 auto; }
         .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 40px; }
@@ -393,7 +386,7 @@ export default function Home() {
         .author-name { font-size: 12.5px; font-weight: 600; color: #fff; }
         .author-title { font-size: 11.5px; color: var(--text3); margin-top: 2px; }
 
-        /* PRICING */
+        /* ── PRICING ── */
         .pricing-section { padding: 56px 48px; }
         .pricing-inner { max-width: 1080px; margin: 0 auto; text-align: center; }
         .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 40px; text-align: left; }
@@ -414,7 +407,7 @@ export default function Home() {
         .btn-plan-primary { background: linear-gradient(135deg, #0066BB, #00AAFF); color: #fff; box-shadow: 0 4px 20px rgba(0,170,255,0.3); }
         .btn-plan-ghost { background: transparent; color: var(--text2); border: 1px solid var(--border2); }
 
-        /* CTA */
+        /* ── CTA ── */
         .cta-section { margin: 32px 48px 72px; border-radius: 24px; padding: 80px 48px; text-align: center; position: relative; overflow: hidden; background: linear-gradient(145deg, rgba(0,119,204,0.2) 0%, rgba(27,58,140,0.1) 100%); border: 1px solid rgba(0,170,255,0.3); }
         .cta-glow { position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(0,119,204,0.3) 0%, transparent 70%); pointer-events: none; }
         .cta-section h2 { font-size: clamp(28px, 4vw, 50px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 14px; color: #fff; position: relative; z-index: 1; }
@@ -422,7 +415,7 @@ export default function Home() {
         .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
         .cta-note { margin-top: 18px; font-size: 12.5px; color: var(--text3); position: relative; z-index: 1; }
 
-        /* FOOTER */
+        /* ── FOOTER ── */
         footer { border-top: 1px solid var(--border); padding: 44px 52px 36px; }
         .footer-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 48px; margin-bottom: 40px; flex-wrap: wrap; }
         .footer-brand { max-width: 260px; }
@@ -441,12 +434,11 @@ export default function Home() {
         .footer-bottom-links a:hover { color: var(--text2); }
       `}</style>
 
-      {/* CSS CIRCUIT BACKGROUND */}
+      {/* CSS CIRCUIT BACKGROUND — z-index: -1 so it never blocks content */}
       <div className="circuit-bg" />
 
-      {/* ANIMATED CIRCUIT TRACES */}
+      {/* ANIMATED CIRCUIT TRACES — z-index: -1 */}
       <div className="circuit-traces">
-        {/* Horizontal traces at different heights */}
         {[
           { top: "12%", delay: "0s", duration: "8s" },
           { top: "28%", delay: "2s", duration: "10s" },
@@ -459,7 +451,6 @@ export default function Home() {
             <div className="trace-dot" style={{ top: t.top, animationDelay: t.delay, animationDuration: t.duration }} />
           </div>
         ))}
-        {/* Vertical traces */}
         {[
           { left: "15%", delay: "1s", duration: "9s" },
           { left: "35%", delay: "3s", duration: "11s" },
@@ -535,8 +526,7 @@ export default function Home() {
                     { label: "Settings", active: false },
                   ].map(item => (
                     <div key={item.label} className={`mockup-nav-item ${item.active ? "active" : ""}`}>
-                      <div className="mockup-nav-dot" />
-                      {item.label}
+                      <div className="mockup-nav-dot" />{item.label}
                     </div>
                   ))}
                 </div>
