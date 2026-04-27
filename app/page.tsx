@@ -22,37 +22,36 @@ export default function Home() {
     { name: "Digistore24", live: false },
     { name: "Konnektive", live: false },
     { name: "BuyGoods", live: false },
-    { name: "CartPanda", live: false },
   ];
 
   const steps = [
-    { num: "Step 01", icon: "🔌", title: "Connect your store", desc: "Link your Shopify or WooCommerce store in minutes. No code, no installs, no waiting." },
-    { num: "Step 02", icon: "🤖", title: "AI handles support", desc: "Customers get instant, accurate answers to order questions, status updates, and tracking automatically." },
-    { num: "Step 03", icon: "🎯", title: "You stay in control", desc: "Complex issues are escalated to your team with full context attached. You only see what needs a human." },
+    { num: "Step 01", icon: "🔌", title: "Connect your store", desc: "Link your Shopify or WooCommerce store in minutes. No code, no developers, no waiting. Your orders are imported automatically." },
+    { num: "Step 02", icon: "🤖", title: "AI resolves support instantly", desc: "Customers get instant answers 24/7 — order tracking, status updates, refund requests, cancellations. No wait times, no tickets piling up." },
+    { num: "Step 03", icon: "🎯", title: "You only handle what matters", desc: "Complex issues are escalated to you with full conversation context attached. You stay in control without drowning in routine questions." },
   ];
 
   const features = [
-    { icon: "🤖", title: "AI Classification", desc: "Gemini AI reads every request, classifies it by intent and confidence, and routes it instantly." },
-    { icon: "📦", title: "Order Lookup", desc: "Customers self-serve order status and tracking without ever contacting your team." },
-    { icon: "⚡", title: "Smart Escalation", desc: "Refunds, damage claims, and edge cases are escalated automatically with full conversation context." },
-    { icon: "🔌", title: "Multi-Platform", desc: "One unified dashboard for Shopify, WooCommerce, and every platform you sell on." },
-    { icon: "📊", title: "Live Dashboard", desc: "Monitor requests, escalations, intent breakdowns, and resolution rates in real time." },
-    { icon: "💬", title: "Embeddable Widget", desc: "A sleek floating chat widget lives directly on your store. Fully branded, fully yours." },
+    { icon: "🤖", title: "AI Classification", desc: "Gemini AI reads every message, classifies intent with a confidence score, and routes it instantly — no manual triaging needed." },
+    { icon: "📦", title: "Instant Order Lookup", desc: "Customers self-serve order status and tracking in real time without ever needing to contact your team." },
+    { icon: "⚡", title: "Smart Escalation", desc: "Refunds, damaged items, and edge cases are escalated automatically with full conversation context so you never start from scratch." },
+    { icon: "🔌", title: "Multi-Platform", desc: "One unified dashboard for Shopify, WooCommerce, and every platform you sell on. No switching between tools." },
+    { icon: "📊", title: "Live Dashboard", desc: "Monitor every request, escalation, and resolution in real time. Filter by intent, platform, and status at a glance." },
+    { icon: "💬", title: "Embeddable Widget", desc: "A sleek floating chat widget that lives directly on your store. Fully branded, fully yours, live in minutes." },
   ];
 
   const testimonials = [
     {
-      quote: "We cut our support response time from 6 hours to under 2 seconds. Our team now only handles the truly complex stuff.",
+      quote: "We cut support response time from 6 hours to under 2 seconds. Our team now only handles truly complex issues — everything else is resolved automatically.",
       name: "Marcus T.", title: "Founder, DTC Supplement Brand",
       img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face"
     },
     {
-      quote: "Setup took 8 minutes. Literally. It connected to Shopify and started handling order questions the same day.",
-      name: "Priya K.", title: "Head of Ops, Home Goods Store",
+      quote: "Setup took 8 minutes. It connected to Shopify and started answering order questions the same day. I didn't have to do anything after that.",
+      name: "Priya K.", title: "Head of Operations, Home Goods Store",
       img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face"
     },
     {
-      quote: "I was skeptical about AI support, but the escalation logic is smart. Real issues get to us fast, noise gets handled automatically.",
+      quote: "The escalation logic is genuinely smart. Real issues reach us fast, routine noise gets handled automatically. It's exactly what we needed.",
       name: "Jordan M.", title: "CX Lead, Apparel Brand",
       img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face"
     },
@@ -61,7 +60,7 @@ export default function Home() {
   const plans = [
     {
       name: "Starter", price: "$49", period: "/mo",
-      desc: "Perfect for small stores just getting started with AI support.",
+      desc: "Perfect for small stores ready to automate support.",
       features: ["1 brand", "Unlimited AI responses", "Order lookup", "Email escalation", "Dashboard access", "14-day free trial"],
       cta: "Start Free Trial", href: "https://app.solvebotic.com/onboarding", featured: false,
       badge: null,
@@ -90,9 +89,9 @@ export default function Home() {
   ];
 
   const tickerItems = [
-    "Unlimited AI responses on every plan", "Zero missed support tickets", "Shopify-native integration",
+    "Unlimited AI responses on every plan", "Zero missed support tickets", "Shopify native integration",
     "Refund requests auto-escalated", "24/7 AI coverage", "Instant responses at scale",
-    "Multi-platform in one dashboard", "No per-ticket fees ever",
+    "WooCommerce fully supported", "No per-ticket fees ever", "Live in under 10 minutes",
   ];
 
   return (
@@ -198,9 +197,10 @@ export default function Home() {
         @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .hero h1 { font-size: clamp(42px, 6.5vw, 82px); font-weight: 800; line-height: 1.06; letter-spacing: -0.04em; margin-bottom: 22px; color: #fff; animation: fadeUp 0.6s 0.1s ease both; }
         .gradient-text { background: linear-gradient(115deg, #0088DD 0%, #00AAFF 50%, #7DD3FC 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .hero-sub { font-size: 17px; color: var(--text2); line-height: 1.75; max-width: 540px; margin: 0 auto 36px; animation: fadeUp 0.6s 0.2s ease both; }
+        .hero-sub { font-size: 18px; color: var(--text2); line-height: 1.75; max-width: 560px; margin: 0 auto 36px; animation: fadeUp 0.6s 0.2s ease both; }
         .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
         .btn-large { font-size: 15px; font-weight: 600; padding: 14px 32px; border-radius: 10px; }
+        .hero-disclaimer { font-size: 12px; color: var(--text3); margin-top: 14px; animation: fadeUp 0.6s 0.35s ease both; }
         .stats-wrap { animation: fadeUp 0.7s 0.45s ease both; margin-top: 48px; width: 100%; max-width: 700px; }
         .stats { display: flex; border: 1px solid var(--border2); border-radius: 16px; overflow: hidden; background: rgba(0,119,204,0.07); backdrop-filter: blur(12px); }
         .stat { flex: 1; padding: 22px 16px; text-align: center; border-right: 1px solid var(--border); }
@@ -337,7 +337,7 @@ export default function Home() {
         .pricing-section { padding: 56px 48px; }
         .pricing-inner { max-width: 1160px; margin: 0 auto; text-align: center; }
         .pricing-trial-note { font-size: 14px; color: var(--accent2); margin-top: 8px; font-weight: 500; }
-        .pricing-unlimited-note { font-size: 13px; color: #4ade80; margin-top: 6px; font-weight: 600; letter-spacing: 0.01em; }
+        .pricing-unlimited-note { font-size: 13px; color: #4ade80; margin-top: 6px; font-weight: 600; }
         .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 40px; text-align: left; }
         .pricing-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 28px 22px; position: relative; transition: all 0.3s; display: flex; flex-direction: column; }
         .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,100,200,0.15); }
@@ -359,10 +359,14 @@ export default function Home() {
         .btn-plan-ghost { background: transparent; color: var(--text2); border: 1px solid var(--border2); }
         .plan-trial { font-size: 11px; color: var(--text3); text-align: center; margin-top: 10px; }
 
+        .trust-strip { padding: 32px 48px; display: flex; align-items: center; justify-content: center; gap: 48px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+        .trust-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text2); font-weight: 500; }
+        .trust-icon { font-size: 18px; }
+
         .cta-section { margin: 32px 48px 72px; border-radius: 24px; padding: 80px 48px; text-align: center; position: relative; overflow: hidden; background: linear-gradient(145deg, rgba(0,119,204,0.2) 0%, rgba(27,58,140,0.1) 100%); border: 1px solid rgba(0,170,255,0.3); }
         .cta-glow { position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(0,119,204,0.3) 0%, transparent 70%); pointer-events: none; }
         .cta-section h2 { font-size: clamp(28px, 4vw, 50px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 14px; color: #fff; position: relative; z-index: 1; }
-        .cta-section p { font-size: 15px; color: var(--text2); margin-bottom: 40px; position: relative; z-index: 1; max-width: 440px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+        .cta-section p { font-size: 15px; color: var(--text2); margin-bottom: 40px; position: relative; z-index: 1; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7; }
         .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
         .cta-note { margin-top: 18px; font-size: 12.5px; color: var(--text3); position: relative; z-index: 1; }
 
@@ -417,6 +421,7 @@ export default function Home() {
 
       <div className="content">
 
+        {/* NAV */}
         <nav>
           <a href="/" className="nav-logo">
             <img src="/logo.png" alt="SolveBotic" />
@@ -425,23 +430,27 @@ export default function Home() {
             <a href="#features">Features</a>
             <a href="#platforms">Platforms</a>
             <a href="#pricing">Pricing</a>
-            <a href="mailto:support@solvebotic.com">Contact</a>
+            <a href="#how-it-works">How it works</a>
             <div className="nav-divider" />
             <a href="https://app.solvebotic.com/auth/login">Login</a>
-            <a href="https://app.solvebotic.com/onboarding" className="btn-primary">Get Started {arrow}</a>
+            <a href="https://app.solvebotic.com/onboarding" className="btn-primary">Start Free Trial {arrow}</a>
           </div>
         </nav>
 
+        {/* HERO */}
         <section className="hero">
           <div className="hero-glow" />
           <div className="hero-inner">
-            <div className="badge"><div className="badge-dot" />AI-Powered Customer Support</div>
-            <h1>Handle Every<br />Support Request.<br /><span className="gradient-text">Automatically.</span></h1>
-            <p className="hero-sub">SolveBotic uses AI to instantly respond to post-purchase questions, look up orders, and escalate issues {dash} across every platform you sell on.</p>
+            <div className="badge"><div className="badge-dot" />Now live on Shopify {dash} WooCommerce</div>
+            <h1>Your store gets<br />support questions.<br /><span className="gradient-text">We answer them.</span></h1>
+            <p className="hero-sub">
+              SolveBotic's AI handles order tracking, refund requests, and cancellations instantly {dash} 24/7, across every platform you sell on. Your team only sees what actually needs a human.
+            </p>
             <div className="hero-btns">
               <a href="https://app.solvebotic.com/onboarding" className="btn-primary btn-large">Start Free Trial {arrow}</a>
               <a href="#how-it-works" className="btn-ghost btn-large">See how it works</a>
             </div>
+            <p className="hero-disclaimer">14-day free trial {dot} Credit card required {dot} Cancel anytime</p>
             <div className="stats-wrap">
               <div className="stats">
                 {stats.map(s => (
@@ -455,6 +464,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* DASHBOARD MOCKUP */}
         <div className="mockup-section">
           <div className="mockup-wrap">
             <div className="mockup-browser">
@@ -468,7 +478,7 @@ export default function Home() {
                 <div className="mockup-sidebar">
                   <div className="mockup-logo-row">
                     <img className="mockup-logo-img" src="/logo.png" alt="SolveBotic" />
-                    <span className="mockup-brand-chip">Brandtest</span>
+                    <span className="mockup-brand-chip">My Store</span>
                   </div>
                   <div className="mockup-section-label">Main</div>
                   {[{ label: "Dashboard", active: true }, { label: "Escalations", active: false }, { label: "Reports", active: false }].map(item => (
@@ -477,7 +487,7 @@ export default function Home() {
                     </div>
                   ))}
                   <div className="mockup-section-label">Store</div>
-                  {["Order lookup", "Shopify", "WooCommerce"].map(label => (
+                  {["Order lookup", "Shopify sync"].map(label => (
                     <div key={label} className="mockup-nav-item"><div className="mockup-nav-dot" />{label}</div>
                   ))}
                   <div className="mockup-section-label">Account</div>
@@ -500,7 +510,7 @@ export default function Home() {
                   <div>
                     <div className="mockup-section-header">
                       <span className="mockup-section-title">Recent conversations</span>
-                      <span className="mockup-row-count">6 rows</span>
+                      <span className="mockup-row-count">5 rows</span>
                     </div>
                     <div className="mockup-table-wrap">
                       <div className="mockup-table-header">
@@ -539,8 +549,8 @@ export default function Home() {
                   <div>
                     <div className="mockup-panel-title">Escalation Alerts <span style={{ background: "#fef2f2", color: "#b91c1c", fontSize: 9, padding: "1px 6px", borderRadius: 20, marginLeft: 4 }}>2</span></div>
                     {[
-                      { email: "mike@email.com", reason: "order_not_found", system: "Shopify Admin", time: "Mar 20, 11:11 AM" },
-                      { email: "tom@email.com", reason: "refund_request", system: "Shopify Admin → Finance", time: "Mar 19, 3:22 PM" },
+                      { email: "mike@email.com", reason: "refund_request", system: "Shopify → Finance", time: "Apr 27, 11:11 AM" },
+                      { email: "tom@email.com", reason: "wrong_item", system: "Shopify → Fulfillment", time: "Apr 26, 3:22 PM" },
                     ].map((e, i) => (
                       <div key={i} className="mockup-escalation-item">
                         <div className="mockup-esc-email">{e.email}</div>
@@ -557,7 +567,7 @@ export default function Home() {
                     {[
                       { label: "Order lookup", pct: 67 },
                       { label: "Refund request", pct: 17 },
-                      { label: "Order status", pct: 17 },
+                      { label: "Order status", pct: 16 },
                     ].map(item => (
                       <div key={item.label} className="mockup-intent-bar">
                         <div className="mockup-intent-row">
@@ -577,8 +587,9 @@ export default function Home() {
           </div>
         </div>
 
+        {/* TICKER */}
         <div className="ticker-section">
-          <div className="ticker-label">Trusted by ecommerce brands</div>
+          <div className="ticker-label">What SolveBotic handles for you</div>
           <div className="ticker-outer">
             <div className="ticker-track">
               {[...tickerItems, ...tickerItems].map((text, i) => (
@@ -588,6 +599,7 @@ export default function Home() {
           </div>
         </div>
 
+        {/* PHOTO BAND */}
         <div className="photo-band">
           <div className="photo-band-inner">
             {[
@@ -605,10 +617,29 @@ export default function Home() {
           </div>
         </div>
 
+        {/* TRUST STRIP */}
+        <div className="trust-strip">
+          {[
+            { icon: "🔒", text: "Payments secured by Stripe" },
+            { icon: "🤖", text: "Powered by Gemini AI" },
+            { icon: "⚡", text: "Live in under 10 minutes" },
+            { icon: "🔁", text: "Cancel anytime" },
+            { icon: "📦", text: "Shopify & WooCommerce native" },
+          ].map(t => (
+            <div key={t.text} className="trust-item">
+              <span className="trust-icon">{t.icon}</span>
+              {t.text}
+            </div>
+          ))}
+        </div>
+
+        {/* PLATFORMS */}
         <section id="platforms" className="platforms">
           <div className="section-eyebrow"><div className="eyebrow-line" />Integrations<div className="eyebrow-line" /></div>
           <h2 className="section-title">Works where you sell.</h2>
-          <p className="section-sub" style={{ maxWidth: 460, margin: "0 auto" }}>One dashboard. Every platform. Connect your store in minutes {dash} no code required.</p>
+          <p className="section-sub" style={{ maxWidth: 460, margin: "0 auto" }}>
+            Connect your store in minutes {dash} no code, no developers, no waiting.
+          </p>
           <div className="platform-grid">
             {platforms.map(p => (
               <div key={p.name} className={`platform-chip ${p.live ? "live" : ""}`}>
@@ -619,11 +650,12 @@ export default function Home() {
           </div>
         </section>
 
+        {/* HOW IT WORKS */}
         <section id="how-it-works" className="how-section">
           <div className="how-inner">
             <div className="section-eyebrow"><div className="eyebrow-line" />How it works<div className="eyebrow-line" /></div>
             <h2 className="section-title">Up and running in minutes.</h2>
-            <p className="section-sub">No complex setup. No dev team required.</p>
+            <p className="section-sub">No complex setup. No developer required. No ongoing maintenance.</p>
             <div className="steps">
               {steps.map(s => (
                 <div key={s.num} className="step">
@@ -637,11 +669,12 @@ export default function Home() {
           </div>
         </section>
 
+        {/* FEATURES */}
         <section id="features" className="features-section">
           <div className="features-inner">
             <div className="section-eyebrow"><div className="eyebrow-line" />Features<div className="eyebrow-line" /></div>
             <h2 className="section-title">Everything you need<br />to scale support.</h2>
-            <p className="section-sub">Built for ecommerce brands that want to grow without growing their support team.</p>
+            <p className="section-sub">Built for ecommerce brands that want to grow without growing their support headcount.</p>
             <div className="feature-grid">
               {features.map(f => (
                 <div key={f.title} className="feature-card">
@@ -654,6 +687,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* TESTIMONIALS */}
         <section className="testimonials-section">
           <div className="testimonials-inner">
             <div className="section-eyebrow"><div className="eyebrow-line" />What brands say<div className="eyebrow-line" /></div>
@@ -676,12 +710,13 @@ export default function Home() {
           </div>
         </section>
 
+        {/* PRICING */}
         <section id="pricing" className="pricing-section">
           <div className="pricing-inner">
             <div className="section-eyebrow"><div className="eyebrow-line" />Pricing<div className="eyebrow-line" /></div>
             <h2 className="section-title">Simple, transparent pricing.</h2>
-            <p className="section-sub">No setup fees. No hidden costs. Cancel anytime.</p>
-            <p className="pricing-trial-note">All plans include a 14-day free trial {dash} cancel anytime.</p>
+            <p className="section-sub">No setup fees. No hidden costs. No per-ticket charges.</p>
+            <p className="pricing-trial-note">All plans include a 14-day free trial {dash} credit card required to start.</p>
             <p className="pricing-unlimited-note">✦ Unlimited AI responses on every plan {dash} no per-ticket fees, ever.</p>
             <div className="pricing-grid">
               {plans.map(plan => (
@@ -711,24 +746,26 @@ export default function Home() {
           </div>
         </section>
 
+        {/* CTA */}
         <div className="cta-section">
           <div className="cta-glow" />
-          <h2>Ready to automate<br />your support?</h2>
-          <p>Join brands already using SolveBotic to handle customer support {dash} faster, smarter, and around the clock.</p>
+          <h2>Stop answering the<br />same questions twice.</h2>
+          <p>SolveBotic handles your routine support automatically so your team can focus on the work that actually moves your business forward.</p>
           <div className="cta-btns">
             <a href="https://app.solvebotic.com/onboarding" className="btn-primary btn-large">Start Free Trial {arrow}</a>
             <a href="https://app.solvebotic.com/auth/login" className="btn-ghost btn-large">Login to dashboard</a>
           </div>
-          <p className="cta-note">14-day free trial {dot} Unlimited AI responses {dot} Cancel anytime</p>
+          <p className="cta-note">14-day free trial {dot} Credit card required {dot} Cancel anytime</p>
         </div>
 
+        {/* FOOTER */}
         <footer>
           <div className="footer-top">
             <div className="footer-brand">
               <a href="/" className="footer-logo">
                 <img src="/logo.png" alt="SolveBotic" />
               </a>
-              <p className="footer-tagline">AI-powered customer support for ecommerce brands. Unlimited AI responses on every plan.</p>
+              <p className="footer-tagline">AI-powered customer support for ecommerce brands. Unlimited AI responses on every plan. Live in under 10 minutes.</p>
             </div>
             <div className="footer-cols">
               <div className="footer-col">
