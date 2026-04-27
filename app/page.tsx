@@ -17,7 +17,7 @@ export default function Home() {
 
   const platforms = [
     { name: "Shopify", live: true },
-    { name: "WooCommerce", live: false },
+    { name: "WooCommerce", live: true },
     { name: "ClickBank", live: false },
     { name: "Digistore24", live: false },
     { name: "Konnektive", live: false },
@@ -26,7 +26,7 @@ export default function Home() {
   ];
 
   const steps = [
-    { num: "Step 01", icon: "🔌", title: "Connect your store", desc: "Link your Shopify (or any supported platform) in one click. No code, no installs, no waiting." },
+    { num: "Step 01", icon: "🔌", title: "Connect your store", desc: "Link your Shopify or WooCommerce store in minutes. No code, no installs, no waiting." },
     { num: "Step 02", icon: "🤖", title: "AI handles support", desc: "Customers get instant, accurate answers to order questions, status updates, and tracking automatically." },
     { num: "Step 03", icon: "🎯", title: "You stay in control", desc: "Complex issues are escalated to your team with full context attached. You only see what needs a human." },
   ];
@@ -35,7 +35,7 @@ export default function Home() {
     { icon: "🤖", title: "AI Classification", desc: "Gemini AI reads every request, classifies it by intent and confidence, and routes it instantly." },
     { icon: "📦", title: "Order Lookup", desc: "Customers self-serve order status and tracking without ever contacting your team." },
     { icon: "⚡", title: "Smart Escalation", desc: "Refunds, damage claims, and edge cases are escalated automatically with full conversation context." },
-    { icon: "🔌", title: "Multi-Platform", desc: "One unified dashboard for Shopify, WooCommerce, ClickBank, and every platform you sell on." },
+    { icon: "🔌", title: "Multi-Platform", desc: "One unified dashboard for Shopify, WooCommerce, and every platform you sell on." },
     { icon: "📊", title: "Live Dashboard", desc: "Monitor requests, escalations, intent breakdowns, and resolution rates in real time." },
     { icon: "💬", title: "Embeddable Widget", desc: "A sleek floating chat widget lives directly on your store. Fully branded, fully yours." },
   ];
@@ -60,39 +60,39 @@ export default function Home() {
 
   const plans = [
     {
-      name: "Starter", price: "$29", period: "/mo",
+      name: "Starter", price: "$49", period: "/mo",
       desc: "Perfect for small stores just getting started with AI support.",
-      features: ["1 brand", "500 AI responses/mo", "Order lookup", "Email escalation", "Dashboard access", "14-day free trial"],
+      features: ["1 brand", "Unlimited AI responses", "Order lookup", "Email escalation", "Dashboard access", "14-day free trial"],
       cta: "Start Free Trial", href: "https://app.solvebotic.com/onboarding", featured: false,
       badge: null,
     },
     {
-      name: "Growth", price: "$79", period: "/mo",
+      name: "Growth", price: "$99", period: "/mo",
       desc: "For growing brands that need more volume and platform flexibility.",
-      features: ["3 brands", "2,000 AI responses/mo", "All platforms", "Priority escalation", "Real-time dashboard", "Shopify sync", "14-day free trial"],
+      features: ["3 brands", "Unlimited AI responses", "All platforms", "Priority escalation", "Slack notifications", "Real-time dashboard", "14-day free trial"],
       cta: "Start Free Trial", href: "https://app.solvebotic.com/onboarding", featured: true,
       badge: "Most Popular",
     },
     {
-      name: "Scale", price: "$149", period: "/mo",
+      name: "Scale", price: "$199", period: "/mo",
       desc: "For established brands running high support volume across multiple channels.",
-      features: ["10 brands", "10,000 AI responses/mo", "All platforms", "Dedicated escalation inbox", "Advanced analytics", "Priority support", "14-day free trial"],
+      features: ["Unlimited brands", "Unlimited AI responses", "All platforms", "Dedicated escalation inbox", "Advanced analytics", "Priority support", "14-day free trial"],
       cta: "Start Free Trial", href: "https://app.solvebotic.com/onboarding", featured: false,
       badge: null,
     },
     {
       name: "Enterprise", price: "Custom", period: "",
       desc: "For large operations that need custom solutions and dedicated support.",
-      features: ["Unlimited brands", "Unlimited responses", "All platforms", "Dedicated account manager", "Custom integrations", "SLA guarantee", "White-glove onboarding"],
+      features: ["Unlimited brands", "Unlimited AI responses", "All platforms", "Dedicated account manager", "Custom integrations", "SLA guarantee", "White-glove onboarding"],
       cta: "Contact Us", href: "mailto:support@solvebotic.com", featured: false,
       badge: null,
     },
   ];
 
   const tickerItems = [
-    "Order status handled automatically", "Zero missed support tickets", "Shopify-native integration",
+    "Unlimited AI responses on every plan", "Zero missed support tickets", "Shopify-native integration",
     "Refund requests auto-escalated", "24/7 AI coverage", "Instant responses at scale",
-    "Multi-platform in one dashboard", "No dev team required",
+    "Multi-platform in one dashboard", "No per-ticket fees ever",
   ];
 
   return (
@@ -124,7 +124,6 @@ export default function Home() {
         h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
         .content { position: relative; z-index: 1; }
 
-        /* ── CIRCUIT BACKGROUND ── */
         .circuit-bg {
           position: fixed; inset: 0; z-index: -1; pointer-events: none;
           background-image:
@@ -149,7 +148,6 @@ export default function Home() {
         }
         @keyframes orbPulse { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
 
-        /* ── CIRCUIT TRACES ── */
         .circuit-traces { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
         .trace { position: absolute; background: linear-gradient(90deg, transparent, rgba(0,170,255,0.6), transparent); height: 1px; width: 200px; animation: traceFlow 6s ease-in-out infinite; filter: blur(0.5px); }
         .trace-v { position: absolute; background: linear-gradient(180deg, transparent, rgba(0,170,255,0.5), transparent); width: 1px; height: 150px; animation: traceFlowV 7s ease-in-out infinite; filter: blur(0.5px); }
@@ -160,7 +158,6 @@ export default function Home() {
         @keyframes dotFlow { 0% { transform: translateX(-200px); opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } 100% { transform: translateX(calc(100vw + 200px)); opacity: 0; } }
         @keyframes dotFlowV { 0% { transform: translateY(-150px); opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } 100% { transform: translateY(calc(100vh + 150px)); opacity: 0; } }
 
-        /* ── NAV — WHITE ── */
         nav {
           position: fixed; top: 0; left: 0; right: 0; z-index: 100;
           display: flex; align-items: center; justify-content: space-between;
@@ -192,7 +189,6 @@ export default function Home() {
         }
         .btn-ghost:hover { border-color: var(--accent2); background: rgba(0,170,255,0.07); }
 
-        /* ── HERO ── */
         .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 130px 24px 48px; position: relative; }
         .hero-glow { position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 1000px; height: 700px; background: radial-gradient(ellipse, rgba(0,119,204,0.18) 0%, rgba(27,58,140,0.08) 40%, transparent 70%); pointer-events: none; z-index: 0; }
         .hero-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; width: 100%; }
@@ -212,7 +208,6 @@ export default function Home() {
         .stat-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 26px; font-weight: 800; color: #fff; letter-spacing: -0.03em; line-height: 1; }
         .stat-label { font-size: 12px; color: var(--text3); margin-top: 5px; }
 
-        /* ── MOCKUP ── */
         .mockup-section { padding: 40px 48px 0; display: flex; justify-content: center; }
         .mockup-wrap { width: 100%; max-width: 960px; position: relative; }
         .mockup-fade-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 100px; background: linear-gradient(to bottom, transparent, var(--bg)); pointer-events: none; }
@@ -270,7 +265,6 @@ export default function Home() {
         .mockup-bar-track { height: 3px; background: #f3f4f6; border-radius: 2px; }
         .mockup-bar-fill { height: 100%; background: #4F46E5; border-radius: 2px; }
 
-        /* ── TICKER ── */
         .ticker-section { padding: 40px 0 48px; overflow: hidden; position: relative; }
         .ticker-label { text-align: center; font-size: 11px; font-weight: 600; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
         .ticker-outer { position: relative; }
@@ -282,7 +276,6 @@ export default function Home() {
         .ticker-chip { background: rgba(0,119,204,0.08); border: 1px solid rgba(0,170,255,0.15); border-radius: 9px; padding: 9px 16px; white-space: nowrap; font-size: 12.5px; color: var(--text2); font-weight: 500; display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
         .ticker-dot { width: 5px; height: 5px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 6px #22c55e; }
 
-        /* ── PHOTO BAND ── */
         .photo-band { padding: 48px 0; overflow: hidden; }
         .photo-band-inner { display: flex; gap: 16px; padding: 0 48px; }
         .photo-card { flex: 1; min-width: 0; border-radius: 16px; overflow: hidden; position: relative; height: 200px; border: 1px solid var(--border); }
@@ -291,13 +284,11 @@ export default function Home() {
         .photo-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,100,200,0.25), transparent 60%); }
         .photo-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px 16px; background: linear-gradient(to top, rgba(6,10,24,0.9), transparent); font-size: 12px; font-weight: 600; color: var(--text2); letter-spacing: 0.04em; }
 
-        /* ── SECTIONS ── */
         .section-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; color: var(--text3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px; }
         .eyebrow-line { width: 20px; height: 1px; background: var(--accent2); opacity: 0.5; }
         .section-title { font-size: clamp(26px, 3.5vw, 42px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color: #fff; margin-bottom: 12px; }
         .section-sub { font-size: 15px; color: var(--text2); line-height: 1.7; }
 
-        /* ── PLATFORMS ── */
         .platforms { padding: 56px 48px; text-align: center; }
         .platform-grid { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; max-width: 720px; margin: 28px auto 0; }
         .platform-chip { background: rgba(0,119,204,0.08); border: 1px solid rgba(0,170,255,0.15); border-radius: 10px; padding: 10px 18px; font-size: 13px; font-weight: 500; color: #7AAAC4; transition: all 0.2s; display: flex; align-items: center; gap: 8px; }
@@ -306,7 +297,6 @@ export default function Home() {
         .live-badge { font-size: 10px; font-weight: 700; color: #4ade80; background: rgba(74,222,128,0.12); border: 1px solid rgba(74,222,128,0.3); padding: 1px 7px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.06em; }
         .soon-badge { font-size: 10px; font-weight: 600; color: var(--text3); background: rgba(0,170,255,0.05); border: 1px solid rgba(0,170,255,0.1); padding: 1px 7px; border-radius: 100px; text-transform: uppercase; }
 
-        /* ── HOW IT WORKS ── */
         .how-section { padding: 56px 48px; }
         .how-inner { max-width: 1080px; margin: 0 auto; }
         .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 40px; border: 1px solid var(--border2); border-radius: 20px; overflow: hidden; background: var(--border); }
@@ -319,7 +309,6 @@ export default function Home() {
         .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; color: #fff; letter-spacing: -0.02em; }
         .step p { font-size: 13.5px; color: var(--text2); line-height: 1.7; }
 
-        /* ── FEATURES ── */
         .features-section { padding: 56px 48px; }
         .features-inner { max-width: 1080px; margin: 0 auto; }
         .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 40px; }
@@ -331,7 +320,6 @@ export default function Home() {
         .feature-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #fff; }
         .feature-card p { font-size: 13px; color: var(--text2); line-height: 1.65; }
 
-        /* ── TESTIMONIALS ── */
         .testimonials-section { padding: 56px 48px; }
         .testimonials-inner { max-width: 1080px; margin: 0 auto; }
         .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 40px; }
@@ -346,10 +334,10 @@ export default function Home() {
         .author-name { font-size: 12.5px; font-weight: 600; color: #fff; }
         .author-title { font-size: 11.5px; color: var(--text3); margin-top: 2px; }
 
-        /* ── PRICING — 4 PLANS ── */
         .pricing-section { padding: 56px 48px; }
         .pricing-inner { max-width: 1160px; margin: 0 auto; text-align: center; }
         .pricing-trial-note { font-size: 14px; color: var(--accent2); margin-top: 8px; font-weight: 500; }
+        .pricing-unlimited-note { font-size: 13px; color: #4ade80; margin-top: 6px; font-weight: 600; letter-spacing: 0.01em; }
         .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 40px; text-align: left; }
         .pricing-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 28px 22px; position: relative; transition: all 0.3s; display: flex; flex-direction: column; }
         .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,100,200,0.15); }
@@ -362,14 +350,15 @@ export default function Home() {
         .plan-divider { height: 1px; background: var(--border); margin-bottom: 18px; }
         .plan-features { display: flex; flex-direction: column; gap: 9px; margin-bottom: 24px; flex: 1; }
         .plan-feature { display: flex; align-items: flex-start; gap: 9px; font-size: 12.5px; color: #BAE6FD; line-height: 1.4; }
+        .plan-feature.highlight { color: #4ade80; font-weight: 600; }
         .check-box { width: 16px; height: 16px; border-radius: 4px; background: rgba(0,119,204,0.2); border: 1px solid rgba(0,170,255,0.3); display: flex; align-items: center; justify-content: center; font-size: 9px; color: #7DD3FC; flex-shrink: 0; margin-top: 1px; }
+        .check-box.green { background: rgba(74,222,128,0.15); border-color: rgba(74,222,128,0.4); color: #4ade80; }
         .btn-plan { display: flex; align-items: center; justify-content: center; width: 100%; padding: 11px; border-radius: 9px; font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; margin-top: auto; }
         .btn-plan:hover { opacity: 0.88; transform: translateY(-1px); }
         .btn-plan-primary { background: linear-gradient(135deg, #0066BB, #00AAFF); color: #fff; box-shadow: 0 4px 20px rgba(0,170,255,0.3); }
         .btn-plan-ghost { background: transparent; color: var(--text2); border: 1px solid var(--border2); }
         .plan-trial { font-size: 11px; color: var(--text3); text-align: center; margin-top: 10px; }
 
-        /* ── CTA ── */
         .cta-section { margin: 32px 48px 72px; border-radius: 24px; padding: 80px 48px; text-align: center; position: relative; overflow: hidden; background: linear-gradient(145deg, rgba(0,119,204,0.2) 0%, rgba(27,58,140,0.1) 100%); border: 1px solid rgba(0,170,255,0.3); }
         .cta-glow { position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(0,119,204,0.3) 0%, transparent 70%); pointer-events: none; }
         .cta-section h2 { font-size: clamp(28px, 4vw, 50px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 14px; color: #fff; position: relative; z-index: 1; }
@@ -377,7 +366,6 @@ export default function Home() {
         .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
         .cta-note { margin-top: 18px; font-size: 12.5px; color: var(--text3); position: relative; z-index: 1; }
 
-        /* ── FOOTER — WHITE ── */
         footer {
           background: #ffffff;
           border-top: 1px solid #e5e7eb;
@@ -400,7 +388,6 @@ export default function Home() {
         .footer-bottom-links a:hover { color: #374151; }
       `}</style>
 
-      {/* CIRCUIT BACKGROUND */}
       <div className="circuit-bg" />
       <div className="circuit-traces">
         {[
@@ -430,7 +417,6 @@ export default function Home() {
 
       <div className="content">
 
-        {/* NAV — WHITE */}
         <nav>
           <a href="/" className="nav-logo">
             <img src="/logo.png" alt="SolveBotic" />
@@ -446,7 +432,6 @@ export default function Home() {
           </div>
         </nav>
 
-        {/* HERO */}
         <section className="hero">
           <div className="hero-glow" />
           <div className="hero-inner">
@@ -470,7 +455,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* DASHBOARD MOCKUP */}
         <div className="mockup-section">
           <div className="mockup-wrap">
             <div className="mockup-browser">
@@ -487,13 +471,13 @@ export default function Home() {
                     <span className="mockup-brand-chip">Brandtest</span>
                   </div>
                   <div className="mockup-section-label">Main</div>
-                  {[{ label: "Dashboard", active: true }, { label: "Requests", active: false }, { label: "Escalations", active: false }].map(item => (
+                  {[{ label: "Dashboard", active: true }, { label: "Escalations", active: false }, { label: "Reports", active: false }].map(item => (
                     <div key={item.label} className={`mockup-nav-item ${item.active ? "active" : ""}`}>
                       <div className="mockup-nav-dot" />{item.label}
                     </div>
                   ))}
                   <div className="mockup-section-label">Store</div>
-                  {["Order lookup", "Shopify sync"].map(label => (
+                  {["Order lookup", "Shopify", "WooCommerce"].map(label => (
                     <div key={label} className="mockup-nav-item"><div className="mockup-nav-dot" />{label}</div>
                   ))}
                   <div className="mockup-section-label">Account</div>
@@ -515,7 +499,7 @@ export default function Home() {
                   </div>
                   <div>
                     <div className="mockup-section-header">
-                      <span className="mockup-section-title">Recent requests</span>
+                      <span className="mockup-section-title">Recent conversations</span>
                       <span className="mockup-row-count">6 rows</span>
                     </div>
                     <div className="mockup-table-wrap">
@@ -593,7 +577,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* TICKER */}
         <div className="ticker-section">
           <div className="ticker-label">Trusted by ecommerce brands</div>
           <div className="ticker-outer">
@@ -605,7 +588,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* PHOTO BAND */}
         <div className="photo-band">
           <div className="photo-band-inner">
             {[
@@ -623,7 +605,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* PLATFORMS */}
         <section id="platforms" className="platforms">
           <div className="section-eyebrow"><div className="eyebrow-line" />Integrations<div className="eyebrow-line" /></div>
           <h2 className="section-title">Works where you sell.</h2>
@@ -638,7 +619,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* HOW IT WORKS */}
         <section id="how-it-works" className="how-section">
           <div className="how-inner">
             <div className="section-eyebrow"><div className="eyebrow-line" />How it works<div className="eyebrow-line" /></div>
@@ -657,7 +637,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* FEATURES */}
         <section id="features" className="features-section">
           <div className="features-inner">
             <div className="section-eyebrow"><div className="eyebrow-line" />Features<div className="eyebrow-line" /></div>
@@ -675,7 +654,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* TESTIMONIALS */}
         <section className="testimonials-section">
           <div className="testimonials-inner">
             <div className="section-eyebrow"><div className="eyebrow-line" />What brands say<div className="eyebrow-line" /></div>
@@ -698,13 +676,13 @@ export default function Home() {
           </div>
         </section>
 
-        {/* PRICING */}
         <section id="pricing" className="pricing-section">
           <div className="pricing-inner">
             <div className="section-eyebrow"><div className="eyebrow-line" />Pricing<div className="eyebrow-line" /></div>
             <h2 className="section-title">Simple, transparent pricing.</h2>
             <p className="section-sub">No setup fees. No hidden costs. Cancel anytime.</p>
-            <p className="pricing-trial-note">All plans include a 14-day free trial {dash} no credit card required.</p>
+            <p className="pricing-trial-note">All plans include a 14-day free trial {dash} cancel anytime.</p>
+            <p className="pricing-unlimited-note">✦ Unlimited AI responses on every plan {dash} no per-ticket fees, ever.</p>
             <div className="pricing-grid">
               {plans.map(plan => (
                 <div key={plan.name} className={`pricing-card ${plan.featured ? "featured" : ""}`}>
@@ -718,8 +696,8 @@ export default function Home() {
                   <div className="plan-divider" />
                   <div className="plan-features">
                     {plan.features.map(f => (
-                      <div key={f} className="plan-feature">
-                        <span className="check-box">{check}</span>{f}
+                      <div key={f} className={`plan-feature ${f.includes("Unlimited AI") ? "highlight" : ""}`}>
+                        <span className={`check-box ${f.includes("Unlimited AI") ? "green" : ""}`}>{check}</span>{f}
                       </div>
                     ))}
                   </div>
@@ -733,7 +711,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CTA */}
         <div className="cta-section">
           <div className="cta-glow" />
           <h2>Ready to automate<br />your support?</h2>
@@ -742,17 +719,16 @@ export default function Home() {
             <a href="https://app.solvebotic.com/onboarding" className="btn-primary btn-large">Start Free Trial {arrow}</a>
             <a href="https://app.solvebotic.com/auth/login" className="btn-ghost btn-large">Login to dashboard</a>
           </div>
-          <p className="cta-note">14-day free trial {dot} No credit card required {dot} Cancel anytime</p>
+          <p className="cta-note">14-day free trial {dot} Unlimited AI responses {dot} Cancel anytime</p>
         </div>
 
-        {/* FOOTER — WHITE */}
         <footer>
           <div className="footer-top">
             <div className="footer-brand">
               <a href="/" className="footer-logo">
                 <img src="/logo.png" alt="SolveBotic" />
               </a>
-              <p className="footer-tagline">AI-powered customer support for ecommerce brands. Handle every request, automatically.</p>
+              <p className="footer-tagline">AI-powered customer support for ecommerce brands. Unlimited AI responses on every plan.</p>
             </div>
             <div className="footer-cols">
               <div className="footer-col">
