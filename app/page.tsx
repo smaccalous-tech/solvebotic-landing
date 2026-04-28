@@ -390,6 +390,129 @@ export default function Home() {
         .footer-bottom-links { display: flex; gap: 20px; }
         .footer-bottom-links a { font-size: 12px; color: #9ca3af; text-decoration: none; transition: color 0.2s; }
         .footer-bottom-links a:hover { color: #374151; }
+
+        /* ===================== TABLET (641px - 1024px) ===================== */
+        @media (max-width: 1024px) {
+          nav { padding: 0 28px; height: 64px; }
+          .nav-logo img { height: 38px; }
+          .nav-links { gap: 20px; }
+          .nav-links a { font-size: 13px; }
+
+          .hero { padding: 110px 24px 40px; min-height: auto; }
+          .hero-sub { font-size: 16px; }
+
+          .mockup-section { padding: 32px 28px 0; }
+          .mockup-body { grid-template-columns: 160px 1fr 200px; }
+
+          .ticker-section { padding: 32px 0 36px; }
+
+          .photo-band-inner { padding: 0 28px; gap: 12px; }
+          .photo-card { height: 160px; }
+
+          .platforms, .how-section, .features-section, .testimonials-section, .pricing-section { padding: 48px 28px; }
+
+          .steps { grid-template-columns: repeat(3, 1fr); }
+          .step { padding: 28px 22px; }
+
+          .feature-grid { grid-template-columns: repeat(2, 1fr); }
+          .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+
+          .pricing-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+          .trust-strip { padding: 28px; gap: 28px; }
+
+          .cta-section { margin: 28px 28px 56px; padding: 60px 32px; }
+
+          footer { padding: 40px 28px 32px; }
+          .footer-cols { gap: 36px; }
+        }
+
+        /* ===================== MOBILE (≤640px) ===================== */
+        @media (max-width: 640px) {
+          nav { padding: 0 16px; height: 60px; }
+          .nav-logo img { height: 34px; }
+          /* Hide nav text links on mobile — keep only the trial CTA */
+          .nav-links a:not(.btn-primary) { display: none; }
+          .nav-divider { display: none; }
+          .nav-links { gap: 0; }
+          .btn-primary { font-size: 12.5px; padding: 8px 14px; }
+
+          .hero { padding: 96px 18px 32px; min-height: auto; }
+          .hero h1 { font-size: clamp(34px, 9vw, 52px); margin-bottom: 18px; }
+          .hero-sub { font-size: 15px; line-height: 1.65; margin-bottom: 28px; }
+          .badge { font-size: 10.5px; margin-bottom: 22px; }
+          .hero-btns { gap: 10px; flex-direction: column; width: 100%; max-width: 320px; }
+          .hero-btns a { width: 100%; justify-content: center; }
+          .btn-large { font-size: 14.5px; padding: 13px 24px; }
+          .hero-disclaimer { font-size: 11.5px; }
+
+          .stats-wrap { margin-top: 36px; }
+          /* Stats: 4 in a row → 2x2 grid */
+          .stats { display: grid; grid-template-columns: repeat(2, 1fr); border-radius: 14px; }
+          .stat { padding: 16px 10px; border-right: none; border-bottom: 1px solid var(--border); }
+          .stat:nth-child(2) { border-right: none; }
+          .stat:nth-child(odd) { border-right: 1px solid var(--border); }
+          .stat:nth-child(3), .stat:nth-child(4) { border-bottom: none; }
+          .stat-num { font-size: 22px; }
+          .stat-label { font-size: 11px; }
+
+          /* Hide the dashboard mockup on mobile — too dense to render usefully */
+          .mockup-section { display: none; }
+
+          .ticker-section { padding: 24px 0 32px; }
+          .ticker-chip { font-size: 11.5px; padding: 7px 12px; }
+          .ticker-outer::before, .ticker-outer::after { width: 60px; }
+
+          .photo-band { padding: 32px 0; }
+          .photo-band-inner { padding: 0 16px; gap: 10px; flex-direction: column; }
+          .photo-card { height: 140px; }
+
+          .trust-strip { padding: 24px 16px; gap: 14px; flex-direction: column; align-items: flex-start; }
+          .trust-item { font-size: 13px; }
+
+          .platforms, .how-section, .features-section, .testimonials-section, .pricing-section { padding: 44px 16px; }
+          .section-title { font-size: clamp(24px, 6vw, 32px); }
+          .section-sub { font-size: 14px; }
+
+          .platform-grid { gap: 8px; margin-top: 22px; }
+          .platform-chip { font-size: 12px; padding: 8px 14px; }
+
+          /* How it works steps stack vertically */
+          .steps { grid-template-columns: 1fr; margin-top: 28px; border-radius: 16px; }
+          .step { padding: 26px 22px; }
+          .step h3 { font-size: 16px; }
+          .step p { font-size: 13px; }
+
+          /* Features 3 cols → 1 col */
+          .feature-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 28px; }
+          .feature-card { padding: 22px; }
+
+          /* Testimonials 3 cols → 1 col */
+          .testimonial-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 28px; }
+          .testimonial-card { padding: 22px; }
+
+          /* Pricing 4 cols → 1 col, this is the big one */
+          .pricing-grid { grid-template-columns: 1fr; gap: 14px; margin-top: 32px; }
+          .pricing-card { padding: 26px 22px; }
+          .plan-price { font-size: 38px; }
+          .pricing-trial-note { font-size: 13px; }
+          .pricing-unlimited-note { font-size: 12px; }
+
+          .cta-section { margin: 24px 16px 48px; padding: 48px 22px; border-radius: 20px; }
+          .cta-section h2 { font-size: clamp(24px, 6.5vw, 36px); }
+          .cta-section p { font-size: 14px; margin-bottom: 28px; }
+          .cta-btns { flex-direction: column; gap: 10px; width: 100%; max-width: 320px; margin: 0 auto; }
+          .cta-btns a { width: 100%; justify-content: center; }
+          .cta-note { font-size: 11.5px; }
+
+          footer { padding: 36px 18px 28px; }
+          .footer-top { gap: 32px; margin-bottom: 32px; }
+          .footer-brand { max-width: 100%; }
+          .footer-cols { gap: 28px; width: 100%; }
+          .footer-col { min-width: 120px; }
+          .footer-bottom { flex-direction: column; align-items: flex-start; gap: 14px; padding-top: 24px; }
+          .footer-bottom-links { gap: 16px; flex-wrap: wrap; }
+        }
       `}</style>
 
       <div className="circuit-bg" />
