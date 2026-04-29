@@ -118,16 +118,21 @@ export default function Home() {
           --text2: #7AA8C8;
           --text3: #3A5870;
         }
+        html, body {
+          width: 100%;
+          max-width: 100%;
+          overflow-x: hidden;
+        }
         html { scroll-behavior: smooth; }
         body {
           background: var(--bg);
           color: var(--text);
           font-family: 'Outfit', sans-serif;
-          overflow-x: hidden;
           -webkit-font-smoothing: antialiased;
+          position: relative;
         }
         h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .content { position: relative; z-index: 1; }
+        .content { position: relative; z-index: 1; width: 100%; max-width: 100%; overflow-x: hidden; }
 
         .circuit-bg {
           position: fixed; inset: 0; z-index: -1; pointer-events: none;
@@ -214,8 +219,8 @@ export default function Home() {
         .mobile-menu a:last-child { border-bottom: none; }
         .mobile-menu a.btn-primary { color: #fff; border-bottom: none; margin-top: 12px; padding: 13px 20px; justify-content: center; font-size: 14px; }
 
-        .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 130px 24px 48px; position: relative; }
-        .hero-glow { position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 1000px; height: 700px; background: radial-gradient(ellipse, rgba(0,119,204,0.18) 0%, rgba(27,58,140,0.08) 40%, transparent 70%); pointer-events: none; z-index: 0; }
+        .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 130px 24px 48px; position: relative; width: 100%; }
+        .hero-glow { position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 1000px; max-width: 100%; height: 700px; background: radial-gradient(ellipse, rgba(0,119,204,0.18) 0%, rgba(27,58,140,0.08) 40%, transparent 70%); pointer-events: none; z-index: 0; }
         .hero-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 900px; }
         .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,119,204,0.15); border: 1px solid rgba(0,170,255,0.4); color: #7DD3FC; font-size: 11.5px; font-weight: 600; padding: 5px 14px 5px 10px; border-radius: 100px; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 28px; animation: fadeUp 0.6s ease both; }
         .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: #00AAFF; box-shadow: 0 0 8px #00AAFF; animation: pulse 2s infinite; }
@@ -234,7 +239,7 @@ export default function Home() {
         .stat-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 26px; font-weight: 800; color: #fff; letter-spacing: -0.03em; line-height: 1; }
         .stat-label { font-size: 12px; color: var(--text3); margin-top: 5px; }
 
-        .mockup-section { padding: 40px 48px 0; display: flex; justify-content: center; }
+        .mockup-section { padding: 40px 48px 0; display: flex; justify-content: center; width: 100%; max-width: 100%; overflow: hidden; }
         .mockup-wrap { width: 100%; max-width: 960px; position: relative; }
         .mockup-fade-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 100px; background: linear-gradient(to bottom, transparent, var(--bg)); pointer-events: none; }
         .mockup-browser { background: #f4f4f6; border-radius: 12px; overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,170,255,0.15), 0 0 60px rgba(0,100,200,0.08); }
@@ -291,9 +296,9 @@ export default function Home() {
         .mockup-bar-track { height: 3px; background: #f3f4f6; border-radius: 2px; }
         .mockup-bar-fill { height: 100%; background: #4F46E5; border-radius: 2px; }
 
-        .ticker-section { padding: 40px 0 48px; overflow: hidden; position: relative; }
+        .ticker-section { padding: 40px 0 48px; overflow: hidden; position: relative; width: 100%; max-width: 100%; }
         .ticker-label { text-align: center; font-size: 11px; font-weight: 600; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
-        .ticker-outer { position: relative; }
+        .ticker-outer { position: relative; overflow: hidden; }
         .ticker-outer::before, .ticker-outer::after { content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; }
         .ticker-outer::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
         .ticker-outer::after { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
@@ -302,8 +307,8 @@ export default function Home() {
         .ticker-chip { background: rgba(0,119,204,0.08); border: 1px solid rgba(0,170,255,0.15); border-radius: 9px; padding: 9px 16px; white-space: nowrap; font-size: 12.5px; color: var(--text2); font-weight: 500; display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
         .ticker-dot { width: 5px; height: 5px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 6px #22c55e; }
 
-        .photo-band { padding: 48px 0; overflow: hidden; }
-        .photo-band-inner { display: flex; gap: 16px; padding: 0 48px; }
+        .photo-band { padding: 48px 0; overflow: hidden; width: 100%; max-width: 100%; }
+        .photo-band-inner { display: flex; gap: 16px; padding: 0 48px; max-width: 100%; }
         .photo-card { flex: 1; min-width: 0; border-radius: 16px; overflow: hidden; position: relative; height: 200px; border: 1px solid var(--border); }
         .photo-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.65; transition: opacity 0.3s; }
         .photo-card:hover img { opacity: 0.85; }
@@ -385,12 +390,12 @@ export default function Home() {
         .btn-plan-ghost { background: transparent; color: var(--text2); border: 1px solid var(--border2); }
         .plan-trial { font-size: 11px; color: var(--text3); text-align: center; margin-top: 10px; }
 
-        .trust-strip { padding: 32px 48px; display: flex; align-items: center; justify-content: center; gap: 48px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+        .trust-strip { padding: 32px 48px; display: flex; align-items: center; justify-content: center; gap: 48px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); flex-wrap: wrap; max-width: 100%; }
         .trust-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text2); font-weight: 500; }
         .trust-icon { font-size: 18px; }
 
         .cta-section { margin: 32px 48px 72px; border-radius: 24px; padding: 80px 48px; text-align: center; position: relative; overflow: hidden; background: linear-gradient(145deg, rgba(0,119,204,0.2) 0%, rgba(27,58,140,0.1) 100%); border: 1px solid rgba(0,170,255,0.3); }
-        .cta-glow { position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(0,119,204,0.3) 0%, transparent 70%); pointer-events: none; }
+        .cta-glow { position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 600px; max-width: 100%; height: 400px; background: radial-gradient(ellipse, rgba(0,119,204,0.3) 0%, transparent 70%); pointer-events: none; }
         .cta-section h2 { font-size: clamp(28px, 4vw, 50px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 14px; color: #fff; position: relative; z-index: 1; }
         .cta-section p { font-size: 15px; color: var(--text2); margin-bottom: 40px; position: relative; z-index: 1; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7; }
         .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
@@ -400,6 +405,7 @@ export default function Home() {
           background: #ffffff;
           border-top: 1px solid #e5e7eb;
           padding: 48px 52px 36px;
+          max-width: 100%;
         }
         .footer-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 48px; margin-bottom: 40px; flex-wrap: wrap; }
         .footer-brand { max-width: 280px; }
@@ -449,7 +455,6 @@ export default function Home() {
         }
 
         /* ===================== HAMBURGER BREAKPOINT (≤900px) ===================== */
-        /* Below 900px the desktop nav links don't fit cleanly — switch to hamburger. */
         @media (max-width: 900px) {
           .nav-links { display: none; }
           .hamburger { display: flex; }
@@ -471,7 +476,6 @@ export default function Home() {
           .hero-disclaimer { font-size: 11.5px; text-align: center; }
 
           .stats-wrap { margin-top: 36px; align-self: center; }
-          /* Stats: 4 in a row → 2x2 grid */
           .stats { display: grid; grid-template-columns: repeat(2, 1fr); border-radius: 14px; }
           .stat { padding: 16px 10px; border-right: none; border-bottom: 1px solid var(--border); }
           .stat:nth-child(odd) { border-right: 1px solid var(--border); }
@@ -479,7 +483,6 @@ export default function Home() {
           .stat-num { font-size: 22px; }
           .stat-label { font-size: 11px; }
 
-          /* Hide the dashboard mockup on mobile — too dense to render usefully */
           .mockup-section { display: none; }
 
           .ticker-section { padding: 24px 0 32px; }
@@ -500,21 +503,17 @@ export default function Home() {
           .platform-grid { gap: 8px; margin-top: 22px; }
           .platform-chip { font-size: 12px; padding: 8px 14px; }
 
-          /* How it works steps stack vertically */
           .steps { grid-template-columns: 1fr; margin-top: 28px; border-radius: 16px; }
           .step { padding: 26px 22px; }
           .step h3 { font-size: 16px; }
           .step p { font-size: 13px; }
 
-          /* Features 3 cols → 1 col */
           .feature-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 28px; }
           .feature-card { padding: 22px; }
 
-          /* Testimonials 3 cols → 1 col */
           .testimonial-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 28px; }
           .testimonial-card { padding: 22px; }
 
-          /* Pricing 4 cols → 1 col, this is the big one */
           .pricing-grid { grid-template-columns: 1fr; gap: 14px; margin-top: 32px; }
           .pricing-card { padding: 26px 22px; }
           .plan-price { font-size: 38px; }
@@ -569,7 +568,6 @@ export default function Home() {
 
       <div className="content">
 
-        {/* NAV */}
         <nav>
           <a href="/" className="nav-logo" onClick={() => setMobileMenuOpen(false)}>
             <img src="/logo.png" alt="SolveBotic" />
@@ -601,7 +599,6 @@ export default function Home() {
           <a href="https://app.solvebotic.com/onboarding" className="btn-primary">Start Free Trial {arrow}</a>
         </div>
 
-        {/* HERO */}
         <section className="hero">
           <div className="hero-glow" />
           <div className="hero-inner">
@@ -628,7 +625,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* DASHBOARD MOCKUP */}
         <div className="mockup-section">
           <div className="mockup-wrap">
             <div className="mockup-browser">
@@ -751,7 +747,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* TICKER */}
         <div className="ticker-section">
           <div className="ticker-label">What SolveBotic handles for you</div>
           <div className="ticker-outer">
@@ -763,7 +758,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* PHOTO BAND */}
         <div className="photo-band">
           <div className="photo-band-inner">
             {[
@@ -781,7 +775,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* TRUST STRIP */}
         <div className="trust-strip">
           {[
             { icon: "🔒", text: "Payments secured by Stripe" },
@@ -797,7 +790,6 @@ export default function Home() {
           ))}
         </div>
 
-        {/* PLATFORMS */}
         <section id="platforms" className="platforms">
           <div className="section-eyebrow"><div className="eyebrow-line" />Integrations<div className="eyebrow-line" /></div>
           <h2 className="section-title">Works where you sell.</h2>
@@ -814,7 +806,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* HOW IT WORKS */}
         <section id="how-it-works" className="how-section">
           <div className="how-inner">
             <div className="section-eyebrow"><div className="eyebrow-line" />How it works<div className="eyebrow-line" /></div>
@@ -833,7 +824,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* FEATURES */}
         <section id="features" className="features-section">
           <div className="features-inner">
             <div className="section-eyebrow"><div className="eyebrow-line" />Features<div className="eyebrow-line" /></div>
@@ -851,7 +841,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* TESTIMONIALS */}
         <section className="testimonials-section">
           <div className="testimonials-inner">
             <div className="section-eyebrow"><div className="eyebrow-line" />What brands say<div className="eyebrow-line" /></div>
@@ -874,7 +863,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* PRICING */}
         <section id="pricing" className="pricing-section">
           <div className="pricing-inner">
             <div className="section-eyebrow"><div className="eyebrow-line" />Pricing<div className="eyebrow-line" /></div>
@@ -910,7 +898,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CTA */}
         <div className="cta-section">
           <div className="cta-glow" />
           <h2>Stop answering the<br />same questions twice.</h2>
@@ -922,7 +909,6 @@ export default function Home() {
           <p className="cta-note">14-day free trial {dot} Credit card required {dot} Cancel anytime</p>
         </div>
 
-        {/* FOOTER */}
         <footer>
           <div className="footer-top">
             <div className="footer-brand">
