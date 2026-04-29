@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Home() {
   const arrow = '\u2192';
   const dash = '\u2014';
@@ -7,6 +11,8 @@ export default function Home() {
   const check = '\u2713';
   const lq = '\u201C';
   const rq = '\u201D';
+
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const stats = [
     { num: "< 2s", label: "Avg. response time" },
@@ -188,9 +194,29 @@ export default function Home() {
         }
         .btn-ghost:hover { border-color: var(--accent2); background: rgba(0,170,255,0.07); }
 
+        /* Hamburger button — hidden on desktop */
+        .hamburger { display: none; background: transparent; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 4px; align-items: center; justify-content: center; }
+        .hamburger span { display: block; width: 22px; height: 2px; background: #0F172A; border-radius: 2px; transition: transform 0.2s, opacity 0.2s; }
+        .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+        /* Mobile menu panel */
+        .mobile-menu {
+          display: none;
+          position: fixed; top: 60px; left: 0; right: 0; z-index: 99;
+          background: #ffffff; border-bottom: 1px solid #e5e7eb;
+          box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+          padding: 20px 24px; flex-direction: column; gap: 4px;
+        }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a { color: #374151; font-size: 15px; font-weight: 500; padding: 12px 8px; text-decoration: none; border-bottom: 1px solid #f3f4f6; }
+        .mobile-menu a:last-child { border-bottom: none; }
+        .mobile-menu a.btn-primary { color: #fff; border-bottom: none; margin-top: 12px; padding: 13px 20px; justify-content: center; font-size: 14px; }
+
         .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 130px 24px 48px; position: relative; }
         .hero-glow { position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 1000px; height: 700px; background: radial-gradient(ellipse, rgba(0,119,204,0.18) 0%, rgba(27,58,140,0.08) 40%, transparent 70%); pointer-events: none; z-index: 0; }
-        .hero-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; width: 100%; }
+        .hero-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 900px; }
         .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,119,204,0.15); border: 1px solid rgba(0,170,255,0.4); color: #7DD3FC; font-size: 11.5px; font-weight: 600; padding: 5px 14px 5px 10px; border-radius: 100px; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 28px; animation: fadeUp 0.6s ease both; }
         .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: #00AAFF; box-shadow: 0 0 8px #00AAFF; animation: pulse 2s infinite; }
         @keyframes pulse { 0%,100% { box-shadow: 0 0 8px #00AAFF; } 50% { box-shadow: 0 0 16px #00AAFF; opacity: 0.6; } }
@@ -391,12 +417,10 @@ export default function Home() {
         .footer-bottom-links a { font-size: 12px; color: #9ca3af; text-decoration: none; transition: color 0.2s; }
         .footer-bottom-links a:hover { color: #374151; }
 
-        /* ===================== TABLET (641px - 1024px) ===================== */
+        /* ===================== TABLET / SMALL DESKTOP (≤1024px) ===================== */
         @media (max-width: 1024px) {
           nav { padding: 0 28px; height: 64px; }
           .nav-logo img { height: 38px; }
-          .nav-links { gap: 20px; }
-          .nav-links a { font-size: 13px; }
 
           .hero { padding: 110px 24px 40px; min-height: auto; }
           .hero-sub { font-size: 16px; }
@@ -411,9 +435,6 @@ export default function Home() {
 
           .platforms, .how-section, .features-section, .testimonials-section, .pricing-section { padding: 48px 28px; }
 
-          .steps { grid-template-columns: repeat(3, 1fr); }
-          .step { padding: 28px 22px; }
-
           .feature-grid { grid-template-columns: repeat(2, 1fr); }
           .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
 
@@ -427,30 +448,32 @@ export default function Home() {
           .footer-cols { gap: 36px; }
         }
 
+        /* ===================== HAMBURGER BREAKPOINT (≤900px) ===================== */
+        /* Below 900px the desktop nav links don't fit cleanly — switch to hamburger. */
+        @media (max-width: 900px) {
+          .nav-links { display: none; }
+          .hamburger { display: flex; }
+        }
+
         /* ===================== MOBILE (≤640px) ===================== */
         @media (max-width: 640px) {
           nav { padding: 0 16px; height: 60px; }
           .nav-logo img { height: 34px; }
-          /* Hide nav text links on mobile — keep only the trial CTA */
-          .nav-links a:not(.btn-primary) { display: none; }
-          .nav-divider { display: none; }
-          .nav-links { gap: 0; }
-          .btn-primary { font-size: 12.5px; padding: 8px 14px; }
 
-          .hero { padding: 96px 18px 32px; min-height: auto; }
-          .hero h1 { font-size: clamp(34px, 9vw, 52px); margin-bottom: 18px; }
-          .hero-sub { font-size: 15px; line-height: 1.65; margin-bottom: 28px; }
-          .badge { font-size: 10.5px; margin-bottom: 22px; }
-          .hero-btns { gap: 10px; flex-direction: column; width: 100%; max-width: 320px; }
+          .hero { padding: 92px 20px 32px; min-height: auto; align-items: center; }
+          .hero-inner { max-width: 100%; align-items: center; text-align: center; }
+          .hero h1 { font-size: clamp(32px, 8.5vw, 48px); margin-bottom: 18px; text-align: center; }
+          .hero-sub { font-size: 15px; line-height: 1.65; margin-bottom: 28px; max-width: 100%; text-align: center; }
+          .badge { font-size: 10.5px; margin-bottom: 22px; align-self: center; }
+          .hero-btns { gap: 10px; flex-direction: column; width: 100%; max-width: 320px; align-self: center; }
           .hero-btns a { width: 100%; justify-content: center; }
           .btn-large { font-size: 14.5px; padding: 13px 24px; }
-          .hero-disclaimer { font-size: 11.5px; }
+          .hero-disclaimer { font-size: 11.5px; text-align: center; }
 
-          .stats-wrap { margin-top: 36px; }
+          .stats-wrap { margin-top: 36px; align-self: center; }
           /* Stats: 4 in a row → 2x2 grid */
           .stats { display: grid; grid-template-columns: repeat(2, 1fr); border-radius: 14px; }
           .stat { padding: 16px 10px; border-right: none; border-bottom: 1px solid var(--border); }
-          .stat:nth-child(2) { border-right: none; }
           .stat:nth-child(odd) { border-right: 1px solid var(--border); }
           .stat:nth-child(3), .stat:nth-child(4) { border-bottom: none; }
           .stat-num { font-size: 22px; }
@@ -467,7 +490,7 @@ export default function Home() {
           .photo-band-inner { padding: 0 16px; gap: 10px; flex-direction: column; }
           .photo-card { height: 140px; }
 
-          .trust-strip { padding: 24px 16px; gap: 14px; flex-direction: column; align-items: flex-start; }
+          .trust-strip { padding: 24px 16px; gap: 14px; flex-direction: column; align-items: center; text-align: center; }
           .trust-item { font-size: 13px; }
 
           .platforms, .how-section, .features-section, .testimonials-section, .pricing-section { padding: 44px 16px; }
@@ -512,6 +535,8 @@ export default function Home() {
           .footer-col { min-width: 120px; }
           .footer-bottom { flex-direction: column; align-items: flex-start; gap: 14px; padding-top: 24px; }
           .footer-bottom-links { gap: 16px; flex-wrap: wrap; }
+
+          .mobile-menu { top: 60px; }
         }
       `}</style>
 
@@ -546,7 +571,7 @@ export default function Home() {
 
         {/* NAV */}
         <nav>
-          <a href="/" className="nav-logo">
+          <a href="/" className="nav-logo" onClick={() => setMobileMenuOpen(false)}>
             <img src="/logo.png" alt="SolveBotic" />
           </a>
           <div className="nav-links">
@@ -558,7 +583,23 @@ export default function Home() {
             <a href="https://app.solvebotic.com/auth/login">Login</a>
             <a href="https://app.solvebotic.com/onboarding" className="btn-primary">Start Free Trial {arrow}</a>
           </div>
+          <button
+            className={`hamburger ${mobileMenuOpen ? "open" : ""}`}
+            aria-label="Toggle menu"
+            onClick={() => setMobileMenuOpen(o => !o)}
+          >
+            <span /><span /><span />
+          </button>
         </nav>
+
+        <div className={`mobile-menu ${mobileMenuOpen ? "open" : ""}`}>
+          <a href="#features" onClick={() => setMobileMenuOpen(false)}>Features</a>
+          <a href="#platforms" onClick={() => setMobileMenuOpen(false)}>Platforms</a>
+          <a href="#pricing" onClick={() => setMobileMenuOpen(false)}>Pricing</a>
+          <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)}>How it works</a>
+          <a href="https://app.solvebotic.com/auth/login">Login</a>
+          <a href="https://app.solvebotic.com/onboarding" className="btn-primary">Start Free Trial {arrow}</a>
+        </div>
 
         {/* HERO */}
         <section className="hero">
