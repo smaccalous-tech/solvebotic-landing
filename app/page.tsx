@@ -946,8 +946,8 @@ export default function Home() {
           <div className="footer-bottom">
             <p>{copy} 2026 SolveBotic. All rights reserved.</p>
             <div className="footer-bottom-links">
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Service</a>
+              <a href="/privacy">Privacy Policy</a>
+              <a href="/terms">Terms of Service</a>
             </div>
           </div>
         </footer>
