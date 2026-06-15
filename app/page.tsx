@@ -88,7 +88,7 @@ export default function Home() {
     {
       name: "Enterprise", price: "Custom", period: "",
       desc: "For large operations that need custom solutions and dedicated support.",
-      features: ["Unlimited brands", "Unlimited AI responses", "All platforms", "Dedicated account manager", "Custom integrations", "SLA guarantee", "White-glove onboarding"],
+      features: ["Unlimited AI responses", "Unlimited brands", "All platforms", "Dedicated account manager", "Custom integrations", "SLA guarantee", "White-glove onboarding"],
       cta: "Contact Us", href: "mailto:support@solvebotic.com", featured: false,
       badge: null,
     },
