@@ -45,23 +45,6 @@ export default function Home() {
     { icon: "💬", title: "Embeddable Widget", desc: "A sleek floating chat widget that lives directly on your store. Fully branded, fully yours, live in minutes." },
   ];
 
-  const valueProps = [
-    {
-      icon: "♾️",
-      title: "Unlimited AI, flat pricing",
-      desc: "Every plan includes unlimited AI responses. No per-ticket fees, no surprise bills — just one predictable monthly price.",
-    },
-    {
-      icon: "⚡",
-      title: "Answers in seconds, 24/7",
-      desc: "Customers get instant help with orders, tracking, refunds, and returns — day or night, with no wait times or ticket queues.",
-    },
-    {
-      icon: "🎯",
-      title: "You stay in control",
-      desc: "Routine questions resolve automatically. Anything complex escalates to you with the full conversation attached — nothing slips through.",
-    },
-  ];
 
   const plans = [
     {
@@ -611,6 +594,7 @@ export default function Home() {
               <a href="https://app.solvebotic.com/onboarding" className="btn-primary btn-large">Start 14-day trial {dot} Card required, cancel anytime</a>
               <a href="#how-it-works" className="btn-ghost btn-large">See how it works</a>
             </div>
+            <p className="hero-disclaimer">Built for Shopify + WooCommerce merchants {dash} 14-day free trial</p>
             <div className="stats-wrap">
               <div className="stats">
                 {stats.map(s => (
@@ -792,7 +776,7 @@ export default function Home() {
           <div className="section-eyebrow"><div className="eyebrow-line" />Integrations<div className="eyebrow-line" /></div>
           <h2 className="section-title">Works where you sell.</h2>
           <p className="section-sub" style={{ maxWidth: 460, margin: "0 auto" }}>
-            Connect your store in minutes {dash} no code, no developers, no waiting.
+            Shopify + WooCommerce {dot} More platforms coming.
           </p>
           <div className="platform-grid">
             {platforms.map(p => (
@@ -819,6 +803,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
+            <p className="section-sub" style={{ marginTop: 32 }}>Unlimited AI responses on every plan {dash} flat pricing, no per-ticket fees, and you stay in control of anything that needs a human.</p>
           </div>
         </section>
 
@@ -833,22 +818,6 @@ export default function Home() {
                   <div className="feature-icon">{f.icon}</div>
                   <h3>{f.title}</h3>
                   <p>{f.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="testimonials-section">
-          <div className="testimonials-inner">
-            <div className="section-eyebrow"><div className="eyebrow-line" />Why SolveBotic<div className="eyebrow-line" /></div>
-            <h2 className="section-title">Built for merchants<br />who value their time.</h2>
-            <div className="testimonial-grid">
-              {valueProps.map(v => (
-                <div key={v.title} className="testimonial-card">
-                  <div className="feature-icon">{v.icon}</div>
-                  <h3 style={{ fontSize: 15, fontWeight: 700, color: "#fff", margin: "0 0 8px" }}>{v.title}</h3>
-                  <p style={{ fontSize: 13.5, color: "var(--text2)", lineHeight: 1.75, margin: 0 }}>{v.desc}</p>
                 </div>
               ))}
             </div>
