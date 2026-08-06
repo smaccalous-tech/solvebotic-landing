@@ -15,10 +15,10 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const stats = [
-    { num: "< 2s", label: "Avg. response time" },
-    { num: "7+", label: "Platforms" },
-    { num: "95%", label: "Auto-resolution" },
     { num: "24/7", label: "Always on" },
+    { num: "Unlimited", label: "AI responses" },
+    { num: "$0", label: "Per-ticket fees" },
+    { num: "2", label: "Platforms (Shopify + Woo)" },
   ];
 
   const platforms = [
@@ -37,7 +37,7 @@ export default function Home() {
   ];
 
   const features = [
-    { icon: "🤖", title: "AI Classification", desc: "Gemini AI reads every message, classifies intent with a confidence score, and routes it instantly — no manual triaging needed." },
+    { icon: "🤖", title: "AI Classification", desc: "Claude AI reads every message, classifies intent with a confidence score, and routes it instantly — no manual triaging needed." },
     { icon: "📦", title: "Instant Order Lookup", desc: "Customers self-serve order status and tracking in real time without ever needing to contact your team." },
     { icon: "⚡", title: "Smart Escalation", desc: "Refunds, damaged items, and edge cases are escalated automatically with full conversation context so you never start from scratch." },
     { icon: "🔌", title: "Multi-Platform", desc: "One unified dashboard for Shopify, WooCommerce, and every platform you sell on. No switching between tools." },
@@ -45,21 +45,21 @@ export default function Home() {
     { icon: "💬", title: "Embeddable Widget", desc: "A sleek floating chat widget that lives directly on your store. Fully branded, fully yours, live in minutes." },
   ];
 
-  const testimonials = [
+  const valueProps = [
     {
-      quote: "We cut support response time from 6 hours to under 2 seconds. Our team now only handles truly complex issues — everything else is resolved automatically.",
-      name: "Marcus T.", title: "Founder, DTC Supplement Brand",
-      img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face"
+      icon: "♾️",
+      title: "Unlimited AI, flat pricing",
+      desc: "Every plan includes unlimited AI responses. No per-ticket fees, no surprise bills — just one predictable monthly price.",
     },
     {
-      quote: "Setup took 8 minutes. It connected to Shopify and started answering order questions the same day. I didn't have to do anything after that.",
-      name: "Priya K.", title: "Head of Operations, Home Goods Store",
-      img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face"
+      icon: "⚡",
+      title: "Answers in seconds, 24/7",
+      desc: "Customers get instant help with orders, tracking, refunds, and returns — day or night, with no wait times or ticket queues.",
     },
     {
-      quote: "The escalation logic is genuinely smart. Real issues reach us fast, routine noise gets handled automatically. It's exactly what we needed.",
-      name: "Jordan M.", title: "CX Lead, Apparel Brand",
-      img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face"
+      icon: "🎯",
+      title: "You stay in control",
+      desc: "Routine questions resolve automatically. Anything complex escalates to you with the full conversation attached — nothing slips through.",
     },
   ];
 
@@ -605,13 +605,12 @@ export default function Home() {
             <div className="badge"><div className="badge-dot" />Now live on Shopify {dash} WooCommerce</div>
             <h1>Your store gets<br />support questions.<br /><span className="gradient-text">We answer them.</span></h1>
             <p className="hero-sub">
-              SolveBotic's AI handles order tracking, refund requests, and cancellations instantly {dash} 24/7, across every platform you sell on. Your team only sees what actually needs a human.
+              SolveBotic's AI handles order tracking, refund requests, and cancellations instantly {dash} 24/7 on your Shopify or WooCommerce store. Your team only sees what actually needs a human.
             </p>
             <div className="hero-btns">
-              <a href="https://app.solvebotic.com/onboarding" className="btn-primary btn-large">Start Free Trial {arrow}</a>
+              <a href="https://app.solvebotic.com/onboarding" className="btn-primary btn-large">Start 14-day trial {dot} Card required, cancel anytime</a>
               <a href="#how-it-works" className="btn-ghost btn-large">See how it works</a>
             </div>
-            <p className="hero-disclaimer">14-day free trial {dot} Credit card required {dot} Cancel anytime</p>
             <div className="stats-wrap">
               <div className="stats">
                 {stats.map(s => (
@@ -777,11 +776,10 @@ export default function Home() {
 
         <div className="trust-strip">
           {[
+            { icon: "⚡", text: "One script to install" },
+            { icon: "🗓️", text: "14-day free trial" },
             { icon: "🔒", text: "Payments secured by Stripe" },
-            { icon: "🤖", text: "Powered by Gemini AI" },
-            { icon: "⚡", text: "Live in under 10 minutes" },
             { icon: "🔁", text: "Cancel anytime" },
-            { icon: "📦", text: "Shopify & WooCommerce native" },
           ].map(t => (
             <div key={t.text} className="trust-item">
               <span className="trust-icon">{t.icon}</span>
@@ -843,20 +841,14 @@ export default function Home() {
 
         <section className="testimonials-section">
           <div className="testimonials-inner">
-            <div className="section-eyebrow"><div className="eyebrow-line" />What brands say<div className="eyebrow-line" /></div>
-            <h2 className="section-title">Support on autopilot.<br />Brands love it.</h2>
+            <div className="section-eyebrow"><div className="eyebrow-line" />Why SolveBotic<div className="eyebrow-line" /></div>
+            <h2 className="section-title">Built for merchants<br />who value their time.</h2>
             <div className="testimonial-grid">
-              {testimonials.map(t => (
-                <div key={t.name} className="testimonial-card">
-                  <div className="stars">{[0, 1, 2, 3, 4].map(i => <span key={i} className="star">{star}</span>)}</div>
-                  <blockquote>{lq}{t.quote}{rq}</blockquote>
-                  <div className="testimonial-author">
-                    <div className="author-avatar"><img src={t.img} alt={t.name} /></div>
-                    <div>
-                      <div className="author-name">{t.name}</div>
-                      <div className="author-title">{t.title}</div>
-                    </div>
-                  </div>
+              {valueProps.map(v => (
+                <div key={v.title} className="testimonial-card">
+                  <div className="feature-icon">{v.icon}</div>
+                  <h3 style={{ fontSize: 15, fontWeight: 700, color: "#fff", margin: "0 0 8px" }}>{v.title}</h3>
+                  <p style={{ fontSize: 13.5, color: "var(--text2)", lineHeight: 1.75, margin: 0 }}>{v.desc}</p>
                 </div>
               ))}
             </div>
