@@ -64,14 +64,14 @@ export default function Home() {
     {
       name: "Scale", price: "$199", period: "/mo",
       desc: "For established brands running high support volume across multiple channels.",
-      features: ["Unlimited brands", "Unlimited AI responses", "All platforms", "Dedicated escalation inbox", "Advanced analytics", "Priority support", "14-day free trial"],
+      features: ["Unlimited brands", "Unlimited AI responses", "All platforms", "Advanced analytics", "Priority support", "14-day free trial"],
       cta: "Start Free Trial", href: "https://app.solvebotic.com/onboarding", featured: false,
       badge: null,
     },
     {
       name: "Enterprise", price: "Custom", period: "",
       desc: "For large operations that need custom solutions and dedicated support.",
-      features: ["Unlimited AI responses", "Unlimited brands", "All platforms", "Dedicated account manager", "Custom integrations", "SLA guarantee", "White-glove onboarding"],
+      features: ["Unlimited AI responses", "Unlimited brands", "All platforms", "Dedicated account manager", "Custom integrations", "Priority response", "White-glove onboarding"],
       cta: "Contact Us", href: "mailto:support@solvebotic.com", featured: false,
       badge: null,
     },
@@ -624,7 +624,7 @@ export default function Home() {
                     <span className="mockup-brand-chip">My Store</span>
                   </div>
                   <div className="mockup-section-label">Main</div>
-                  {[{ label: "Dashboard", active: true }, { label: "Escalations", active: false }, { label: "Reports", active: false }].map(item => (
+                  {[{ label: "Dashboard", active: true }, { label: "Returns", active: false }, { label: "Reports", active: false }].map(item => (
                     <div key={item.label} className={`mockup-nav-item ${item.active ? "active" : ""}`}>
                       <div className="mockup-nav-dot" />{item.label}
                     </div>
