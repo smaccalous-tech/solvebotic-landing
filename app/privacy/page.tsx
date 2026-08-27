@@ -1,6 +1,3 @@
-{/* TODO before Go Live: replace [ENTITY_NAME] with the registered Colorado LLC name once filed */}
-{/* TODO before Go Live: replace [EFFECTIVE_DATE] with the actual launch date */}
-
 import type { Metadata } from "next";
 import { LegalPageShell } from "../components/LegalPageShell";
 
@@ -12,11 +9,11 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalPageShell title="Privacy Policy" effectiveDate="[EFFECTIVE_DATE]">
+    <LegalPageShell title="Privacy Policy" effectiveDate="August 24, 2026">
       <p>
-        [ENTITY_NAME] (&ldquo;SolveBotic,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) operates the SolveBotic service &mdash; an AI-powered customer support platform for ecommerce brands. This Privacy Policy explains what information we collect, how we use it, who we share it with, and your rights.
+        SolveBotic LLC (&ldquo;SolveBotic,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) operates the SolveBotic service &mdash; an AI-powered customer support platform for ecommerce brands. This Privacy Policy explains what information we collect, how we use it, who we share it with, and your rights.
       </p>
-      <p>[ENTITY_NAME] is a Colorado limited liability company.</p>
+      <p>SolveBotic LLC is a Colorado limited liability company.</p>
       <p>
         If you have questions about this policy or want to make a data request, contact us at <a href="/contact">solvebotic.com/contact</a>.
       </p>
@@ -84,6 +81,9 @@ export default function PrivacyPage() {
         <strong>Resend (transactional email).</strong> Used to send escalation notifications, return-request notifications, and other transactional emails on behalf of merchants.
       </p>
       <p>
+        <strong>Slack (merchant-directed notifications).</strong> If a merchant configures a Slack webhook for escalation or return alerts, the content of those notifications &mdash; which can include an end-customer&apos;s conversation summary and email address &mdash; is sent to the merchant&apos;s chosen Slack channel. This happens only when the merchant enables it, and the destination is the merchant&apos;s own Slack workspace.
+      </p>
+      <p>
         <strong>Stripe (payment processing).</strong> Handles all subscription billing, payment card storage, and the merchant billing portal. SolveBotic does not store full card numbers.
       </p>
       <p>
@@ -93,22 +93,42 @@ export default function PrivacyPage() {
         <strong>Shopify and WooCommerce (merchants&apos; connected stores).</strong> When an end-customer asks about a specific order, SolveBotic retrieves order data from the merchant&apos;s connected Shopify or WooCommerce store using credentials the merchant has provided. We act on the merchant&apos;s behalf when making these requests.
       </p>
 
-      <h2>5. Data Retention</h2>
+      <h2>5. Data Retention and Deletion</h2>
       <p>
-        We retain merchant account information and the associated support-conversation and return-request data while the merchant&apos;s account is active. As a matter of policy, we retain conversation and support-request data for up to twelve (12) months after creation, after which it is deleted.
+        We retain merchant account information and the associated support-conversation and return-request data for the duration of the merchant&apos;s account, and for up to ninety (90) days after the account is closed, after which it is deleted &mdash; except for any records we are required to retain to comply with our legal obligations, resolve disputes, or enforce our agreements.
       </p>
       <p>
-        When a merchant closes their account, we delete the merchant&apos;s account information and associated data within ninety (90) days, except for any records we are required to retain to comply with our legal obligations, resolve disputes, or enforce our agreements.
+        A merchant may request deletion of their account and associated data at any time by contacting us at <a href="/contact">solvebotic.com/contact</a>. We will delete the data within thirty (30) days of a verified request, other than records we are required to retain by law.
       </p>
 
-      <h2>6. Data Sharing</h2>
+      <h2>6. Legal Basis for Processing (GDPR)</h2>
+      <p>
+        For individuals in the European Economic Area and the United Kingdom, our legal bases for processing personal data are:
+      </p>
+      <ul>
+        <li><strong>Merchant data:</strong> performance of our contract with the merchant (to provide the service and manage the account), and our legitimate interests in securing the service and preventing abuse.</li>
+        <li><strong>End-customer data:</strong> we process this only as a processor, on the instructions and lawful basis of the merchant, who is the controller of their end-customers&apos; personal data.</li>
+      </ul>
+      <p>
+        We do not intentionally process special-category personal data (as defined in Article 9 of the GDPR); if end-customers voluntarily include such information in support conversations, it is processed only as described in Section 5.
+      </p>
+
+      <h2>7. Cookies and Local Storage</h2>
+      <p>
+        The SolveBotic dashboard sets strictly-necessary cookies to keep merchants signed in (managed by our authentication provider, Supabase). The embedded chat widget uses your browser&apos;s <code>sessionStorage</code> to hold a conversation session and does not set cookies. Our landing site sets no analytics or advertising cookies, and we do not use third-party tracking cookies anywhere.
+      </p>
+      <p>
+        Because we use only strictly-necessary storage, no cookie-consent banner is required. You can clear cookies and local storage at any time through your browser settings; doing so will sign you out of the dashboard.
+      </p>
+
+      <h2>8. Data Sharing</h2>
       <p>We do not sell personal data.</p>
       <p>
         We share personal data only with the sub-processors listed in Section 4, who use it solely to provide services to us. We may also disclose information if we are required to do so by law, court order, or to protect the rights, property, or safety of SolveBotic, our users, or others.
       </p>
       <p>We do not share personal data with advertisers and do not use it for advertising purposes.</p>
 
-      <h2>7. Your Rights</h2>
+      <h2>9. Your Rights</h2>
       <p>
         Depending on where you live, you may have the right to access, correct, delete, or receive a copy of the personal data we hold about you, and to object to or restrict certain processing.
       </p>
@@ -122,7 +142,7 @@ export default function PrivacyPage() {
         We acknowledge the rights granted under the General Data Protection Regulation (GDPR) in the European Union and United Kingdom, and the California Consumer Privacy Act (CCPA), to the extent they apply.
       </p>
 
-      <h2>8. Security</h2>
+      <h2>10. Security</h2>
       <p>
         We use reasonable technical and organizational measures to protect personal data. These include transport-layer encryption (HTTPS), access controls on our database, scoped API credentials, and the security controls provided by our sub-processors (Supabase, Stripe, Vercel, Anthropic, Resend).
       </p>
@@ -130,22 +150,22 @@ export default function PrivacyPage() {
         No security measure is perfect, and we cannot guarantee absolute security. We do not hold third-party security certifications and we do not claim any.
       </p>
 
-      <h2>9. International Transfers</h2>
+      <h2>11. International Transfers</h2>
       <p>
         SolveBotic is based in the United States and our sub-processors operate in the United States and other jurisdictions. By using SolveBotic, you acknowledge that information may be transferred to and processed in countries outside your own, which may have different data-protection rules. Where applicable, we and our sub-processors rely on standard contractual safeguards for international transfers.
       </p>
 
-      <h2>10. Children</h2>
+      <h2>12. Children</h2>
       <p>
         SolveBotic is not directed to children under the age of 16. We do not knowingly collect personal information from children under 16. If you believe a child has provided us with personal information, please contact us so that we can delete it.
       </p>
 
-      <h2>11. Changes to This Policy</h2>
+      <h2>13. Changes to This Policy</h2>
       <p>
         We may update this Privacy Policy from time to time. If we make material changes, we will revise the Effective Date above and, where reasonable, provide additional notice through the service. Your continued use of SolveBotic after the changes become effective indicates your acceptance of the revised policy.
       </p>
 
-      <h2>12. Contact</h2>
+      <h2>14. Contact</h2>
       <p>
         For any questions about this policy or to exercise any of the rights described above, please contact us at <a href="/contact">solvebotic.com/contact</a>.
       </p>

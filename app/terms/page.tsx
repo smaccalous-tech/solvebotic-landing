@@ -1,6 +1,3 @@
-{/* TODO before Go Live: replace [ENTITY_NAME] with the registered Colorado LLC name once filed */}
-{/* TODO before Go Live: replace [EFFECTIVE_DATE] with the actual launch date */}
-
 import type { Metadata } from "next";
 import { LegalPageShell } from "../components/LegalPageShell";
 
@@ -12,9 +9,9 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <LegalPageShell title="Terms of Service" effectiveDate="[EFFECTIVE_DATE]">
+    <LegalPageShell title="Terms of Service" effectiveDate="August 24, 2026">
       <p>
-        These Terms of Service (&ldquo;Terms&rdquo;) govern your access to and use of SolveBotic, an AI-powered customer support platform operated by [ENTITY_NAME], a Colorado limited liability company (&ldquo;SolveBotic,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;). By accessing or using SolveBotic you agree to these Terms.
+        These Terms of Service (&ldquo;Terms&rdquo;) govern your access to and use of SolveBotic, an AI-powered customer support platform operated by SolveBotic LLC, a Colorado limited liability company (&ldquo;SolveBotic,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;). By accessing or using SolveBotic you agree to these Terms.
       </p>
       <p>If you do not agree, do not use the service.</p>
 
@@ -53,7 +50,7 @@ export default function TermsPage() {
         <strong>Cancellation.</strong> You may cancel your subscription at any time from the billing area of the dashboard. Cancellation stops future charges and takes effect at the end of the current billing period. You will continue to have access to the service until then.
       </p>
       <p>
-        <strong>Refunds.</strong> Payments are non-refundable, including for partial months, unused time, downgrades, or periods during which you did not actively use the service. [ENTITY_NAME] may, in its sole discretion, issue refunds in individual cases, but is under no obligation to do so.
+        <strong>Refunds.</strong> Payments are non-refundable, including for partial months, unused time, downgrades, or periods during which you did not actively use the service. SolveBotic LLC may, in its sole discretion, issue refunds in individual cases, but is under no obligation to do so.
       </p>
       <p>
         <strong>Price changes.</strong> We may change pricing or plan terms by giving you reasonable notice (for example, by email or through the dashboard). Any changes apply to subsequent billing periods, not the current one.
@@ -94,10 +91,13 @@ export default function TermsPage() {
         <li>Use SolveBotic to send spam, harass, defraud, or harm anyone</li>
         <li>Use the AI to generate content that violates applicable law or the rights of others</li>
       </ul>
+      <p>
+        <strong>Fair use of unlimited plans.</strong> Where a plan is described as including &ldquo;unlimited&rdquo; AI responses, that allowance is for normal, good-faith customer-support use by a single merchant business. It does not permit automated scraping, bulk or programmatic processing beyond ordinary support volumes, resale of the AI capability, or use that materially degrades the service for others. We may apply reasonable technical rate limits and, if usage is abusive or clearly outside ordinary support use, contact you, apply limits, or (as a last resort) suspend the account under Section 12.
+      </p>
 
       <h2>7. Intellectual Property</h2>
       <p>
-        SolveBotic, including the underlying software, the widget, the dashboard, and all related materials, is owned by [ENTITY_NAME] and protected by intellectual-property laws. These Terms do not grant you any ownership rights in SolveBotic.
+        SolveBotic, including the underlying software, the widget, the dashboard, and all related materials, is owned by SolveBotic LLC and protected by intellectual-property laws. These Terms do not grant you any ownership rights in SolveBotic.
       </p>
       <p>
         You retain ownership of the content and data you provide to SolveBotic. You grant us a non-exclusive, worldwide license to use that content and data solely as needed to operate the service for you, including by transmitting it to the sub-processors listed in our Privacy Policy.
@@ -118,7 +118,7 @@ export default function TermsPage() {
 
       <h2>10. Limitation of Liability</h2>
       <p>
-        To the maximum extent permitted by law, [ENTITY_NAME] and its officers, employees, and affiliates will not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, or for any loss of profits, revenue, data, goodwill, or business opportunity, arising out of or related to your use of the service, even if we have been advised of the possibility of such damages.
+        To the maximum extent permitted by law, SolveBotic LLC and its officers, employees, and affiliates will not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, or for any loss of profits, revenue, data, goodwill, or business opportunity, arising out of or related to your use of the service, even if we have been advised of the possibility of such damages.
       </p>
       <p>
         Our total cumulative liability for any claim arising out of or related to these Terms or the service will not exceed the total fees you paid to SolveBotic in the twelve (12) months immediately preceding the event giving rise to the claim.
@@ -126,7 +126,7 @@ export default function TermsPage() {
 
       <h2>11. Indemnification</h2>
       <p>
-        You agree to indemnify, defend, and hold harmless [ENTITY_NAME] and its officers, employees, and affiliates from and against any claims, damages, liabilities, losses, and expenses (including reasonable attorneys&apos; fees) arising out of or related to: (a) your use of the service; (b) the content or data you provide to the service, including your FAQ and knowledge-base content; (c) your relationship with your end-customers, including any refund, return, or cancellation decisions; (d) your violation of these Terms; or (e) your violation of any law or the rights of any third party.
+        You agree to indemnify, defend, and hold harmless SolveBotic LLC and its officers, employees, and affiliates from and against any claims, damages, liabilities, losses, and expenses (including reasonable attorneys&apos; fees) arising out of or related to: (a) your use of the service; (b) the content or data you provide to the service, including your FAQ and knowledge-base content; (c) your relationship with your end-customers, including any refund, return, or cancellation decisions; (d) your violation of these Terms; or (e) your violation of any law or the rights of any third party.
       </p>
 
       <h2>12. Termination</h2>
@@ -140,17 +140,22 @@ export default function TermsPage() {
         After termination, we will handle your data in accordance with the retention practices described in our <a href="/privacy">Privacy Policy</a>.
       </p>
 
-      <h2>13. Governing Law</h2>
+      <h2>13. Force Majeure</h2>
+      <p>
+        Neither party will be liable for any failure or delay in performance caused by events beyond its reasonable control, including acts of God, natural disasters, epidemics or pandemics, war, terrorism, civil unrest, government action, labor disputes, power or internet failures, and failures or outages of third-party hosting, infrastructure, or AI providers, or denial-of-service or other malicious attacks. Payment obligations are not excused by this section.
+      </p>
+
+      <h2>14. Governing Law</h2>
       <p>
         These Terms are governed by the laws of the State of Colorado, United States, without regard to its conflict-of-laws principles. You agree that any action arising out of or related to these Terms or the service will be brought exclusively in the state or federal courts located in Colorado, and you consent to the personal jurisdiction of those courts.
       </p>
 
-      <h2>14. Changes to These Terms</h2>
+      <h2>15. Changes to These Terms</h2>
       <p>
         We may update these Terms from time to time. If we make material changes, we will revise the Effective Date above and, where reasonable, provide additional notice through the service. Your continued use of SolveBotic after the changes become effective indicates your acceptance of the revised Terms.
       </p>
 
-      <h2>15. Contact</h2>
+      <h2>16. Contact</h2>
       <p>
         For any questions about these Terms, please contact us at <a href="/contact">solvebotic.com/contact</a>.
       </p>
