@@ -98,7 +98,7 @@ export default function PrivacyPage() {
         We retain merchant account information and the associated support-conversation and return-request data for the duration of the merchant&apos;s account, and for up to ninety (90) days after the account is closed, after which it is deleted &mdash; except for any records we are required to retain to comply with our legal obligations, resolve disputes, or enforce our agreements.
       </p>
       <p>
-        A merchant may request deletion of their account and associated data at any time by contacting us at <a href="/contact">solvebotic.com/contact</a>. We will delete the data within thirty (30) days of a verified request, other than records we are required to retain by law.
+        A merchant may request deletion of their account and associated data at any time by contacting us at <a href="/contact">solvebotic.com/contact</a>, or by emailing us directly at <a href="mailto:privacy@solvebotic.com">privacy@solvebotic.com</a>. We will delete the data within thirty (30) days of a verified request, other than records we are required to retain by law.
       </p>
 
       <h2>6. Legal Basis for Processing (GDPR)</h2>
@@ -136,7 +136,7 @@ export default function PrivacyPage() {
         <strong>End-customers:</strong> If you interacted with a SolveBotic widget on a merchant&apos;s store and want to exercise any of these rights, please contact the merchant first &mdash; they are the controller of your data and will direct any necessary requests to us. We will assist the merchant in responding to verified requests.
       </p>
       <p>
-        <strong>Merchants:</strong> You can exercise these rights by contacting us at <a href="/contact">solvebotic.com/contact</a>.
+        <strong>Merchants:</strong> You can exercise these rights by contacting us at <a href="/contact">solvebotic.com/contact</a>, or by emailing us directly at <a href="mailto:privacy@solvebotic.com">privacy@solvebotic.com</a>.
       </p>
       <p>
         We acknowledge the rights granted under the General Data Protection Regulation (GDPR) in the European Union and United Kingdom, and the California Consumer Privacy Act (CCPA), to the extent they apply.
