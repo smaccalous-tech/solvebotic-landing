@@ -72,7 +72,7 @@ export default function Home() {
       name: "Enterprise", price: "Custom", period: "",
       desc: "For large operations that need custom solutions and dedicated support.",
       features: ["Unlimited AI responses", "Unlimited brands", "All platforms", "Dedicated account manager", "Custom integrations", "Priority response", "White-glove onboarding"],
-      cta: "Contact Us", href: "mailto:support@solvebotic.com", featured: false,
+      cta: "Contact Us", href: "mailto:hello@solvebotic.com", featured: false,
       badge: null,
     },
   ];
@@ -898,7 +898,7 @@ export default function Home() {
               <div className="footer-col">
                 <h4>Company</h4>
                 <div className="footer-col-links">
-                  <a href="mailto:support@solvebotic.com">Contact</a>
+                  <a href="mailto:hello@solvebotic.com">Contact</a>
                   <a href="mailto:support@solvebotic.com">Support</a>
                 </div>
               </div>

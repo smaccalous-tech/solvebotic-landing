@@ -8,7 +8,12 @@ export const metadata: Metadata = {
     "Get in touch with SolveBotic for sales, customer support, or privacy and data requests.",
 };
 
-const SUPPORT_EMAIL = "support@solvebotic.com";
+const EMAILS = {
+  general: "hello@solvebotic.com",  // catch-all / "Email us at" card / closing note
+  sales: "hello@solvebotic.com",    // Sales-tagged reason card
+  support: "support@solvebotic.com",
+  privacy: "privacy@solvebotic.com",
+};
 
 export default function ContactPage() {
   return (
@@ -172,7 +177,7 @@ export default function ContactPage() {
 
           <div className="email-card">
             <div className="email-card-label">Email us at</div>
-            <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>
+            <a href={`mailto:${EMAILS.general}`}>{EMAILS.general}</a>
             <div className="email-card-sla">
               We aim to respond to all messages within 1–2 business days.
             </div>
@@ -184,14 +189,14 @@ export default function ContactPage() {
               <p>
                 Questions about plans, Enterprise pricing, or fit for your store? Let&apos;s talk.
               </p>
-              <span className="subject-hint">Subject: Sales — …</span>
+              <a className="subject-hint" style={{ textDecoration: "none" }} href={`mailto:${EMAILS.sales}?subject=${encodeURIComponent("Sales — ")}`}>Subject: Sales — …</a>
             </div>
             <div className="reason-card">
               <h3>Customer support</h3>
               <p>
                 Trouble with your widget, dashboard, or integration? We&apos;ll help you get unblocked.
               </p>
-              <span className="subject-hint">Subject: Support — …</span>
+              <a className="subject-hint" style={{ textDecoration: "none" }} href={`mailto:${EMAILS.support}?subject=${encodeURIComponent("Support — ")}`}>Subject: Support — …</a>
             </div>
             <div className="reason-card">
               <h3>Privacy &amp; data requests</h3>
@@ -202,12 +207,12 @@ export default function ContactPage() {
                 </a>{" "}
                 and email us with the subject below.
               </p>
-              <span className="subject-hint">Subject: Privacy — …</span>
+              <a className="subject-hint" style={{ textDecoration: "none" }} href={`mailto:${EMAILS.privacy}?subject=${encodeURIComponent("Privacy — ")}`}>Subject: Privacy — …</a>
             </div>
           </div>
 
           <p className="closing-note">
-            Prefer something else? You can also reach the team at <a href={`mailto:${SUPPORT_EMAIL}`} style={{ color: "var(--accent2)", textDecoration: "underline", textUnderlineOffset: 3 }}>{SUPPORT_EMAIL}</a>.
+            Prefer something else? You can also reach the team at <a href={`mailto:${EMAILS.general}`} style={{ color: "var(--accent2)", textDecoration: "underline", textUnderlineOffset: 3 }}>{EMAILS.general}</a>.
           </p>
         </article>
       </main>
