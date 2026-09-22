@@ -81,9 +81,6 @@ export default function PrivacyPage() {
         <strong>Resend (transactional email).</strong> Used to send escalation notifications, return-request notifications, and other transactional emails on behalf of merchants.
       </p>
       <p>
-        <strong>Slack (merchant-directed notifications).</strong> If a merchant configures a Slack webhook for escalation or return alerts, the content of those notifications &mdash; which can include an end-customer&apos;s conversation summary and email address &mdash; is sent to the merchant&apos;s chosen Slack channel. This happens only when the merchant enables it, and the destination is the merchant&apos;s own Slack workspace.
-      </p>
-      <p>
         <strong>Stripe (payment processing).</strong> Handles all subscription billing, payment card storage, and the merchant billing portal. SolveBotic does not store full card numbers.
       </p>
       <p>
@@ -92,13 +89,19 @@ export default function PrivacyPage() {
       <p>
         <strong>Shopify and WooCommerce (merchants&apos; connected stores).</strong> When an end-customer asks about a specific order, SolveBotic retrieves order data from the merchant&apos;s connected Shopify or WooCommerce store using credentials the merchant has provided. We act on the merchant&apos;s behalf when making these requests.
       </p>
+      <p>
+        <strong>Slack (a merchant-configured destination, not a SolveBotic sub-processor).</strong> Separately from the sub-processors above, a merchant may configure a Slack webhook for escalation or return alerts. When they do, the content of those notifications &mdash; which can include an end-customer&apos;s conversation summary and email address &mdash; is sent to the merchant&apos;s own Slack workspace. This happens only when the merchant enables it; the destination, and the data-processing relationship with Slack, are the merchant&apos;s, not ours.
+      </p>
 
       <h2>5. Data Retention and Deletion</h2>
       <p>
-        We retain merchant account information and the associated support-conversation and return-request data for the duration of the merchant&apos;s account, and for up to ninety (90) days after the account is closed, after which it is deleted &mdash; except for any records we are required to retain to comply with our legal obligations, resolve disputes, or enforce our agreements.
+        We retain your account information and the associated support-conversation, order, and return-request data for as long as your account is active. When you ask us to close your account or delete your data, we delete it from our production systems within thirty (30) days &mdash; except for any records we are required to retain to comply with our legal obligations, resolve disputes, or enforce our agreements.
       </p>
       <p>
-        A merchant may request deletion of their account and associated data at any time by contacting us at <a href="/contact">solvebotic.com/contact</a>, or by emailing us directly at <a href="mailto:privacy@solvebotic.com">privacy@solvebotic.com</a>. We will delete the data within thirty (30) days of a verified request, other than records we are required to retain by law.
+        After data is deleted from our production systems, residual copies may remain in our encrypted, access-controlled backups for a limited period. These backups are rotated on a schedule, and deleted data is purged from them within fourteen (14) days.
+      </p>
+      <p>
+        You can ask us to close your account or delete your data at any time by contacting us at <a href="/contact">solvebotic.com/contact</a>, or by emailing us directly at <a href="mailto:privacy@solvebotic.com">privacy@solvebotic.com</a>.
       </p>
 
       <h2>6. Legal Basis for Processing (GDPR)</h2>
@@ -110,7 +113,7 @@ export default function PrivacyPage() {
         <li><strong>End-customer data:</strong> we process this only as a processor, on the instructions and lawful basis of the merchant, who is the controller of their end-customers&apos; personal data.</li>
       </ul>
       <p>
-        We do not intentionally process special-category personal data (as defined in Article 9 of the GDPR); if end-customers voluntarily include such information in support conversations, it is processed only as described in Section 5.
+        We do not intentionally process special-category personal data (as defined in Article 9 of the GDPR); if end-customers voluntarily include such information in support conversations, it is processed only as described in Section 4.
       </p>
 
       <h2>7. Cookies and Local Storage</h2>
