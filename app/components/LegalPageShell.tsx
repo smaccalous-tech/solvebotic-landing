@@ -4,16 +4,18 @@ import { ReactNode } from "react";
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
 
-// Shared shell for /privacy and /terms — sets up a readable prose container
+// Shared shell for /privacy, /terms and /subprocessors — sets up a readable prose container
 // over the dark circuit-board aesthetic of the rest of the site. Each legal
 // page passes its own title, effective date, and content via children.
 export function LegalPageShell({
   title,
   effectiveDate,
+  dateLabel = "Effective Date",
   children,
 }: {
   title: string;
   effectiveDate: string;
+  dateLabel?: string;
   children: ReactNode;
 }) {
   return (
@@ -117,7 +119,7 @@ export function LegalPageShell({
         <article className="legal-container">
           <div className="legal-eyebrow">Legal</div>
           <h1 className="legal-title">{title}</h1>
-          <div className="legal-effective">Effective Date: {effectiveDate}</div>
+          <div className="legal-effective">{dateLabel}: {effectiveDate}</div>
           <div className="legal-body">{children}</div>
         </article>
       </main>

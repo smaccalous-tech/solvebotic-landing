@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <LegalPageShell title="Terms of Service" effectiveDate="August 24, 2026">
+    <LegalPageShell title="Terms of Service" effectiveDate="October 6, 2026">
       <p>
         These Terms of Service (&ldquo;Terms&rdquo;) govern your access to and use of SolveBotic, an AI-powered customer support platform operated by SolveBotic LLC, a Colorado limited liability company (&ldquo;SolveBotic,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;). By accessing or using SolveBotic you agree to these Terms.
       </p>
@@ -100,7 +100,7 @@ export default function TermsPage() {
         SolveBotic, including the underlying software, the widget, the dashboard, and all related materials, is owned by SolveBotic LLC and protected by intellectual-property laws. These Terms do not grant you any ownership rights in SolveBotic.
       </p>
       <p>
-        You retain ownership of the content and data you provide to SolveBotic. You grant us a non-exclusive, worldwide license to use that content and data solely as needed to operate the service for you, including by transmitting it to the sub-processors listed in our Privacy Policy.
+        You retain ownership of the content and data you provide to SolveBotic. You grant us a non-exclusive, worldwide license to use that content and data solely as needed to operate the service for you, including by transmitting it to the sub-processors listed on our <a href="/subprocessors">Sub-processors page</a>.
       </p>
 
       <h2>8. AI Limitations</h2>

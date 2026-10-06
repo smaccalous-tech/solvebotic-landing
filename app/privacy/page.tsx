@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalPageShell title="Privacy Policy" effectiveDate="August 24, 2026">
+    <LegalPageShell title="Privacy Policy" effectiveDate="October 6, 2026">
       <p>
         SolveBotic LLC (&ldquo;SolveBotic,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) operates the SolveBotic service &mdash; an AI-powered customer support platform for ecommerce brands. This Privacy Policy explains what information we collect, how we use it, who we share it with, and your rights.
       </p>
@@ -47,7 +47,7 @@ export default function PrivacyPage() {
         <li>Email addresses and order numbers provided during the conversation</li>
         <li>Conversation session history</li>
         <li>Return-request details: reason, category, and resolution status</li>
-        <li>Order data fetched from the merchant&apos;s connected Shopify or WooCommerce store when an end-customer asks about a specific order</li>
+        <li>Order data synced from the merchant&apos;s connected Shopify or WooCommerce store and stored so we can answer customers&apos; questions about their orders: order number and date, customer name and email address, shipping address, order total and currency, payment and fulfillment status, and tracking details</li>
       </ul>
       <p><strong>Automatically collected:</strong></p>
       <ul>
@@ -69,25 +69,13 @@ export default function PrivacyPage() {
 
       <h2>4. AI Processing and Sub-processors</h2>
       <p>
-        To run the service, we share information with the following sub-processors. Each is bound to handle the data only as needed to provide their service.
+        To run the service, we share personal data with sub-processors for AI processing, database hosting, application hosting, transactional email, payment processing, and our business email. The current list &mdash; who each sub-processor is, what data it receives, and where it is processed &mdash; is published at <a href="/subprocessors">solvebotic.com/subprocessors</a>, together with how we notify merchants before adding a new one.
       </p>
       <p>
-        <strong>Anthropic (AI processing).</strong> Support conversation content &mdash; the end-customer&apos;s messages and conversation context &mdash; is transmitted to Anthropic&apos;s API (Claude) to classify the message and generate a suggested response. The merchant&apos;s FAQ / knowledge-base content is also included in the prompt sent to Anthropic so that responses reflect the merchant&apos;s policies. Anthropic processes this data under its own commercial terms of service and privacy policy, which you can review at <a href="https://anthropic.com" target="_blank" rel="noopener noreferrer">anthropic.com</a>. We use Anthropic&apos;s API in a manner intended to keep your data confidential and out of model training, consistent with Anthropic&apos;s commercial terms.
+        <strong>AI processing.</strong> Support conversation content &mdash; the end-customer&apos;s messages and conversation context &mdash; is sent to Anthropic&apos;s API (Claude) to classify each message and generate a suggested response. The merchant&apos;s FAQ / knowledge-base content is included so responses reflect the merchant&apos;s policies. We use Anthropic&apos;s commercial API, under which customer content is not used to train Anthropic&apos;s models.
       </p>
       <p>
-        <strong>Supabase (database and infrastructure).</strong> All account, conversation, order, and return-request data is stored in a managed Postgres database hosted by Supabase.
-      </p>
-      <p>
-        <strong>Resend (transactional email).</strong> Used to send escalation notifications, return-request notifications, and other transactional emails on behalf of merchants.
-      </p>
-      <p>
-        <strong>Stripe (payment processing).</strong> Handles all subscription billing, payment card storage, and the merchant billing portal. SolveBotic does not store full card numbers.
-      </p>
-      <p>
-        <strong>Vercel (hosting and infrastructure).</strong> Hosts the SolveBotic application and serves the embedded widget.
-      </p>
-      <p>
-        <strong>Shopify and WooCommerce (merchants&apos; connected stores).</strong> When an end-customer asks about a specific order, SolveBotic retrieves order data from the merchant&apos;s connected Shopify or WooCommerce store using credentials the merchant has provided. We act on the merchant&apos;s behalf when making these requests.
+        <strong>Shopify and WooCommerce (merchants&apos; connected stores).</strong> Using credentials the merchant provides, SolveBotic syncs order data from the merchant&apos;s connected Shopify or WooCommerce store and stores it so we can answer customers&apos; questions about their orders. We store the order number and date, the customer&apos;s name and email address, the shipping address, the order total and currency, payment and fulfillment status, and tracking details. We act on the merchant&apos;s behalf when making these requests.
       </p>
       <p>
         <strong>Slack (a merchant-configured destination, not a SolveBotic sub-processor).</strong> Separately from the sub-processors above, a merchant may configure a Slack webhook for escalation or return alerts. When they do, the content of those notifications &mdash; which can include an end-customer&apos;s conversation summary and email address &mdash; is sent to the merchant&apos;s own Slack workspace. This happens only when the merchant enables it; the destination, and the data-processing relationship with Slack, are the merchant&apos;s, not ours.
@@ -127,7 +115,7 @@ export default function PrivacyPage() {
       <h2>8. Data Sharing</h2>
       <p>We do not sell personal data.</p>
       <p>
-        We share personal data only with the sub-processors listed in Section 4, who use it solely to provide services to us. We may also disclose information if we are required to do so by law, court order, or to protect the rights, property, or safety of SolveBotic, our users, or others.
+        We share personal data only with the sub-processors listed on our <a href="/subprocessors">Sub-processors page</a> (see Section 4), who use it to provide services to us. We may also disclose information if we are required to do so by law, court order, or to protect the rights, property, or safety of SolveBotic, our users, or others.
       </p>
       <p>We do not share personal data with advertisers and do not use it for advertising purposes.</p>
 
@@ -147,7 +135,7 @@ export default function PrivacyPage() {
 
       <h2>10. Security</h2>
       <p>
-        We use reasonable technical and organizational measures to protect personal data. These include transport-layer encryption (HTTPS), access controls on our database, scoped API credentials, and the security controls provided by our sub-processors (Supabase, Stripe, Vercel, Anthropic, Resend).
+        We use reasonable technical and organizational measures to protect personal data. These include transport-layer encryption (HTTPS), access controls on our database, scoped API credentials, and the security controls provided by our <a href="/subprocessors">sub-processors</a>.
       </p>
       <p>
         No security measure is perfect, and we cannot guarantee absolute security. We do not hold third-party security certifications and we do not claim any.
