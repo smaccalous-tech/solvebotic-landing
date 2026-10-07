@@ -1,0 +1,114 @@
+# .github/workflows/gitleaks.yml — secret scanning (detection build plan, item 2).
+#
+# push / pull_request: scans only the new commits.
+# workflow_dispatch (Actions tab → gitleaks → Run workflow): scans the FULL history
+# of every branch — the one-time sweep, and any time a re-check is wanted.
+#
+# Rules live in .gitleaks.toml. Findings are always redacted (--redact), so a
+# secret can never be printed into these logs. A finding fails the job, and
+# GitHub emails the pusher about the failed run.
+#
+# gitleaks is downloaded at a pinned version and checked against a pinned
+# SHA-256, so a changed release file fails the job instead of running.
+# Identical copy in both repos (support-saas and solvebotic-landing).
+
+name: gitleaks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gitleaks-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GITLEAKS_VERSION: "8.30.1"
+      GITLEAKS_SHA256: "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb"
+    steps:
+      - name: Check out full history
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Install gitleaks (pinned version and checksum)
+        run: |
+          set -euo pipefail
+          tarball="gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          curl -sSfL -o "$tarball" "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/${tarball}"
+          echo "${GITLEAKS_SHA256}  ${tarball}" | sha256sum -c -
+          tar -xzf "$tarball" gitleaks
+          ./gitleaks version
+
+      - name: Choose what to scan
+        id: range
+        env:
+          EVENT: ${{ github.event_name }}
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT" = "workflow_dispatch" ]; then
+            echo "log_opts=--all" >> "$GITHUB_OUTPUT"
+            echo "Scanning the full history of all branches."
+          elif [ "$EVENT" = "pull_request" ]; then
+            echo "log_opts=${PR_BASE}..${PR_HEAD}" >> "$GITHUB_OUTPUT"
+            echo "Scanning the pull request's commits."
+          elif [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ] || ! git cat-file -e "${BEFORE}^{commit}" 2>/dev/null; then
+            # New branch, or a force-push whose old tip isn't fetchable: scan everything reachable.
+            echo "log_opts=${AFTER}" >> "$GITHUB_OUTPUT"
+            echo "No usable previous commit; scanning all history reachable from ${AFTER}."
+          else
+            echo "log_opts=${BEFORE}..${AFTER}" >> "$GITHUB_OUTPUT"
+            echo "Scanning the pushed commits ${BEFORE}..${AFTER}."
+          fi
+
+      - name: Scan
+        env:
+          LOG_OPTS: ${{ steps.range.outputs.log_opts }}
+        run: |
+          set -uo pipefail
+          ./gitleaks git . \
+            --config .gitleaks.toml \
+            --log-opts="$LOG_OPTS" \
+            --redact \
+            --no-banner \
+            --verbose \
+            --report-format json \
+            --report-path gitleaks-report.json
+          status=$?
+          {
+            echo "## gitleaks"
+            echo
+            echo "Scanned: \`$LOG_OPTS\`"
+            echo
+            if [ -s gitleaks-report.json ] && [ "$(jq length gitleaks-report.json)" -gt 0 ]; then
+              echo "**$(jq length gitleaks-report.json) finding(s)** — secrets redacted."
+              echo
+              echo "| Rule | File | Line | Commit | Date |"
+              echo "|---|---|---|---|---|"
+              jq -r '.[] | "| \(.RuleID) | \(.File) | \(.StartLine) | \(.Commit[0:7]) | \(.Date) |"' gitleaks-report.json
+            else
+              echo "No findings."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit $status
+
+      - name: Upload redacted report
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: gitleaks-report
+          path: gitleaks-report.json
+          if-no-files-found: ignore
+          retention-days: 30

@@ -1,0 +1,93 @@
+# .gitleaks.toml — secret scanning config (detection build plan, item 2).
+#
+# Used by .github/workflows/gitleaks.yml on every push and pull request, and
+# by a manual run that scans the full history. Identical copy in both repos
+# (support-saas and solvebotic-landing); keep them in sync.
+#
+# Extends gitleaks' built-in rules and adds rules for the key formats we
+# actually hold. The built-in rules that cover the same formats are disabled
+# so one leaked key produces one finding, not two.
+#
+# Allowlisting policy: allowlist EXACT known-fake values, never whole test
+# directories — a real key pasted into a test file must still be caught.
+# Every entry says what it is and where it lives. Write each fake value as a
+# pattern that never spells out a whole token (e.g. a repeated group), so this
+# file itself doesn't look like a leaked key — GitHub's push protection on the
+# public landing repo rejected a literal one.
+
+title = "SolveBotic gitleaks config"
+
+[extend]
+useDefault = true
+disabledRules = [
+  "shopify-shared-secret",   # replaced by solvebotic-shopify-shared-secret
+  "shopify-access-token",    # replaced by solvebotic-shopify-access-token
+  "anthropic-api-key",       # replaced by solvebotic-anthropic-key
+  "anthropic-admin-api-key", # replaced by solvebotic-anthropic-key
+  "stripe-access-token",     # replaced by solvebotic-stripe-secret-key
+]
+
+# Shopify app client secret (SHOPIFY_API_SECRET).
+[[rules]]
+id = "solvebotic-shopify-shared-secret"
+description = "Shopify app client secret (shpss_)"
+regex = '''shpss_[a-fA-F0-9]{32}'''
+keywords = ["shpss_"]
+
+# Shopify Admin API access token (stored encrypted at rest; plaintext must never appear in git).
+[[rules]]
+id = "solvebotic-shopify-access-token"
+description = "Shopify Admin API access token (shpat_)"
+regex = '''shpat_[a-fA-F0-9]{32}'''
+keywords = ["shpat_"]
+
+# Anthropic API / admin keys (sk-ant-api03-…, sk-ant-admin01-…).
+[[rules]]
+id = "solvebotic-anthropic-key"
+description = "Anthropic API key (sk-ant-)"
+regex = '''sk-ant-[a-z]+[0-9]{2}-[A-Za-z0-9_\-]{80,}'''
+keywords = ["sk-ant-"]
+
+# Stripe secret and restricted keys, test or live. Publishable keys (pk_) are public and not matched.
+[[rules]]
+id = "solvebotic-stripe-secret-key"
+description = "Stripe secret/restricted key (sk_/rk_ test or live)"
+regex = '''\b(?:sk|rk)_(?:test|live)_[A-Za-z0-9]{20,}'''
+keywords = ["sk_test_", "sk_live_", "rk_test_", "rk_live_"]
+
+# Stripe webhook signing secret (STRIPE_WEBHOOK_SECRET).
+[[rules]]
+id = "solvebotic-stripe-webhook-secret"
+description = "Stripe webhook signing secret (whsec_)"
+regex = '''\bwhsec_[A-Za-z0-9+/]{24,}'''
+keywords = ["whsec_"]
+
+# Resend API key: re_ + 8 + _ + 24. Bare "re_" is far too common to match on its own.
+[[rules]]
+id = "solvebotic-resend-key"
+description = "Resend API key (re_)"
+regex = '''\bre_[A-Za-z0-9]{8}_[A-Za-z0-9]{24}\b'''
+keywords = ["re_"]
+
+# Supabase new-format secret key.
+[[rules]]
+id = "solvebotic-supabase-secret-key"
+description = "Supabase secret key (sb_secret_)"
+regex = '''\bsb_secret_[A-Za-z0-9_\-]{20,}'''
+keywords = ["sb_secret_"]
+
+# Supabase legacy service_role JWT — what SUPABASE_SECRET_KEY is today. Matches a JWT whose
+# payload contains "service_role" (its three base64url alignments). The public anon JWT
+# (role "anon") does not match this rule.
+[[rules]]
+id = "solvebotic-supabase-service-role-jwt"
+description = "Supabase service_role JWT (bypasses RLS)"
+regex = '''\beyJ[A-Za-z0-9_\-]{10,}\.[A-Za-z0-9_\-]*(?:c2VydmljZV9yb2xl|zZXJ2aWNlX3JvbGU|NlcnZpY2Vfcm9sZ)[A-Za-z0-9_\-]*\.[A-Za-z0-9_\-]{20,}'''
+keywords = ["eyj"]
+
+# ── Known-fake values ──────────────────────────────────────────────────────────
+
+[[allowlists]]
+description = "Test fixture: fake Shopify access token in src/lib/token-crypto.test.ts (encrypt/decrypt round-trip input)"
+targetRules = ["solvebotic-shopify-access-token"]
+regexes = ['''^shpat_(?:0123456789abcdef){2}$''']
