@@ -91,3 +91,8 @@ keywords = ["eyj"]
 description = "Test fixture: fake Shopify access token in src/lib/token-crypto.test.ts (encrypt/decrypt round-trip input)"
 targetRules = ["solvebotic-shopify-access-token"]
 regexes = ['''^shpat_(?:0123456789abcdef){2}$''']
+
+[[allowlists]]
+description = "Test fixture: fake Shopify app secret used to compute HMAC test vectors in src/lib/shopify-oauth.test.ts (const SECRET); flagged by the generic rule in commit 08d28b2"
+targetRules = ["generic-api-key"]
+regexes = ['''^shpss_testsecret_(?:0123456789abcdef)$''']
