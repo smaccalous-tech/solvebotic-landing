@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 // and bump "Last updated". A NEW sub-processor expands processing, so it also
 // needs the Privacy/Terms effectiveDate + the app's CURRENT_TERMS_VERSION bumped
 // together (see PROJECT.md → Privacy-change rule).
-const LAST_UPDATED = "October 8, 2026";
+const LAST_UPDATED = "October 12, 2026";
 
 type SubProcessor = {
   name: string;
@@ -38,7 +38,7 @@ const SUB_PROCESSORS: SubProcessor[] = [
     name: "Supabase",
     role: "Database and merchant sign-in.",
     receives:
-      "Everything SolveBotic stores: merchant accounts and settings, including the store credentials a merchant connects (Shopify access tokens and WooCommerce consumer secrets are stored encrypted; WooCommerce consumer keys and webhook secrets are stored unencrypted, and are never shown in the dashboard or to other accounts), synced order details (order number, customer name and email, shipping address, totals, payment and fulfillment status, tracking), chat conversations, return requests, and error logs (with email addresses and card numbers removed).",
+      "Everything SolveBotic stores: merchant accounts and settings, including the store credentials a merchant connects (Shopify access tokens, and WooCommerce consumer keys, consumer secrets and webhook secrets — all stored encrypted, and never shown to other accounts), synced order details (order number, customer name and email, shipping address, totals, payment and fulfillment status, tracking), chat conversations, return requests, and error logs (with email addresses and card numbers removed).",
     location: "United States (Amazon Web Services, us-east-1, Northern Virginia).",
     listUrl: "https://supabase.com/legal/customer-resources/subprocessor-list",
   },
@@ -78,6 +78,11 @@ const SUB_PROCESSORS: SubProcessor[] = [
 ];
 
 const CHANGELOG: Array<{ date: string; entry: string }> = [
+  {
+    date: "October 12, 2026",
+    entry:
+      "Updated the Supabase entry. WooCommerce consumer keys and webhook secrets are now stored encrypted, so every store credential a merchant connects is encrypted where we store it. No change to who processes data or what they receive.",
+  },
   {
     date: "October 8, 2026",
     entry:
