@@ -38,7 +38,7 @@ const SUB_PROCESSORS: SubProcessor[] = [
     name: "Supabase",
     role: "Database and merchant sign-in.",
     receives:
-      "Everything SolveBotic stores: merchant accounts and settings, including the store credentials a merchant connects (Shopify access tokens, and WooCommerce consumer keys, consumer secrets and webhook secrets — all stored encrypted, and never shown to other accounts), synced order details (order number, customer name and email, shipping address, totals, payment and fulfillment status, tracking), chat conversations, return requests, and error logs (with email addresses and card numbers removed).",
+      "Everything SolveBotic stores: merchant accounts and settings, including the store credentials a merchant connects (Shopify access tokens, and WooCommerce consumer keys, consumer secrets and webhook secrets — all stored encrypted, and never shown to other accounts), synced order details (order number, customer name and email, shipping city, state, postal code and country, totals, payment and fulfillment status, tracking), chat conversations, return requests, and error logs (with email addresses and card numbers removed).",
     location: "United States (Amazon Web Services, us-east-1, Northern Virginia).",
     listUrl: "https://supabase.com/legal/customer-resources/subprocessor-list",
   },

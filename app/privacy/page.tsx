@@ -47,7 +47,7 @@ export default function PrivacyPage() {
         <li>Email addresses and order numbers provided during the conversation</li>
         <li>Conversation session history</li>
         <li>Return-request details: reason, category, and resolution status</li>
-        <li>Order data synced from the merchant&apos;s connected Shopify or WooCommerce store and stored so we can answer customers&apos; questions about their orders: order number and date, customer name and email address, shipping address, order total and currency, payment and fulfillment status, and tracking details</li>
+        <li>Order data synced from the merchant&apos;s connected Shopify or WooCommerce store and stored so we can answer customers&apos; questions about their orders: order number and date, customer name and email address, shipping city, state, postal code and country, order total and currency, payment and fulfillment status, and tracking details</li>
       </ul>
       <p><strong>Automatically collected:</strong></p>
       <ul>
@@ -75,7 +75,7 @@ export default function PrivacyPage() {
         <strong>AI processing.</strong> Support conversation content &mdash; the end-customer&apos;s messages and conversation context &mdash; is sent to Anthropic&apos;s API (Claude) to classify each message and generate a suggested response. The merchant&apos;s FAQ / knowledge-base content is included so responses reflect the merchant&apos;s policies. We use Anthropic&apos;s commercial API, under which customer content is not used to train Anthropic&apos;s models.
       </p>
       <p>
-        <strong>Shopify and WooCommerce (merchants&apos; connected stores).</strong> Using credentials the merchant provides, SolveBotic syncs order data from the merchant&apos;s connected Shopify or WooCommerce store and stores it so we can answer customers&apos; questions about their orders. We store the order number and date, the customer&apos;s name and email address, the shipping address, the order total and currency, payment and fulfillment status, and tracking details. We act on the merchant&apos;s behalf when making these requests.
+        <strong>Shopify and WooCommerce (merchants&apos; connected stores).</strong> Using credentials the merchant provides, SolveBotic syncs order data from the merchant&apos;s connected Shopify or WooCommerce store and stores it so we can answer customers&apos; questions about their orders. We store the order number and date, the customer&apos;s name and email address, the shipping city, state, postal code and country, the order total and currency, payment and fulfillment status, and tracking details. We act on the merchant&apos;s behalf when making these requests.
       </p>
       <p>
         <strong>Slack (a merchant-configured destination, not a SolveBotic sub-processor).</strong> Separately from the sub-processors above, a merchant may configure a Slack webhook for escalation or return alerts. When they do, the content of those notifications &mdash; which can include an end-customer&apos;s conversation summary and email address &mdash; is sent to the merchant&apos;s own Slack workspace. This happens only when the merchant enables it; the destination, and the data-processing relationship with Slack, are the merchant&apos;s, not ours.
