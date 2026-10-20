@@ -64,7 +64,7 @@ export default function PrivacyPage() {
         <li>Process payments and manage subscriptions through Stripe</li>
         <li>Communicate with merchants about their account</li>
         <li>Maintain security and prevent abuse</li>
-        <li>Improve the service through aggregated, non-identifying analysis</li>
+        <li>Improve the service using aggregated usage information about merchant accounts, such as request counts and error rates. We do not analyze the content of merchants&rsquo; customer data &mdash; orders, chat messages or return requests &mdash; for this purpose.</li>
       </ul>
 
       <h2>4. AI Processing and Sub-processors</h2>
