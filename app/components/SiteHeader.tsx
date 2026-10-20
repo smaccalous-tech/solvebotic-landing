@@ -11,10 +11,6 @@ export function SiteHeader() {
 
   return (
     <>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Outfit:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet"
-      />
       <style>{`
         nav.sb-nav {
           position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -27,12 +23,12 @@ export function SiteHeader() {
         .sb-nav-logo { display: flex; align-items: center; text-decoration: none; }
         .sb-nav-logo img { height: 44px; object-fit: contain; }
         .sb-nav-links { display: flex; align-items: center; gap: 32px; }
-        .sb-nav-links a { color: #4b5563; font-size: 14px; text-decoration: none; transition: color 0.2s; font-weight: 500; font-family: 'Outfit', sans-serif; }
+        .sb-nav-links a { color: #4b5563; font-size: 14px; text-decoration: none; transition: color 0.2s; font-weight: 500; font-family: var(--font-outfit), sans-serif; }
         .sb-nav-links a:hover { color: #0077CC; }
         .sb-nav-divider { width: 1px; height: 18px; background: #e5e7eb; }
         .sb-btn-primary {
           background: linear-gradient(135deg, #0066BB, #00AAFF);
-          color: #fff; font-family: 'Outfit', sans-serif; font-size: 13.5px; font-weight: 600;
+          color: #fff; font-family: var(--font-outfit), sans-serif; font-size: 13.5px; font-weight: 600;
           padding: 9px 20px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer;
           transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
           display: inline-flex; align-items: center; gap: 6px;
@@ -54,7 +50,7 @@ export function SiteHeader() {
           padding: 20px 24px; flex-direction: column; gap: 4px;
         }
         .sb-mobile-menu.open { display: flex; }
-        .sb-mobile-menu a { color: #374151; font-size: 15px; font-weight: 500; padding: 12px 8px; text-decoration: none; border-bottom: 1px solid #f3f4f6; font-family: 'Outfit', sans-serif; }
+        .sb-mobile-menu a { color: #374151; font-size: 15px; font-weight: 500; padding: 12px 8px; text-decoration: none; border-bottom: 1px solid #f3f4f6; font-family: var(--font-outfit), sans-serif; }
         .sb-mobile-menu a:last-child { border-bottom: none; }
         .sb-mobile-menu a.sb-btn-primary { color: #fff; border-bottom: none; margin-top: 12px; padding: 13px 20px; justify-content: center; font-size: 14px; }
 

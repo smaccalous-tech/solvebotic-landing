@@ -109,7 +109,7 @@ export default function SubprocessorsPage() {
         .sp-card h3 { margin-top: 0 !important; }
         .sp-card dl { margin: 0; }
         .sp-card dt {
-          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-family: var(--font-jakarta), sans-serif;
           font-size: 11px; font-weight: 700;
           letter-spacing: 0.08em; text-transform: uppercase;
           color: var(--text3);

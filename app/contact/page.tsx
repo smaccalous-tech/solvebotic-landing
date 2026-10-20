@@ -32,7 +32,7 @@ export default function ContactPage() {
         body {
           background: var(--bg);
           color: var(--text);
-          font-family: 'Outfit', sans-serif;
+          font-family: var(--font-outfit), sans-serif;
           -webkit-font-smoothing: antialiased;
         }
         .contact-bg {
@@ -57,14 +57,14 @@ export default function ContactPage() {
         }
         .contact-container { max-width: 720px; width: 100%; }
         .contact-eyebrow {
-          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-family: var(--font-jakarta), sans-serif;
           font-size: 11px; font-weight: 700;
           color: var(--accent2);
           letter-spacing: 0.14em; text-transform: uppercase;
           margin-bottom: 14px;
         }
         .contact-title {
-          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-family: var(--font-jakarta), sans-serif;
           font-size: clamp(36px, 5vw, 56px);
           font-weight: 800;
           line-height: 1.08;
@@ -88,7 +88,7 @@ export default function ContactPage() {
           box-shadow: 0 8px 32px rgba(0,100,200,0.15);
         }
         .email-card-label {
-          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-family: var(--font-jakarta), sans-serif;
           font-size: 11px; font-weight: 700;
           color: var(--accent2);
           letter-spacing: 0.14em; text-transform: uppercase;
@@ -96,7 +96,7 @@ export default function ContactPage() {
         }
         .email-card a {
           display: inline-block;
-          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-family: var(--font-jakarta), sans-serif;
           font-size: clamp(20px, 3vw, 28px);
           font-weight: 700;
           color: #fff;
@@ -122,7 +122,7 @@ export default function ContactPage() {
           padding: 22px 24px;
         }
         .reason-card h3 {
-          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-family: var(--font-jakarta), sans-serif;
           font-size: 17px; font-weight: 700;
           color: #fff;
           margin-bottom: 6px;
@@ -134,7 +134,7 @@ export default function ContactPage() {
         .reason-card .subject-hint {
           display: inline-block;
           margin-top: 10px;
-          font-family: 'Inter', monospace;
+          font-family: var(--font-inter), monospace;
           font-size: 12px;
           color: var(--accent2);
           background: rgba(0,170,255,0.08);
@@ -157,11 +157,6 @@ export default function ContactPage() {
           .reason-card { padding: 18px 20px; }
         }
       `}</style>
-
-      <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Outfit:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet"
-      />
 
       <div className="contact-bg" />
 

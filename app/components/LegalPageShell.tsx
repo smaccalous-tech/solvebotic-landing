@@ -34,7 +34,7 @@ export function LegalPageShell({
         body {
           background: var(--bg);
           color: var(--text);
-          font-family: 'Outfit', sans-serif;
+          font-family: var(--font-outfit), sans-serif;
           -webkit-font-smoothing: antialiased;
         }
         .legal-bg {
@@ -61,14 +61,14 @@ export function LegalPageShell({
           max-width: 760px; width: 100%;
         }
         .legal-eyebrow {
-          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-family: var(--font-jakarta), sans-serif;
           font-size: 11px; font-weight: 700;
           color: var(--accent2);
           letter-spacing: 0.14em; text-transform: uppercase;
           margin-bottom: 14px;
         }
         .legal-title {
-          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-family: var(--font-jakarta), sans-serif;
           font-size: clamp(32px, 4.5vw, 52px);
           font-weight: 800;
           line-height: 1.1;
@@ -85,14 +85,14 @@ export function LegalPageShell({
         }
         .legal-body { font-size: 15px; color: var(--text2); line-height: 1.75; }
         .legal-body h2 {
-          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-family: var(--font-jakarta), sans-serif;
           font-size: 22px; font-weight: 700;
           color: #fff;
           margin-top: 44px; margin-bottom: 16px;
           letter-spacing: -0.01em;
         }
         .legal-body h3 {
-          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-family: var(--font-jakarta), sans-serif;
           font-size: 16px; font-weight: 600;
           color: #fff;
           margin-top: 28px; margin-bottom: 10px;

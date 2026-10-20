@@ -85,7 +85,6 @@ export default function Home() {
 
   return (
     <>
-      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Outfit:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
       <style>{`
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
@@ -110,11 +109,11 @@ export default function Home() {
         body {
           background: var(--bg);
           color: var(--text);
-          font-family: 'Outfit', sans-serif;
+          font-family: var(--font-outfit), sans-serif;
           -webkit-font-smoothing: antialiased;
           position: relative;
         }
-        h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        h1, h2, h3, h4 { font-family: var(--font-jakarta), sans-serif; }
         .content { position: relative; z-index: 1; width: 100%; max-width: 100%; overflow-x: hidden; }
 
         .circuit-bg {
@@ -167,7 +166,7 @@ export default function Home() {
         .nav-divider { width: 1px; height: 18px; background: #e5e7eb; }
         .btn-primary {
           background: linear-gradient(135deg, #0066BB, #00AAFF);
-          color: #fff; font-family: 'Outfit', sans-serif; font-size: 13.5px; font-weight: 600;
+          color: #fff; font-family: var(--font-outfit), sans-serif; font-size: 13.5px; font-weight: 600;
           padding: 9px 20px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer;
           transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
           display: inline-flex; align-items: center; gap: 6px;
@@ -175,7 +174,7 @@ export default function Home() {
         }
         .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,170,255,0.4); }
         .btn-ghost {
-          background: transparent; color: var(--text); font-family: 'Outfit', sans-serif;
+          background: transparent; color: var(--text); font-family: var(--font-outfit), sans-serif;
           font-size: 15px; font-weight: 500; padding: 12px 28px; border-radius: 10px;
           text-decoration: none; border: 1px solid var(--border2);
           transition: border-color 0.2s, background 0.2s; display: inline-flex; align-items: center; gap: 8px;
@@ -219,7 +218,7 @@ export default function Home() {
         .stats { display: flex; border: 1px solid var(--border2); border-radius: 16px; overflow: hidden; background: rgba(0,119,204,0.07); backdrop-filter: blur(12px); }
         .stat { flex: 1; padding: 22px 16px; text-align: center; border-right: 1px solid var(--border); }
         .stat:last-child { border-right: none; }
-        .stat-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 26px; font-weight: 800; color: #fff; letter-spacing: -0.03em; line-height: 1; }
+        .stat-num { font-family: var(--font-jakarta), sans-serif; font-size: 26px; font-weight: 800; color: #fff; letter-spacing: -0.03em; line-height: 1; }
         .stat-label { font-size: 12px; color: var(--text3); margin-top: 5px; }
 
         .mockup-section { padding: 40px 48px 0; display: flex; justify-content: center; width: 100%; max-width: 100%; overflow: hidden; }
@@ -229,7 +228,7 @@ export default function Home() {
         .mockup-bar { background: #e8e8ea; padding: 10px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(0,0,0,0.08); }
         .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
         .mockup-url { flex: 1; background: white; border-radius: 5px; padding: 4px 10px; font-size: 11px; color: #888; font-family: monospace; margin: 0 12px; border: 1px solid rgba(0,0,0,0.08); }
-        .mockup-body { display: grid; grid-template-columns: 200px 1fr 240px; min-height: 340px; font-family: 'Inter', sans-serif; }
+        .mockup-body { display: grid; grid-template-columns: 200px 1fr 240px; min-height: 340px; font-family: var(--font-inter), sans-serif; }
         .mockup-sidebar { background: white; border-right: 1px solid #ebebeb; padding: 16px 12px; }
         .mockup-logo-row { display: flex; align-items: center; gap: 8px; padding: 6px 10px; margin-bottom: 12px; }
         .mockup-logo-img { height: 28px; object-fit: contain; }
@@ -358,7 +357,7 @@ export default function Home() {
         .pricing-card.featured { background: linear-gradient(145deg, rgba(0,119,204,0.18) 0%, rgba(0,170,255,0.06) 100%); border-color: rgba(0,170,255,0.4); box-shadow: 0 0 40px rgba(0,100,200,0.12); }
         .popular-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(115deg, #0066BB, #00AAFF); color: #fff; font-size: 10px; font-weight: 700; padding: 4px 14px; border-radius: 100px; letter-spacing: 0.08em; white-space: nowrap; box-shadow: 0 4px 16px rgba(0,170,255,0.4); }
         .plan-name { font-size: 11px; font-weight: 700; color: var(--text3); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.1em; }
-        .plan-price { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 42px; font-weight: 800; line-height: 1; color: #fff; letter-spacing: -0.04em; }
+        .plan-price { font-family: var(--font-jakarta), sans-serif; font-size: 42px; font-weight: 800; line-height: 1; color: #fff; letter-spacing: -0.04em; }
         .plan-period { font-size: 13px; color: var(--text2); margin-left: 2px; }
         .plan-desc { font-size: 12.5px; color: var(--text2); margin: 14px 0 20px; line-height: 1.6; }
         .plan-divider { height: 1px; background: var(--border); margin-bottom: 18px; }
@@ -367,7 +366,7 @@ export default function Home() {
         .plan-feature.highlight { color: #4ade80; font-weight: 600; }
         .check-box { width: 16px; height: 16px; border-radius: 4px; background: rgba(0,119,204,0.2); border: 1px solid rgba(0,170,255,0.3); display: flex; align-items: center; justify-content: center; font-size: 9px; color: #7DD3FC; flex-shrink: 0; margin-top: 1px; }
         .check-box.green { background: rgba(74,222,128,0.15); border-color: rgba(74,222,128,0.4); color: #4ade80; }
-        .btn-plan { display: flex; align-items: center; justify-content: center; width: 100%; padding: 11px; border-radius: 9px; font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; margin-top: auto; }
+        .btn-plan { display: flex; align-items: center; justify-content: center; width: 100%; padding: 11px; border-radius: 9px; font-family: var(--font-outfit), sans-serif; font-size: 13px; font-weight: 600; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; margin-top: auto; }
         .btn-plan:hover { opacity: 0.88; transform: translateY(-1px); }
         .btn-plan-primary { background: linear-gradient(135deg, #0066BB, #00AAFF); color: #fff; box-shadow: 0 4px 20px rgba(0,170,255,0.3); }
         .btn-plan-ghost { background: transparent; color: var(--text2); border: 1px solid var(--border2); }
@@ -744,10 +743,10 @@ export default function Home() {
         <div className="photo-band">
           <div className="photo-band-inner">
             {[
-              { url: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=300&fit=crop", label: "Ecommerce at scale" },
-              { url: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=300&fit=crop", label: "Fast order fulfillment" },
-              { url: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=300&fit=crop", label: "Customer support teams" },
-              { url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=300&fit=crop", label: "Real-time analytics" },
+              { url: "/images/photo-1556742049-0cfed4f6a45d.jpg", label: "Ecommerce at scale" },
+              { url: "/images/photo-1586528116311-ad8dd3c8310d.jpg", label: "Fast order fulfillment" },
+              { url: "/images/photo-1573496359142-b8d87734a5a2.jpg", label: "Customer support teams" },
+              { url: "/images/photo-1460925895917-afdab827c52f.jpg", label: "Real-time analytics" },
             ].map((p, i) => (
               <div key={i} className="photo-card">
                 <img src={p.url} alt={p.label} />

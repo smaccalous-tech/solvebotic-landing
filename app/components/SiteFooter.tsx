@@ -14,7 +14,7 @@ export function SiteFooter() {
           border-top: 1px solid #e5e7eb;
           padding: 48px 52px 36px;
           max-width: 100%;
-          font-family: 'Outfit', sans-serif;
+          font-family: var(--font-outfit), sans-serif;
         }
         .sb-footer-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 48px; margin-bottom: 40px; flex-wrap: wrap; }
         .sb-footer-brand { max-width: 280px; }
@@ -22,7 +22,7 @@ export function SiteFooter() {
         .sb-footer-logo img { height: 44px; object-fit: contain; }
         .sb-footer-tagline { font-size: 13px; color: #6b7280; line-height: 1.6; }
         .sb-footer-cols { display: flex; gap: 56px; flex-wrap: wrap; }
-        .sb-footer-col h4 { font-size: 11px; font-weight: 700; color: #374151; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .sb-footer-col h4 { font-size: 11px; font-weight: 700; color: #374151; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; font-family: var(--font-jakarta), sans-serif; }
         .sb-footer-col-links { display: flex; flex-direction: column; gap: 9px; }
         .sb-footer-col-links a { font-size: 13px; color: #6b7280; text-decoration: none; transition: color 0.2s; }
         .sb-footer-col-links a:hover { color: #0077CC; }
