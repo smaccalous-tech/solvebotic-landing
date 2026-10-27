@@ -54,7 +54,7 @@ export function SiteFooter() {
               <img src="/logo.png" alt="SolveBotic" />
             </a>
             <p className="sb-footer-tagline">
-              AI-powered customer support for ecommerce brands. Unlimited AI responses on every plan. Live in under 10 minutes.
+              AI customer support for online stores. Unlimited AI responses on every plan. Set up in minutes.
             </p>
           </div>
           <div className="sb-footer-cols">

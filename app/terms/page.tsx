@@ -91,7 +91,7 @@ export default function TermsPage() {
         <li>Use SolveBotic to send spam, harass, defraud, or harm anyone</li>
         <li>Use the AI to generate content that violates applicable law or the rights of others</li>
       </ul>
-      <p>
+      <p id="fair-use">
         <strong>Fair use of unlimited plans.</strong> Where a plan is described as including &ldquo;unlimited&rdquo; AI responses, that allowance is for normal, good-faith customer-support use by a single merchant business. It does not permit automated scraping, bulk or programmatic processing beyond ordinary support volumes, resale of the AI capability, or use that materially degrades the service for others. We may apply reasonable technical rate limits and, if usage is abusive or clearly outside ordinary support use, contact you, apply limits, or (as a last resort) suspend the account under Section 12.
       </p>
 

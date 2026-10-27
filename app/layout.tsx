@@ -26,7 +26,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "SolveBotic — AI customer support for ecommerce",
   description:
-    "AI customer support for Shopify and WooCommerce stores. Your store gets support questions. We answer them.",
+    "AI customer support for WooCommerce stores, with Shopify coming soon. Your store gets support questions. We answer them.",
 };
 
 export default function RootLayout({

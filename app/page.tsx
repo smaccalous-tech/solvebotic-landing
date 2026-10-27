@@ -18,31 +18,27 @@ export default function Home() {
     { num: "24/7", label: "Always on" },
     { num: "Unlimited", label: "AI responses" },
     { num: "$0", label: "Per-ticket fees" },
-    { num: "2", label: "Platforms (Shopify + Woo)" },
+    { num: "Live", label: "on WooCommerce" },
   ];
 
   const platforms = [
-    { name: "Shopify", live: true },
     { name: "WooCommerce", live: true },
-    { name: "ClickBank", live: false },
-    { name: "Digistore24", live: false },
-    { name: "Konnektive", live: false },
-    { name: "BuyGoods", live: false },
+    { name: "Shopify", live: false },
   ];
 
   const steps = [
-    { num: "Step 01", icon: "🔌", title: "Connect your store", desc: "Link your Shopify or WooCommerce store in minutes. No code, no developers, no waiting. Your orders are imported automatically." },
-    { num: "Step 02", icon: "🤖", title: "AI resolves support instantly", desc: "Customers get instant answers 24/7 — order tracking, status updates, refund requests, cancellations. No wait times, no tickets piling up." },
+    { num: "Step 01", icon: "🔌", title: "Connect your store", desc: "Link your WooCommerce store with a read-only API key, then sync your orders. New orders keep arriving on their own. No developer needed." },
+    { num: "Step 02", icon: "🤖", title: "AI answers your customers", desc: "Order status, return requests, and questions about your policies, answered 24/7 in seconds. Cancellations and anything unusual go to you." },
     { num: "Step 03", icon: "🎯", title: "You only handle what matters", desc: "Complex issues are escalated to you with full conversation context attached. You stay in control without drowning in routine questions." },
   ];
 
   const features = [
     { icon: "🤖", title: "AI Classification", desc: "Claude AI reads every message, classifies intent with a confidence score, and routes it instantly — no manual triaging needed." },
-    { icon: "📦", title: "Instant Order Lookup", desc: "Customers self-serve order status and tracking in real time without ever needing to contact your team." },
-    { icon: "⚡", title: "Smart Escalation", desc: "Refunds, damaged items, and edge cases are escalated automatically with full conversation context so you never start from scratch." },
-    { icon: "🔌", title: "Multi-Platform", desc: "One unified dashboard for Shopify, WooCommerce, and every platform you sell on. No switching between tools." },
+    { icon: "📦", title: "Order Lookup", desc: "Customers check their order status themselves by giving their order number and email — both must match. Tracking is included for Shopify stores." },
+    { icon: "⚡", title: "Smart Escalation", desc: "When a customer asks for a person, wants to cancel, or reports a problem with a product, you get an email (and a Slack message if you connect it) with the whole conversation." },
+    { icon: "↩️", title: "Return Requests", desc: "The assistant collects the order, reason and category and sends you the request. You approve and refund in your own store; SolveBotic tracks the status." },
     { icon: "📊", title: "Live Dashboard", desc: "Monitor every request, escalation, and resolution in real time. Filter by intent, platform, and status at a glance." },
-    { icon: "💬", title: "Embeddable Widget", desc: "A sleek floating chat widget that lives directly on your store. Fully branded, fully yours, live in minutes." },
+    { icon: "💬", title: "Your Widget, Your Brand", desc: "One script tag (or our WordPress plugin) adds the chat to your store, with your logo, colour and name." },
   ];
 
 
@@ -50,37 +46,55 @@ export default function Home() {
     {
       name: "Starter", price: "$49", period: "/mo",
       desc: "Perfect for small stores ready to automate support.",
-      features: ["1 brand", "Unlimited AI responses", "Order lookup", "Email escalation", "Dashboard access", "14-day free trial"],
+      features: ["1 store, on WooCommerce or Shopify", "Unlimited AI responses", "Order lookup", "Return requests", "Email and Slack escalation", "Dashboard and reports", "14-day free trial"],
       cta: "Start Free Trial", href: "https://app.solvebotic.com/onboarding", featured: false,
       badge: null,
     },
     {
       name: "Growth", price: "$99", period: "/mo",
-      desc: "For growing brands that need more volume and platform flexibility.",
-      features: ["3 brands", "Unlimited AI responses", "All platforms", "Priority escalation", "Slack notifications", "Real-time dashboard", "14-day free trial"],
+      desc: "For merchants running up to three stores.",
+      features: ["3 stores, mixing WooCommerce and Shopify", "Unlimited AI responses", "Everything in Starter", "14-day free trial"],
       cta: "Start Free Trial", href: "https://app.solvebotic.com/onboarding", featured: true,
       badge: "Most Popular",
     },
     {
       name: "Scale", price: "$199", period: "/mo",
-      desc: "For established brands running high support volume across multiple channels.",
-      features: ["Unlimited brands", "Unlimited AI responses", "All platforms", "Advanced analytics", "Priority support", "14-day free trial"],
+      desc: "For merchants with many stores.",
+      features: ["Unlimited stores", "Unlimited AI responses", "Everything in Starter", "14-day free trial"],
       cta: "Start Free Trial", href: "https://app.solvebotic.com/onboarding", featured: false,
       badge: null,
     },
     {
       name: "Enterprise", price: "Custom", period: "",
-      desc: "For large operations that need custom solutions and dedicated support.",
-      features: ["Unlimited AI responses", "Unlimited brands", "All platforms", "Dedicated account manager", "Custom integrations", "Priority response", "White-glove onboarding"],
+      desc: "For larger operations that need custom terms or invoicing.",
+      features: ["Unlimited stores", "Unlimited AI responses", "Custom terms and invoicing", "Setup help from our team"],
       cta: "Contact Us", href: "mailto:hello@solvebotic.com", featured: false,
       badge: null,
     },
   ];
 
   const tickerItems = [
-    "Unlimited AI responses on every plan", "Zero missed support tickets", "Shopify native integration",
-    "Refund requests auto-escalated", "24/7 AI coverage", "Instant responses at scale",
-    "WooCommerce fully supported", "No per-ticket fees ever", "Live in under 10 minutes",
+    "Unlimited AI responses on every plan", "Shopify coming soon", "Return requests collected and sent to you",
+    "24/7 AI coverage", "Answers in seconds", "WooCommerce fully supported",
+    "No per-ticket fees ever", "Set up in minutes",
+  ];
+
+  const whyPoints = [
+    { icon: "💳", title: "One flat price", desc: "Every plan includes unlimited AI responses for normal support use. Many AI support tools charge for each resolved conversation; with us a busy month doesn't change your bill." },
+    { icon: "📦", title: "Built for store questions", desc: "Order status (checked against the customer's email), return requests, cancellations and answers from your own policies — the questions online stores actually get." },
+    { icon: "🧭", title: "You stay in charge", desc: "Anything that needs a person comes to you with the conversation attached. The assistant won't give medical, legal or financial advice, and it tells you about possible product-safety problems." },
+  ];
+
+  const faqs = [
+    { q: "Is it really unlimited?", a: <>Yes, for normal customer support. Every plan includes unlimited AI responses with no per-reply or per-ticket fees. Fair use applies: it&apos;s for supporting your own store&apos;s customers, and we use technical rate limits to stop abuse. See the <a href="/terms#fair-use">fair-use section of our Terms</a>.</> },
+    { q: "Do I need a credit card for the trial?", a: <>Yes. You won&apos;t be charged during the 14-day trial, and if you cancel before it ends, you won&apos;t be charged at all.</> },
+    { q: "Which platforms do you support?", a: <>WooCommerce today. Shopify is coming soon. Starter covers one store on one platform; Growth and Scale can mix both.</> },
+    { q: "How does the assistant know about my store?", a: <>Two ways. Your orders sync from your store, so customers can check an order with its number and their email. And you add your store&apos;s policies {dash} shipping, returns, sizing {dash} in a knowledge base in your dashboard.</> },
+    { q: "What happens when a customer needs a person?", a: <>The assistant tells them someone will follow up and sends you an email (and a Slack message if you connect Slack) with the whole conversation.</> },
+    { q: "Do you process refunds or cancellations?", a: <>No. SolveBotic collects return and cancellation requests and sends them to you. You decide and act in your own store; the dashboard tracks each return&apos;s status.</> },
+    { q: "Where is my data stored?", a: <>In the United States. Our AI provider may process messages outside the US and doesn&apos;t use them to train its models. Every service we use is listed on our <a href="/subprocessors">sub-processors page</a>; details are in our <a href="/privacy">Privacy Policy</a>.</> },
+    { q: "What happens to my data if I leave?", a: <>Cancelling your subscription doesn&apos;t delete anything. You can export your data from Settings at any time, and when you ask us to delete your account, we delete it within 30 days (backups within a further 14 days).</> },
+    { q: "Can I use it for more than one store?", a: <>Yes. Starter covers one store, Growth three, and Scale unlimited. One subscription covers all your stores.</> },
   ];
 
   return (
@@ -333,6 +347,18 @@ export default function Home() {
         .feature-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #fff; }
         .feature-card p { font-size: 13px; color: var(--text2); line-height: 1.65; }
 
+        .faq-section { padding: 56px 48px; }
+        .faq-inner { max-width: 760px; margin: 0 auto; }
+        .faq-list { display: flex; flex-direction: column; gap: 10px; margin-top: 32px; }
+        .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 0 22px; }
+        .faq-item[open] { border-color: rgba(0,170,255,0.3); }
+        .faq-item summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 0; font-size: 15px; font-weight: 700; color: #fff; }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after { content: '+'; color: var(--accent2); font-size: 18px; font-weight: 700; flex-shrink: 0; }
+        .faq-item[open] summary::after { content: '−'; }
+        .faq-item p { font-size: 14px; color: var(--text2); line-height: 1.7; padding-bottom: 18px; }
+        .faq-item a, .pricing-unlimited-note a { color: var(--accent2); text-decoration: underline; text-underline-offset: 2px; }
+
         .testimonials-section { padding: 56px 48px; }
         .testimonials-inner { max-width: 1080px; margin: 0 auto; }
         .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 40px; }
@@ -421,7 +447,7 @@ export default function Home() {
           .photo-band-inner { padding: 0 28px; gap: 12px; }
           .photo-card { height: 160px; }
 
-          .platforms, .how-section, .features-section, .testimonials-section, .pricing-section { padding: 48px 28px; }
+          .platforms, .how-section, .features-section, .testimonials-section, .pricing-section, .faq-section { padding: 48px 28px; }
 
           .feature-grid { grid-template-columns: repeat(2, 1fr); }
           .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
@@ -478,7 +504,9 @@ export default function Home() {
           .trust-strip { padding: 24px 16px; gap: 14px; flex-direction: column; align-items: center; text-align: center; }
           .trust-item { font-size: 13px; }
 
-          .platforms, .how-section, .features-section, .testimonials-section, .pricing-section { padding: 44px 16px; }
+          .platforms, .how-section, .features-section, .testimonials-section, .pricing-section, .faq-section { padding: 44px 16px; }
+          .faq-item { padding: 0 16px; }
+          .faq-item summary { font-size: 14px; padding: 16px 0; }
           .section-title { font-size: clamp(24px, 6vw, 32px); }
           .section-sub { font-size: 14px; }
 
@@ -584,16 +612,16 @@ export default function Home() {
         <section className="hero">
           <div className="hero-glow" />
           <div className="hero-inner">
-            <div className="badge"><div className="badge-dot" />Now live on Shopify {dash} WooCommerce</div>
+            <div className="badge"><div className="badge-dot" />Live on WooCommerce {dot} Shopify coming soon</div>
             <h1>Your store gets<br />support questions.<br /><span className="gradient-text">We answer them.</span></h1>
             <p className="hero-sub">
-              SolveBotic's AI handles order tracking, refund requests, and cancellations instantly {dash} 24/7 on your Shopify or WooCommerce store. Your team only sees what actually needs a human.
+              SolveBotic's AI answers order questions, takes return requests and passes on cancellations {dash} 24/7, in seconds. Your team only sees what actually needs a person.
             </p>
             <div className="hero-btns">
               <a href="https://app.solvebotic.com/onboarding" className="btn-primary btn-large">Start 14-day trial {dot} Card required, cancel anytime</a>
               <a href="#how-it-works" className="btn-ghost btn-large">See how it works</a>
             </div>
-            <p className="hero-disclaimer">Built for Shopify + WooCommerce merchants {dash} 14-day free trial</p>
+            <p className="hero-disclaimer">Built for WooCommerce stores, with Shopify coming soon {dash} 14-day free trial</p>
             <div className="stats-wrap">
               <div className="stats">
                 {stats.map(s => (
@@ -629,7 +657,7 @@ export default function Home() {
                     </div>
                   ))}
                   <div className="mockup-section-label">Store</div>
-                  {["Order lookup", "Shopify sync"].map(label => (
+                  {["Order lookup", "Order sync"].map(label => (
                     <div key={label} className="mockup-nav-item"><div className="mockup-nav-dot" />{label}</div>
                   ))}
                   <div className="mockup-section-label">Account</div>
@@ -662,9 +690,9 @@ export default function Home() {
                       </div>
                       {[
                         { email: "jane@email.com", msg: "Where is my order #1042?", intent: "Order lookup", intCls: "badge-blue", conf: "100%", status: "resolved", stCls: "badge-green", esc: false },
-                        { email: "mike@email.com", msg: "I want a refund please", intent: "Refund request", intCls: "badge-red", conf: "99%", status: "escalated", stCls: "badge-red", esc: true },
+                        { email: "mike@email.com", msg: "I want to return my order", intent: "Return request", intCls: "badge-red", conf: "99%", status: "return", stCls: "badge-yellow", esc: false },
                         { email: "sara@email.com", msg: "Package not delivered yet", intent: "Order status", intCls: "badge-blue", conf: "95%", status: "resolved", stCls: "badge-green", esc: false },
-                        { email: "tom@email.com", msg: "Wrong item received", intent: "Wrong item", intCls: "badge-red", conf: "98%", status: "escalated", stCls: "badge-red", esc: true },
+                        { email: "tom@email.com", msg: "Please cancel my order", intent: "Cancellation", intCls: "badge-red", conf: "98%", status: "escalated", stCls: "badge-red", esc: true },
                         { email: "lucy@email.com", msg: "Order lookup for #1001", intent: "Order lookup", intCls: "badge-blue", conf: "100%", status: "open", stCls: "badge-yellow", esc: false },
                       ].map((row, i) => (
                         <div key={i} className="mockup-row">
@@ -691,8 +719,8 @@ export default function Home() {
                   <div>
                     <div className="mockup-panel-title">Escalation Alerts <span style={{ background: "#fef2f2", color: "#b91c1c", fontSize: 9, padding: "1px 6px", borderRadius: 20, marginLeft: 4 }}>2</span></div>
                     {[
-                      { email: "mike@email.com", reason: "refund_request", system: "Shopify → Finance", time: "Apr 27, 11:11 AM" },
-                      { email: "tom@email.com", reason: "wrong_item", system: "Shopify → Fulfillment", time: "Apr 26, 3:22 PM" },
+                      { email: "tom@email.com", reason: "Cancellation", system: "Emailed to you", time: "Apr 27, 11:11 AM" },
+                      { email: "ana@email.com", reason: "Customer asked for a person", system: "Emailed to you", time: "Apr 26, 3:22 PM" },
                     ].map((e, i) => (
                       <div key={i} className="mockup-escalation-item">
                         <div className="mockup-esc-email">{e.email}</div>
@@ -708,7 +736,7 @@ export default function Home() {
                     <div className="mockup-panel-title">Intent Breakdown</div>
                     {[
                       { label: "Order lookup", pct: 67 },
-                      { label: "Refund request", pct: 17 },
+                      { label: "Return request", pct: 17 },
                       { label: "Order status", pct: 16 },
                     ].map(item => (
                       <div key={item.label} className="mockup-intent-bar">
@@ -744,9 +772,9 @@ export default function Home() {
           <div className="photo-band-inner">
             {[
               { url: "/images/photo-1556742049-0cfed4f6a45d.jpg", label: "Ecommerce at scale" },
-              { url: "/images/photo-1586528116311-ad8dd3c8310d.jpg", label: "Fast order fulfillment" },
+              { url: "/images/photo-1586528116311-ad8dd3c8310d.jpg", label: "Order questions" },
               { url: "/images/photo-1573496359142-b8d87734a5a2.jpg", label: "Customer support teams" },
-              { url: "/images/photo-1460925895917-afdab827c52f.jpg", label: "Real-time analytics" },
+              { url: "/images/photo-1460925895917-afdab827c52f.jpg", label: "Live dashboard" },
             ].map((p, i) => (
               <div key={i} className="photo-card">
                 <img src={p.url} alt={p.label} />
@@ -775,13 +803,13 @@ export default function Home() {
           <div className="section-eyebrow"><div className="eyebrow-line" />Integrations<div className="eyebrow-line" /></div>
           <h2 className="section-title">Works where you sell.</h2>
           <p className="section-sub" style={{ maxWidth: 460, margin: "0 auto" }}>
-            Shopify + WooCommerce {dot} More platforms coming.
+            WooCommerce today {dot} Shopify coming soon.
           </p>
           <div className="platform-grid">
             {platforms.map(p => (
               <div key={p.name} className={`platform-chip ${p.live ? "live" : ""}`}>
                 {p.name}
-                {p.live ? <span className="live-badge">Live</span> : <span className="soon-badge">Soon</span>}
+                {p.live ? <span className="live-badge">Live</span> : <span className="soon-badge">Coming soon</span>}
               </div>
             ))}
           </div>
@@ -803,6 +831,22 @@ export default function Home() {
               ))}
             </div>
             <p className="section-sub" style={{ marginTop: 32 }}>Unlimited AI responses on every plan {dash} flat pricing, no per-ticket fees, and you stay in control of anything that needs a human.</p>
+          </div>
+        </section>
+
+        <section id="why" className="features-section">
+          <div className="features-inner">
+            <div className="section-eyebrow"><div className="eyebrow-line" />Why SolveBotic<div className="eyebrow-line" /></div>
+            <h2 className="section-title">Flat price. Real answers.<br />You stay in control.</h2>
+            <div className="feature-grid">
+              {whyPoints.map(w => (
+                <div key={w.title} className="feature-card">
+                  <div className="feature-icon">{w.icon}</div>
+                  <h3>{w.title}</h3>
+                  <p>{w.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -829,7 +873,7 @@ export default function Home() {
             <h2 className="section-title">Simple, transparent pricing.</h2>
             <p className="section-sub">No setup fees. No hidden costs. No per-ticket charges.</p>
             <p className="pricing-trial-note">All plans include a 14-day free trial {dash} credit card required to start.</p>
-            <p className="pricing-unlimited-note">✦ Unlimited AI responses on every plan {dash} no per-ticket fees, ever.</p>
+            <p className="pricing-unlimited-note">✦ Unlimited AI responses on every plan for <a href="/terms#fair-use">normal support use</a> {dash} no per-ticket fees, ever.</p>
             <div className="pricing-grid">
               {plans.map(plan => (
                 <div key={plan.name} className={`pricing-card ${plan.featured ? "featured" : ""}`}>
@@ -858,6 +902,21 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="faq" className="faq-section">
+          <div className="faq-inner">
+            <div className="section-eyebrow"><div className="eyebrow-line" />FAQ<div className="eyebrow-line" /></div>
+            <h2 className="section-title">Questions merchants ask.</h2>
+            <div className="faq-list">
+              {faqs.map(f => (
+                <details key={f.q} className="faq-item">
+                  <summary>{f.q}</summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <div className="cta-section">
           <div className="cta-glow" />
           <h2>Stop answering the<br />same questions twice.</h2>
@@ -875,7 +934,7 @@ export default function Home() {
               <a href="/" className="footer-logo">
                 <img src="/logo.png" alt="SolveBotic" />
               </a>
-              <p className="footer-tagline">AI-powered customer support for ecommerce brands. Unlimited AI responses on every plan. Live in under 10 minutes.</p>
+              <p className="footer-tagline">AI customer support for online stores. Unlimited AI responses on every plan. Set up in minutes.</p>
             </div>
             <div className="footer-cols">
               <div className="footer-col">
