@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 // and bump "Last updated". A NEW sub-processor expands processing, so it also
 // needs the Privacy/Terms effectiveDate + the app's CURRENT_TERMS_VERSION bumped
 // together (see PROJECT.md → Privacy-change rule).
-const LAST_UPDATED = "October 12, 2026";
+const LAST_UPDATED = "October 27, 2026";
 
 type SubProcessor = {
   name: string;
@@ -55,7 +55,7 @@ const SUB_PROCESSORS: SubProcessor[] = [
     name: "Resend (Plus Five Five, Inc.)",
     role: "Transactional email.",
     receives:
-      "Escalation emails to the merchant (the end-customer's email address, a summary of the conversation, and the order number), return-request emails to the merchant (email address, order number, return category, and reason), alerts to SolveBotic about Shopify privacy requests (the end-customer's email address and Shopify order IDs), and alerts to SolveBotic about service errors.",
+      "Sign-in emails to merchants (the merchant's own email address and a one-time sign-in link), escalation emails to the merchant (the end-customer's email address, a summary of the conversation, and the order number), return-request emails to the merchant (email address, order number, return category, and reason), alerts to SolveBotic about Shopify customer data requests (the end-customer's email address and Shopify order IDs), and alerts to SolveBotic about service errors.",
     location: "United States (Amazon Web Services, us-east-1).",
     listUrl: "https://resend.com/legal/subprocessors",
   },
@@ -78,6 +78,11 @@ const SUB_PROCESSORS: SubProcessor[] = [
 ];
 
 const CHANGELOG: Array<{ date: string; entry: string }> = [
+  {
+    date: "October 27, 2026",
+    entry:
+      "Updated the Resend entry. Sign-in emails to merchants now go through Resend, so it receives the merchant's own email address. Alerts about Shopify requests to erase data no longer include the end-customer's details. No new sub-processor.",
+  },
   {
     date: "October 12, 2026",
     entry:
