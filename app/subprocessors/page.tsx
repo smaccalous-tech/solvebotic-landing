@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 // and bump "Last updated". A NEW sub-processor expands processing, so it also
 // needs the Privacy/Terms effectiveDate + the app's CURRENT_TERMS_VERSION bumped
 // together (see PROJECT.md → Privacy-change rule).
-const LAST_UPDATED = "October 27, 2026";
+const LAST_UPDATED = "October 29, 2026";
 
 type SubProcessor = {
   name: string;
@@ -79,7 +79,7 @@ const SUB_PROCESSORS: SubProcessor[] = [
 
 const CHANGELOG: Array<{ date: string; entry: string }> = [
   {
-    date: "October 27, 2026",
+    date: "October 29, 2026",
     entry:
       "Updated the Resend entry. Sign-in emails to merchants now go through Resend, so it receives the merchant's own email address. Alerts about Shopify requests to erase data no longer include the end-customer's details. No new sub-processor.",
   },
